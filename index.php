@@ -27,7 +27,6 @@
                     document.getElementById("liffInitErrorMessage").classList.remove('hidden');
                 });
             console.log('func initializeLiff');
-            alert('func initializeLiff');
         }
         initializeLiff();
     </script>
