@@ -20,6 +20,7 @@
 </head>
 
 <body>
+    <div>Hi</div>
     <div id="liffAppContent"></div>
     <div id="liffInitErrorMessage"></div>
 </body>
