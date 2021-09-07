@@ -9,8 +9,6 @@
 </head>
 
 <body>
-    <hr>Test
-    <hr>
     <div id="txtUserName"></div>
     <div id="txtdisplayName"></div>
     <div id="errorMsg"></div>
