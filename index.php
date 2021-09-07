@@ -48,10 +48,7 @@
                             checkUserId();
                         } else {
                             liff.login();
-                            liff.closeWindow();
                         }
-
-
                     })
                     .catch((err) => {
                         $("#errorMsg").text('initializeLiff: ' + err);
