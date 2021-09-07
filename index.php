@@ -25,6 +25,8 @@
 
                     //INSERT AccessToken
 
+                    //Change Member Richmenu
+
                     //Close
                     liff.closeWindow();
 
@@ -45,7 +47,8 @@
                         if (liff.isLoggedIn()) {
                             checkUserId();
                         } else {
-                            liff.login();
+                            await liff.login();
+                            await liff.closeWindow();
                         }
 
                     })
