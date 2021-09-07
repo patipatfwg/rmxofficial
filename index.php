@@ -47,9 +47,10 @@
                         if (liff.isLoggedIn()) {
                             checkUserId();
                         } else {
-                            await liff.login();
-                            await liff.closeWindow();
+                            liff.login();
+                            liff.closeWindow();
                         }
+
 
                     })
                     .catch((err) => {
