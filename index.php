@@ -12,15 +12,19 @@
     <hr>Test
     <hr>
     <div id="txtUserName"></div>
+    <div id="txtdisplayName"></div>
     <div id="errorMsg"></div>
     <script language="javascript">
         $(document).ready(function() {
             async function checkUserId() {
-                liff.getProfile().then(function(profile) {
+                liff.getProfile().then((profile) => {
                     LineUserId = profile.userId;
                     LineDisplayName = profile.displayName;
                     $("#txtUserName").text(LineUserId);
-                }).catch(err => console.error(err));
+                    $("#txtdisplayName").text(LineDisplayName);
+                }).catch((err) => {
+                    console.error(err)
+                });
             }
 
             async function initializeLiff() {
