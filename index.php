@@ -11,28 +11,33 @@
 <body>
     <hr>Test
     <hr>
+    <div id="txtUserName"></div>
     <div id="errorMsg"></div>
     <script language="javascript">
         $(document).ready(function() {
             async function checkUserId() {
-                window.location.reload();
+                liff.getProfile().then(function(profile) {
+                    LineUserId = profile.userId;
+                    LineDisplayName = profile.displayName;
+                    $("#txtUserName").text(LineUserId);
+                }).catch(err => console.error(err));
             }
 
             async function initializeLiff() {
-                console.log('func initializeLiff');
                 myLiffId = "1656005691-7qXmEbE9";
                 await liff.init({
                         liffId: myLiffId
                     })
                     .then(() => {
                         if (liff.isLoggedIn()) {
-                            checkUserId();
+                            await checkUserId();
                         } else {
                             liff.login();
                         }
+                        
                     })
                     .catch((err) => {
-                       $("#errorMsg").text(err)
+                        $("#errorMsg").text(err);
                     });
             }
             initializeLiff();
