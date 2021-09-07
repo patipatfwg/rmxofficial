@@ -34,10 +34,10 @@
                         } else {
                             liff.login();
                         }
-                        
+
                     })
                     .catch((err) => {
-                        $("#errorMsg").text(err);
+                        $("#errorMsg").text('initializeLiff: ' + err);
                     });
             }
             initializeLiff();
