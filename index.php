@@ -20,8 +20,17 @@
                 liff.getProfile().then((profile) => {
                     LineUserId = profile.userId;
                     LineDisplayName = profile.displayName;
-                    $("#txtUserName").text(LineUserId);
-                    $("#txtdisplayName").text(LineDisplayName);
+
+                    //CHECK AccessToken Expire
+
+                    //INSERT AccessToken
+
+                    //Close
+                    liff.closeWindow();
+
+                    //Display
+                    $("#txtUserName").text('LineUserId: ' + LineUserId);
+                    $("#txtdisplayName").text('LineDisplayName: ' + LineDisplayName);
                 }).catch((err) => {
                     console.error(err)
                 });
