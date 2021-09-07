@@ -27,8 +27,7 @@
                     liffId: myLiffId
                 })
                 .then(() => {
-                    // loginLiff();
-                    alert('Login');
+                    await loginLiff();
                 })
                 .catch((err) => {
                     alert(err);
