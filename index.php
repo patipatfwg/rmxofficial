@@ -23,8 +23,7 @@
                     loginLiff();
                 })
                 .catch((err) => {
-                    document.getElementById("liffAppContent").classList.add('hidden');
-                    document.getElementById("liffInitErrorMessage").classList.remove('hidden');
+                    alert(err);
                 });
             console.log('func initializeLiff');
         }
@@ -33,8 +32,7 @@
 </head>
 
 <body>
-    <div id="liffAppContent"></div>
-    <div id="liffInitErrorMessage"></div>
+    Test
 </body>
 
 </html>
