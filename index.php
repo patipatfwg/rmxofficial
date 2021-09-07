@@ -9,7 +9,7 @@
     Test
 
     <script language="javascript">
-        async function loginLiff() {
+        async function checkUserId() {
             if (!liff.isLoggedIn()) {
                 console.log('func loginLiff');
                 await liff.login();
@@ -27,7 +27,12 @@
                     liffId: myLiffId
                 })
                 .then(() => {
-                    await loginLiff();
+                    if (liff.isLoggedIn()) {
+                        // checkUserId();
+                        alert('checkUserId');
+                    } else {
+                        liff.login();
+                    }
                 })
                 .catch((err) => {
                     alert(err);
