@@ -1,7 +1,13 @@
 <html>
 
 <head>
-    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+    <script src="https://static.line-scdn.net/liff/edge/versions/2.12.0/sdk.js"></script>
+
+</head>
+
+<body>
+    Test
+
     <script language="javascript">
         async function loginLiff() {
             if (!liff.isLoggedIn()) {
@@ -21,7 +27,8 @@
                     liffId: myLiffId
                 })
                 .then(() => {
-                    loginLiff();
+                    // loginLiff();
+                    alert('Login');
                 })
                 .catch((err) => {
                     alert(err);
@@ -29,10 +36,6 @@
         }
         initializeLiff();
     </script>
-</head>
-
-<body>
-    Test
 </body>
 
 </html>
