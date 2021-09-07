@@ -5,8 +5,8 @@
     <script language="javascript">
         async function loginLiff() {
             if (!liff.isLoggedIn()) {
-                alert('loginLiff');
-                liff.login();
+                console.log('func loginLiff');
+                await liff.login();
             } else {
                 alert('Welcome');
             }
@@ -15,8 +15,9 @@
         }
 
         async function initializeLiff() {
-            var myLiffId = "1656005691-7qXmEbE9";
-            liff.init({
+            console.log('func initializeLiff');
+            myLiffId = "1656005691-7qXmEbE9";
+            await liff.init({
                     liffId: myLiffId
                 })
                 .then(() => {
@@ -25,7 +26,6 @@
                 .catch((err) => {
                     alert(err);
                 });
-            console.log('func initializeLiff');
         }
         initializeLiff();
     </script>
