@@ -30,7 +30,7 @@
                     })
                     .then(() => {
                         if (liff.isLoggedIn()) {
-                            await checkUserId();
+                            checkUserId();
                         } else {
                             liff.login();
                         }
