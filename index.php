@@ -3,7 +3,7 @@
 <head>
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script language="javascript">
-        function loginLiff() {
+        async function loginLiff() {
             if (!liff.isLoggedIn()) {
                 alert('loginLiff');
                 liff.login();
@@ -14,7 +14,7 @@
             window.location.reload();
         }
 
-        function initializeLiff() {
+        async function initializeLiff() {
             var myLiffId = "1656005691-7qXmEbE9";
             liff.init({
                     liffId: myLiffId
