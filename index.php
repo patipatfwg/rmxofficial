@@ -15,10 +15,10 @@
     <script language="javascript">
         $(document).ready(function() {
             function showPDPAdialog() {
-                return 'Hi';
+                return true;
             }
 
-            async function checkUserId(LineUserId) {
+            function checkUserId(LineUserId) {
                 return false;
             }
 
@@ -45,12 +45,9 @@
             async function validateLiffUserId() {
                 liff.getProfile().then((profile) => {
                     _showRegisterForm = showPDPAdialog();
-                    console.log('showPDPAdialog: ' + _showRegisterForm);
                     if (_showRegisterForm == true) {
-                        
                         showRegisterForm(profile);
                     } else {
-                        alert('Close');
                         liff.closeWindow();
                     }
 
