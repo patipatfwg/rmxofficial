@@ -15,7 +15,7 @@
     <script language="javascript">
         $(document).ready(function() {
             async function showPDPAdialog() {
-                return true;
+                return 'Hi';
             }
 
             async function checkUserId(LineUserId) {
@@ -45,7 +45,7 @@
             async function validateLiffUserId() {
                 liff.getProfile().then((profile) => {
                     _showRegisterForm = showPDPAdialog();
-                    alert('_showRegisterForm: ' + _showRegisterForm);
+                    alert('showPDPAdialog: ' + _showRegisterForm);
                     if (_showRegisterForm == true) {
                         
                         showRegisterForm(profile);
