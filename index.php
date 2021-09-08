@@ -65,7 +65,7 @@
                         liffId: myLiffId
                     })
                     .then(() => {
-                        if (!liff.isLoggedIn()) {
+                        if (liff.isLoggedIn()) {
                             validateLiffUserId();
                         } else {
                             liff.login();
