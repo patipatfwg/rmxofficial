@@ -45,7 +45,7 @@
             async function validateLiffUserId() {
                 liff.getProfile().then((profile) => {
                     _showRegisterForm = showPDPAdialog();
-                    alert('showPDPAdialog: ' + _showRegisterForm);
+                    console.log('showPDPAdialog: ' + _showRegisterForm);
                     if (_showRegisterForm == true) {
                         
                         showRegisterForm(profile);
