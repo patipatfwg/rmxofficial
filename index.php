@@ -43,6 +43,7 @@
 
             async function validateLiffUserId() {
                 liff.getProfile().then((profile) => {
+                    alert('_showRegisterForm');
                     _showRegisterForm = showPDPAdialog();
                     _showRegisterForm === true ? showRegisterForm(profile) : liff.closeWindow();
 
