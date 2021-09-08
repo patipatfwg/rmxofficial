@@ -22,7 +22,7 @@
                 return false;
             }
 
-            async function saveData(data){
+            async function saveData(data) {
 
             }
 
@@ -66,9 +66,11 @@
                     })
                     .then(() => {
                         if (!liff.isLoggedIn()) {
+                            validateLiffUserId();
+                        } else {
                             liff.login();
                         }
-                        validateLiffUserId();
+
                     })
                     .catch((err) => {
                         $("#errorMsg").text('initializeLiff: ' + err);
