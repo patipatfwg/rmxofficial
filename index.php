@@ -14,7 +14,7 @@
     <div id="errorMsg"></div>
     <script language="javascript">
         $(document).ready(function() {
-            async function showPDPAdialog() {
+            function showPDPAdialog() {
                 return 'Hi';
             }
 
