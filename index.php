@@ -32,25 +32,17 @@
                 LineDisplayName = profile.displayName;
                 LineUserId = profile.userId;
                 _checkUserId = checkUserId(LineUserId);
-                alert(_checkUserId);
+                _checkUserId === true ?? liff.closeWindow();
                 if (_checkUserId === false) {
                     $("#txtUserName").text('LineUserId: ' + LineUserId);
                     $("#txtdisplayName").text('LineDisplayName: ' + LineDisplayName);
-                } else if (_checkUserId === true) {
-                    liff.closeWindow();
                 }
-
             }
 
             async function validateLiffUserId() {
                 liff.getProfile().then((profile) => {
                     _showRegisterForm = showPDPAdialog();
-                    if (_showRegisterForm == true) {
-                        showRegisterForm(profile);
-                    } else {
-                        liff.closeWindow();
-                    }
-
+                    _showRegisterForm === true ? showRegisterForm(profile) : liff.closeWindow();
 
                     //CheckAccessTokenExpire
 
@@ -71,12 +63,7 @@
                         liffId: myLiffId
                     })
                     .then(() => {
-                        if (liff.isLoggedIn()) {
-                            validateLiffUserId();
-                        } else {
-                            liff.login();
-                        }
-
+                        liff.isLoggedIn() ? validateLiffUserId() : liff.login();
                     })
                     .catch((err) => {
                         $("#errorMsg").text('initializeLiff: ' + err);
