@@ -14,23 +14,46 @@
     <div id="errorMsg"></div>
     <script language="javascript">
         $(document).ready(function() {
-            async function checkUserId() {
-                liff.getProfile().then((profile) => {
-                    LineUserId = profile.userId;
-                    LineDisplayName = profile.displayName;
+            async function showPDPAdialog() {
+                return true;
+            }
 
-                    //CHECK AccessToken Expire
+            async function checkUserId(LineUserId) {
+                return false;
+            }
 
-                    //INSERT AccessToken
+            async function saveData(data){
 
-                    //Change Member Richmenu
+            }
 
-                    //Close
-                    liff.closeWindow();
+            async function checkRegister() {}
 
-                    //Display
+            async function showRegisterForm(profile) {
+                LineDisplayName = profile.displayName;
+                LineUserId = profile.userId;
+                _checkUserId = checkUserId(LineUserId);
+                if (_checkUserId === false) {
                     $("#txtUserName").text('LineUserId: ' + LineUserId);
                     $("#txtdisplayName").text('LineDisplayName: ' + LineDisplayName);
+                } else if (_checkUserId === true) {
+                    liff.closeWindow();
+                }
+
+            }
+
+            async function validateLiffUserId() {
+                liff.getProfile().then((profile) => {
+                    _showRegisterForm = showPDPAdialog();
+                    _showRegisterForm === true ? showRegisterForm(profile) : liff.closeWindow();
+
+                    //CheckAccessTokenExpire
+
+                    //InsertAccessToken
+
+                    //ChangeMemberRichmenu
+
+
+
                 }).catch((err) => {
                     console.error(err)
                 });
@@ -42,11 +65,10 @@
                         liffId: myLiffId
                     })
                     .then(() => {
-                        if (liff.isLoggedIn()) {
-                            checkUserId();
-                        } else {
+                        if (!liff.isLoggedIn()) {
                             liff.login();
                         }
+                        validateLiffUserId();
                     })
                     .catch((err) => {
                         $("#errorMsg").text('initializeLiff: ' + err);
