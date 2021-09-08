@@ -46,8 +46,10 @@
                 liff.getProfile().then((profile) => {
                     _showRegisterForm = showPDPAdialog();
                     if (_showRegisterForm === true) {
+                        alert('_showRegisterForm: ' + _showRegisterForm);
                         showRegisterForm(profile);
                     } else {
+                        alert('Close');
                         liff.closeWindow();
                     }
 
