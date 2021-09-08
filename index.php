@@ -32,6 +32,7 @@
                 LineDisplayName = profile.displayName;
                 LineUserId = profile.userId;
                 _checkUserId = checkUserId(LineUserId);
+                alert(_checkUserId);
                 if (_checkUserId === false) {
                     $("#txtUserName").text('LineUserId: ' + LineUserId);
                     $("#txtdisplayName").text('LineDisplayName: ' + LineDisplayName);
@@ -43,7 +44,6 @@
 
             async function validateLiffUserId() {
                 liff.getProfile().then((profile) => {
-                    alert('_showRegisterForm');
                     _showRegisterForm = showPDPAdialog();
                     _showRegisterForm === true ? showRegisterForm(profile) : liff.closeWindow();
 
