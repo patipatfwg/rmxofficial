@@ -23,9 +23,11 @@
                     "title": "PDPA",
                     "closeOnMaskClick": false,
                     "show": true,
-                    "modal": true
+                    "modal": true,
+                    width: auto,
+                    height: auto,
                 });
-                
+
                 return true;
             }
 
