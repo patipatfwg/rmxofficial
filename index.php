@@ -20,6 +20,7 @@
         $(document).ready(function() {
             function showPDPAdialog() {
                 $("#dialogMsg").dialog({
+                    "title": "PDPA",
                     "closeOnMaskClick": false,
                     "show": true,
                     "modal": true
