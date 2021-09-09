@@ -19,7 +19,12 @@
     <script language="javascript">
         $(document).ready(function() {
             function showPDPAdialog() {
-                $("#dialogMsg").dialog();
+                $.dialog({
+                    "body": "jQueryScript.net!",
+                    "title": "jQuery Dialog Plugin Demo",
+                    "show": true,
+                    "modal": true
+                });
                 return true;
             }
 
