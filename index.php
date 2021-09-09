@@ -22,6 +22,7 @@
                 $.dialog({
                     "body": "jQueryScript.net!",
                     "title": "jQuery Dialog Plugin Demo",
+                    "closeOnMaskClick": false,
                     "show": true,
                     "modal": true
                 });
