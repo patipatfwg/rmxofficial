@@ -20,6 +20,9 @@
     <hr>
     <script language="javascript">
         $(document).ready(function() {
+            function getOS(){
+                return liff.getOS();
+            }
             function showPDPAdialog() {
                 $("#dialogMsg").dialog({
                     "title": "PDPA",
@@ -48,6 +51,7 @@
             }
 
             function validateLiffUserId() {
+                alert(getOS());
                 liff.getProfile()
                     .then(profile => {
                         const LineUserId = profile.userId;
