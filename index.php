@@ -20,6 +20,13 @@
     <hr>
     <script language="javascript">
         $(document).ready(function() {
+            function closeWindowHandle() {
+                if (liff.getOS() != 'web') {
+                    liff.closeWindow();
+                } else {
+                    alert(liff.getOS());
+                }
+            }
 
             function showPDPAdialog() {
                 $("#dialogMsg").dialog({
@@ -62,13 +69,9 @@
 
                         if (_checkUserId == false) {
                             showRegisterForm(LineUserId);
-                            if (liff.getOS() != 'web') {
-                                liff.closeWindow();
-                            }
+                            closeWindowHandle();
                         } else {
-                            if (liff.getOS() != 'web') {
-                                liff.closeWindow();
-                            }
+                            closeWindowHandle();
                         }
                     })
                     .catch((err) => {
