@@ -55,8 +55,9 @@
                 }
             }
 
-            function validateLiffUserId(){
-
+            function validateLiffUserId() {
+                alert('WElcome');
+                liff.closeWindow();
             }
 
             async function initializeLiff() {
@@ -66,21 +67,21 @@
                     })
                     .then(() => {
 
-                        liff.isLoggedIn() ? alert('WElcome') : liff.login();
+                        liff.isLoggedIn() ? validateLiffUserId() : liff.login();
 
 
-                        if (liff.isLoggedIn()) {
-                            // liff.getProfile().then((profile) => {
-                            _showRegisterForm = showPDPAdialog();
-                            alert(_showRegisterForm);
-                            // _showRegisterForm === true ? showRegisterForm(profile) : liff.closeWindow();
-                            // }).catch((err) => {
-                            // $("#errorMsg").text('validateLiffUserId: ' + err);
-                            // });
-                            liff.closeWindow();
-                        } else {
-                            liff.login();
-                        }
+                        // if (liff.isLoggedIn()) {
+                        // liff.getProfile().then((profile) => {
+                        // _showRegisterForm = showPDPAdialog();
+                        // alert(_showRegisterForm);
+                        // _showRegisterForm === true ? showRegisterForm(profile) : liff.closeWindow();
+                        // }).catch((err) => {
+                        // $("#errorMsg").text('validateLiffUserId: ' + err);
+                        // });
+                        // liff.closeWindow();
+                        // } else {
+                        // liff.login();
+                        // }
                     })
                     .catch((err) => {
                         $("#errorMsg").text('initializeLiff: ' + err);
