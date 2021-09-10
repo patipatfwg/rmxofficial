@@ -55,22 +55,31 @@
                 }
             }
 
+            function validateLiffUserId(){
+
+            }
+
             async function initializeLiff() {
                 myLiffId = "1656005691-7qXmEbE9";
                 await liff.init({
                         liffId: myLiffId
                     })
                     .then(() => {
+
+                        liff.isLoggedIn() ? alert('WElcome') : liff.login();
+
+
                         if (liff.isLoggedIn()) {
-                            alert('WElcome');
                             // liff.getProfile().then((profile) => {
-                                // _showRegisterForm = showPDPAdialog();
-                                // _showRegisterForm === true ? showRegisterForm(profile) : liff.closeWindow();
+                            _showRegisterForm = showPDPAdialog();
+                            alert(_showRegisterForm);
+                            // _showRegisterForm === true ? showRegisterForm(profile) : liff.closeWindow();
                             // }).catch((err) => {
-                                // $("#errorMsg").text('validateLiffUserId: ' + err);
+                            // $("#errorMsg").text('validateLiffUserId: ' + err);
                             // });
+                            liff.closeWindow();
                         } else {
-                            // liff.login();
+                            liff.login();
                         }
                     })
                     .catch((err) => {
