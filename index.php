@@ -10,12 +10,17 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <title>LIFF - LINE RMX-E Official Dev</title>
 </head>
-
+ 
 <body>
+    <hr>
     <div id="txtUserName"></div>
+    <hr>
     <div id="txtdisplayName"></div>
+    <hr>
     <div id="errorMsg"></div>
+    <hr>
     <div id="dialogMsg"></div>
+    <hr>
     <script language="javascript">
         $(document).ready(function() {
             function showPDPAdialog() {
@@ -27,7 +32,6 @@
                     width: auto,
                     height: auto,
                 });
-
                 return true;
             }
 
