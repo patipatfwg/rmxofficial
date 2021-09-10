@@ -55,31 +55,22 @@
                 }
             }
 
-            async function validateLiffUserId() {
-                liff.getProfile().then((profile) => {
-                    _showRegisterForm = showPDPAdialog();
-                    _showRegisterForm === true ? showRegisterForm(profile) : liff.closeWindow();
-
-                    //CheckAccessTokenExpire
-
-                    //InsertAccessToken
-
-                    //ChangeMemberRichmenu
-
-
-
-                }).catch((err) => {
-                    $("#errorMsg").text('validateLiffUserId: ' + err);
-                });
-            }
-
             async function initializeLiff() {
                 myLiffId = "1656005691-7qXmEbE9";
                 await liff.init({
                         liffId: myLiffId
                     })
                     .then(() => {
-                        liff.isLoggedIn() ? validateLiffUserId() : liff.login();
+                        if (liff.isLoggedIn()) {
+                            liff.getProfile().then((profile) => {
+                                _showRegisterForm = showPDPAdialog();
+                                _showRegisterForm === true ? showRegisterForm(profile) : liff.closeWindow();
+                            }).catch((err) => {
+                                $("#errorMsg").text('validateLiffUserId: ' + err);
+                            });
+                        } else {
+                            liff.login();
+                        }
                     })
                     .catch((err) => {
                         $("#errorMsg").text('initializeLiff: ' + err);
