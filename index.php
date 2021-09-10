@@ -34,7 +34,13 @@
             }
 
             function checkUserId(LineUserId) {
-                return false;
+                my = "Uae4bfcada214d07661bb5a8779ad4fd3";
+                if (LineUserId == my) {
+                    data = true;
+                } else {
+                    data = false;
+                }
+                return data;
             }
 
             async function saveData(data) {
