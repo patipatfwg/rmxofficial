@@ -21,10 +21,10 @@
     <script language="javascript">
         $(document).ready(function() {
             function closeWindowHandle() {
-                if (liff.getOS() != 'web') {
-                    liff.closeWindow();
+                if (liff.getOS() == 'web') {
+                    showPDPAdialog();
                 } else {
-                    alert(liff.getOS());
+                    liff.closeWindow();
                 }
             }
 
@@ -69,7 +69,6 @@
 
                         if (_checkUserId == false) {
                             showRegisterForm(LineUserId);
-                            closeWindowHandle();
                         } else {
                             closeWindowHandle();
                         }
