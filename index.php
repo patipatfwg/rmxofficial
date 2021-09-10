@@ -20,9 +20,7 @@
     <hr>
     <script language="javascript">
         $(document).ready(function() {
-            function getOS(){
-                return liff.getOS();
-            }
+
             function showPDPAdialog() {
                 $("#dialogMsg").dialog({
                     "title": "PDPA",
@@ -51,12 +49,17 @@
             }
 
             function validateLiffUserId() {
-                alert(getOS());
                 liff.getProfile()
                     .then(profile => {
                         const LineUserId = profile.userId;
                         const _checkUserId = checkUserId(LineUserId);
-                        _checkUserId === false ? showRegisterForm(LineUserId) : liff.closeWindow();
+                        if (_checkUserId == true) {
+                            showRegisterForm(LineUserId);
+                        } else {
+                            if (liff.getOS() != 'web') {
+                                liff.closeWindow();
+                            }
+                        }
                     })
                     .catch((err) => {
                         console.log('validateLiffUserId: ', err);
