@@ -55,7 +55,8 @@
                 liff.getProfile()
                     .then(profile => {
                         const LineUserId = profile.userId;
-                        $("#txtUserName").text('LineUserId: ' + LineUserId);
+                        alert(checkUserId(LineUserId));
+                        // showRegisterForm(LineUserId);
                     })
                     .catch((err) => {
                         console.log('validateLiffUserId: ', err);
