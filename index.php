@@ -14,8 +14,6 @@
     <hr>
     <div id="txtUserName"></div>
     <hr>
-    <div id="txtdisplayName"></div>
-    <hr>
     <div id="errorMsg"></div>
     <hr>
     <div id="dialogMsg"></div>
@@ -44,20 +42,24 @@
 
             async function checkRegister() {}
 
-            async function showRegisterForm(profile) {
-                LineDisplayName = profile.displayName;
-                LineUserId = profile.userId;
+            async function showRegisterForm(LineUserId) {
                 _checkUserId = checkUserId(LineUserId);
                 _checkUserId === true ?? liff.closeWindow();
                 if (_checkUserId === false) {
                     $("#txtUserName").text('LineUserId: ' + LineUserId);
-                    $("#txtdisplayName").text('LineDisplayName: ' + LineDisplayName);
                 }
             }
 
             function validateLiffUserId() {
-                alert('WElcome');
-                liff.closeWindow();
+                // liff.closeWindow();
+                liff.getProfile()
+                    .then(profile => {
+                        const LineUserId = profile.userId;
+                        $("#txtUserName").text('LineUserId: ' + LineUserId);
+                    })
+                    .catch((err) => {
+                        console.log('validateLiffUserId: ', err);
+                    });
             }
 
             async function initializeLiff() {
