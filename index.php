@@ -43,20 +43,16 @@
             async function checkRegister() {}
 
             async function showRegisterForm(LineUserId) {
-                _checkUserId = checkUserId(LineUserId);
-                _checkUserId === true ?? liff.closeWindow();
-                if (_checkUserId === false) {
-                    $("#txtUserName").text('LineUserId: ' + LineUserId);
-                }
+                $("#txtUserName").text('LineUserId: ' + LineUserId);
+
             }
 
             function validateLiffUserId() {
-                // liff.closeWindow();
                 liff.getProfile()
                     .then(profile => {
                         const LineUserId = profile.userId;
-                        alert(checkUserId(LineUserId));
-                        // showRegisterForm(LineUserId);
+                        const _checkUserId = checkUserId(LineUserId);
+                        _checkUserId === false ? showRegisterForm(LineUserId) : liff.closeWindow();
                     })
                     .catch((err) => {
                         console.log('validateLiffUserId: ', err);
