@@ -82,8 +82,7 @@
                     .then(() => {
                         // liff.isLoggedIn() ? validateLiffUserId() : liff.login();
                         if (liff.isLoggedIn()) {
-                            console.log('isLoggedIn');
-                            // validateLiffUserId();
+                            validateLiffUserId();
                         } else {
                             console.log('NotisLoggedIn');
                             // liff.login();
