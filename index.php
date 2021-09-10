@@ -62,15 +62,15 @@
                     })
                     .then(() => {
                         if (liff.isLoggedIn()) {
-                            liff.getProfile().then((profile) => {
-                                _showRegisterForm = showPDPAdialog();
-                                alert(_showRegisterForm);
+                            alert('WElcome');
+                            // liff.getProfile().then((profile) => {
+                                // _showRegisterForm = showPDPAdialog();
                                 // _showRegisterForm === true ? showRegisterForm(profile) : liff.closeWindow();
-                            }).catch((err) => {
-                                $("#errorMsg").text('validateLiffUserId: ' + err);
-                            });
+                            // }).catch((err) => {
+                                // $("#errorMsg").text('validateLiffUserId: ' + err);
+                            // });
                         } else {
-                            liff.login();
+                            // liff.login();
                         }
                     })
                     .catch((err) => {
