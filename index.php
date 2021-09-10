@@ -10,7 +10,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <title>LIFF - LINE RMX-E Official Dev</title>
 </head>
- 
+
 <body>
     <hr>
     <div id="txtUserName"></div>
@@ -80,7 +80,12 @@
                         liffId: myLiffId
                     })
                     .then(() => {
-                        liff.isLoggedIn() ? validateLiffUserId() : liff.login();
+                        // liff.isLoggedIn() ? validateLiffUserId() : liff.login();
+                        if (liff.isLoggedIn()) {
+                            validateLiffUserId();
+                        } else {
+                            liff.login();
+                        }
                     })
                     .catch((err) => {
                         $("#errorMsg").text('initializeLiff: ' + err);
