@@ -62,8 +62,10 @@
 
                         if (_checkUserId == false) {
                             showRegisterForm(LineUserId);
+                            if (liff.getOS() != 'web') {
+                                liff.closeWindow();
+                            }
                         } else {
-                            alert(liff.getOS());
                             if (liff.getOS() != 'web') {
                                 liff.closeWindow();
                             }
