@@ -62,6 +62,7 @@
                     })
                     .then(() => {
                         if (liff.isLoggedIn()) {
+                            console.log(profile);
                             liff.getProfile().then((profile) => {
                                 _showRegisterForm = showPDPAdialog();
                                 _showRegisterForm === true ? showRegisterForm(profile) : liff.closeWindow();
