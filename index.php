@@ -34,10 +34,10 @@
                     "closeOnMaskClick": false,
                     "show": true,
                     "modal": true,
-                    width: auto,
-                    height: auto,
+                    // width: auto,
+                    // height: auto,
                 });
-                return true;
+                // return true;
             }
 
             function checkUserId(LineUserId) {
