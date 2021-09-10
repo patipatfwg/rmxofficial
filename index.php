@@ -53,7 +53,7 @@
                     .then(profile => {
                         const LineUserId = profile.userId;
                         const _checkUserId = checkUserId(LineUserId);
-                        if (_checkUserId == true) {
+                        if (_checkUserId == false) {
                             showRegisterForm(LineUserId);
                         } else {
                             if (liff.getOS() != 'web') {
