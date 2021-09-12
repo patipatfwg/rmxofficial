@@ -36,14 +36,14 @@
                     "modal": true,
                     // width: auto,
                     // height: auto,
-                    // 'buttons': {
-                    //     'My Button': function(event) {
+                    'buttons': {
+                        'My Button': function(event) {
 
-                    //         $(event.target).css({
-                    //             opacity: 0.25
-                    //         }).unbind();
-                    //     }
-                    // }
+                            $(event.target).css({
+                                opacity: 0.25
+                            }).unbind();
+                        }
+                    }
                 });
                 // return true;
             }
@@ -66,6 +66,7 @@
 
             async function showRegisterForm(LineUserId) {
                 $("#txtUserName").text('LineUserId: ' + LineUserId);
+                showPDPAdialog();
 
             }
 
