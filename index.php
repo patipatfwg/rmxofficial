@@ -12,9 +12,12 @@
         .no-close .ui-dialog-titlebar-close {
             display: none
         }
-
+        .ui-button.acceptButton {
+            background-color: #00b050;
+            color: #fff;
+        }
         .ui-button.declineButton {
-            border: 1px solid #aaaaaa;
+            /* border: 1px solid #aaaaaa; */
             color: #FF0000;
         }
     </style>
@@ -49,7 +52,7 @@
                     'buttons': [{
                         text: "Accept",
                         open: function() {
-                            $(this).addClass('okClass');
+                            $(this).addClass('acceptButton');
                         },
                         click: function() {
                             $(this).dialog("close");
