@@ -33,10 +33,11 @@
                     title: "PDPA",
                     show: true,
                     modal: true,
-                    height: 500,                
                     draggable: false,
                     resizable: false,
                     closeOnMaskClick: false,
+                    width: $(window).width(),
+                    height: $(window).height(),
                     'buttons': {
                         'ยอมรับ': function(event) {
 
