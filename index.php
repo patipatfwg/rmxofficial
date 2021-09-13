@@ -54,7 +54,7 @@
 
             function showPDPAdialog() {
                 $("#dialogMsg").dialog({
-                    title: "PDPA",
+                    title: "Informed Consent",
                     draggable: false,
                     resizable: false,
                     dialogClass: 'no-close',
