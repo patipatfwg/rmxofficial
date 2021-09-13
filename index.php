@@ -81,10 +81,14 @@
                 });
             }
 
-            async function getUserIdApi() {
+            async function getUserIdApi(userid) {
                 try {
-                    const response = await axios.post('/callApi.php');
-                    const res = JSON.stringify(response.data.LineUserId);
+                    const url = '/callApi.php';
+                    const params = {
+                        userId: userid
+                    };
+                    const response = await axios.post(url, params);
+                    const res = JSON.stringify(response.data.userId);
                     return res;
                 } catch (error) {
                     console.error(error);
@@ -93,11 +97,11 @@
 
             function checkUserId(LineUserId) {
                 // my = "Uae4bfcada214d07661bb5a8779ad4fd3";
-                const my = getUserIdApi();
-                if (LineUserId == my) {
-                    data = true;
-                } else {
-                    data = false;
+                const data = false;
+                try {
+                    data = getUserIdApi(LineUserId);
+                } catch (error) {
+                    console.error(error);
                 }
                 return data;
             }
@@ -116,12 +120,16 @@
                 liff.getProfile()
                     .then(profile => {
                         const LineUserId = profile.userId;
-                        const _checkUserId = checkUserId(LineUserId);
-                        if (_checkUserId === true) {
-                            closeWindowHandle();
-                        } else if (_checkUserId === false) {
-                            showPDPAdialog();
-                            showRegisterForm(LineUserId);
+                        try {
+                            const _checkUserId = checkUserId(LineUserId);
+                            if (_checkUserId === true) {
+                                closeWindowHandle();
+                            } else if (_checkUserId === false) {
+                                showPDPAdialog();
+                                showRegisterForm(LineUserId);
+                            }
+                        } catch (error) {
+                            console.error(error);
                         }
                     })
                     .catch((err) => {
