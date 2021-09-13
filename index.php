@@ -19,14 +19,14 @@
         }
 
         .ui-button.acceptButton {
-            font-size: medium;
+            font-size: large;
             background-color: #00b050;
             border: 1px solid #00b050;
             color: #fff;
         }
 
         .ui-button.declineButton {
-            font-size: medium;
+            font-size: large;
             border: 0px solid #fff;
             background-color: #fff;
             color: #FF0000;
