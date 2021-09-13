@@ -22,7 +22,7 @@
         $(document).ready(function() {
             function closeWindowHandle() {
                 if (liff.getOS() == 'web') {
-                    showPDPAdialog();
+                    console.log('Close');
                 } else {
                     liff.closeWindow();
                 }
@@ -32,10 +32,11 @@
                 $("#dialogMsg").dialog({
                     title: "PDPA",
                     show: true,
-                    modal: true,
+                    modal: false,
                     draggable: false,
                     resizable: false,
                     closeOnMaskClick: false,
+                    
                     width: $(window).width(),
                     height: $(window).height(),
                     'buttons': {
