@@ -32,11 +32,11 @@
                 $("#dialogMsg").dialog({
                     title: "PDPA",
                     show: true,
-                    modal: false,
+                    modal: true,
                     draggable: false,
                     resizable: false,
                     closeOnMaskClick: false,
-                    
+
                     width: $(window).width(),
                     height: $(window).height(),
                     'buttons': {
@@ -47,10 +47,7 @@
                             }).unbind();
                         },
                         'ไม่ยอมรับ': function(event) {
-
-                            $(event.target).css({
-                                opacity: 0.25
-                            }).unbind();
+                            liff.closeWindow();
                         }
                     }
                 });
