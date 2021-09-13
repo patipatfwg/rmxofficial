@@ -89,20 +89,17 @@
                     };
                     const response = await axios.post(url, params);
                     const res = JSON.stringify(response.data.result);
-                    alert(res);
-                    return res;
                 } catch (error) {
-                    console.error(error);
+                    const res = false;
                 }
+                return res;
             }
 
             function checkUserId(LineUserId) {
-                // my = "Uae4bfcada214d07661bb5a8779ad4fd3";
-                const data = false;
                 try {
-                    data = getUserIdApi(LineUserId);
+                    const data = getUserIdApi(LineUserId);
                 } catch (error) {
-                    console.error(error);
+                    const data = false;
                 }
                 return data;
             }
