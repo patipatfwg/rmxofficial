@@ -77,21 +77,12 @@
                             liff.closeWindow();
                         }
                     }]
-                    // {
-                    //     'Accept': function(event) {
-                    //         $( this ).dialog( "close" );
-                    //     },
-                    //     'Decline': function(event) {
-                    //         $(this).addClass('okClass');
-                    //         liff.closeWindow();
-                    //     }
-                    // }
                 });
-                // return true;
             }
 
             function checkUserId(LineUserId) {
                 my = "Uae4bfcada214d07661bb5a8779ad4fd3";
+                alert("<?php echo'Welcome' ?>");
                 if (LineUserId == my) {
                     data = true;
                 } else {
@@ -108,24 +99,22 @@
 
             async function showRegisterForm(LineUserId) {
                 $("#txtUserName").text('LineUserId: ' + LineUserId);
-                showPDPAdialog();
-
             }
 
-            function validateLiffUserId() {
+            function getProfileLiffUserId() {
                 liff.getProfile()
                     .then(profile => {
                         const LineUserId = profile.userId;
                         const _checkUserId = checkUserId(LineUserId);
-
-                        if (_checkUserId == false) {
-                            showRegisterForm(LineUserId);
-                        } else {
+                        if (_checkUserId === true) {
                             closeWindowHandle();
+                        } else if (_checkUserId === false) {
+                            showPDPAdialog();
+                            showRegisterForm(LineUserId);
                         }
                     })
                     .catch((err) => {
-                        console.log('validateLiffUserId: ', err);
+                        console.log('getProfile: ', err);
                     });
             }
 
@@ -135,22 +124,7 @@
                         liffId: myLiffId
                     })
                     .then(() => {
-
-                        liff.isLoggedIn() ? validateLiffUserId() : liff.login();
-
-
-                        // if (liff.isLoggedIn()) {
-                        // liff.getProfile().then((profile) => {
-                        // _showRegisterForm = showPDPAdialog();
-                        // alert(_showRegisterForm);
-                        // _showRegisterForm === true ? showRegisterForm(profile) : liff.closeWindow();
-                        // }).catch((err) => {
-                        // $("#errorMsg").text('validateLiffUserId: ' + err);
-                        // });
-                        // liff.closeWindow();
-                        // } else {
-                        // liff.login();
-                        // }
+                        liff.isLoggedIn() ? getProfileLiffUserId() : liff.login();
                     })
                     .catch((err) => {
                         $("#errorMsg").text('initializeLiff: ' + err);
