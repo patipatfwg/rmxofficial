@@ -14,12 +14,14 @@
         }
         .ui-button.acceptButton {
             font-size: medium;
+            text-align: center;
             background-color: #00b050;
             border: 1px solid #00b050;
             color: #fff;
         }
         .ui-button.declineButton {
             font-size: medium;
+            text-align: center;
             border: 0px solid #fff;
             background-color: #fff;
             color: #FF0000;
@@ -50,7 +52,7 @@
                     title: "PDPA",
                     draggable: false,
                     resizable: false,
-                    hasClose:false,
+                    dialogClass: 'no-close',
                     width: $(window).width(),
                     height: $(window).height(),
                     'buttons': [{
