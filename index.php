@@ -81,22 +81,19 @@
                 });
             }
 
-            async function getApi() {
+            async function getUserIdApi() {
                 try {
-                    const response = await axios.get('/callApi.php');
-                    // const res = JSON.parse(response);
-                    // alert('response: ' + res);
-                    alert(JSON.stringify(response));
+                    const response = await axios.post('/callApi.php');
+                    const res = JSON.stringify(response.data.LineUserId);
+                    return res;
                 } catch (error) {
                     console.error(error);
                 }
             }
 
             function checkUserId(LineUserId) {
-                my = "Uae4bfcada214d07661bb5a8779ad4fd3";
-
-                getApi();
-
+                // my = "Uae4bfcada214d07661bb5a8779ad4fd3";
+                const my = getUserIdApi();
                 if (LineUserId == my) {
                     data = true;
                 } else {
