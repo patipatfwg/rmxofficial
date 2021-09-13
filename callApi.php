@@ -20,20 +20,27 @@ function dbConnect()
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 if ($requestMethod == 'POST') {
-    $data = [];
-    if (isset($_POST['userId']) && !empty($_POST['userId'])) {
-        $arr = array();
-        $obj = new stdClass;
-        $link = dbConnect();
-        $id = $_POST['userId'];
-        $sql = "SELECT * FROM users WHERE userId = $id";
-        $result = mysqli_query($link, $sql);
-        while ($row = mysqli_fetch_assoc($result)) {
-            $arr[] = $row;
-        }
-        // $obj->LineUserId = "Uae4bfcada214d07661bb5a8779ad4fd3";
-        // $data = $obj;
-        $data = $arr;
+    $obj = new stdClass;
+
+    // echo $_SERVER['QUERY_STRING']['userId'];
+    // if (isset($_POST['userId']) && !empty($_POST['userId'])) {
+    //     $arr = array();
+    //     $link = dbConnect();
+    //     $id = $_POST['userId'];
+    //     $sql = "SELECT * FROM users WHERE userId = $id";
+    //     $result = mysqli_query($link, $sql);
+    //     while ($row = mysqli_fetch_assoc($result)) {
+    //         $arr[] = $row;
+    //     }
+    //     // $obj->LineUserId = "Uae4bfcada214d07661bb5a8779ad4fd3";
+    //     // $data = $obj;
+    //     $data = $arr;
+    // }
+    try {
+        $obj->LineUserId = $_POST['userId'];
+        $data = $obj;
+    } catch (\Throwable $th) {
+        $data = [];
     }
     echo json_encode($data);
 }
