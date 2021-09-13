@@ -30,14 +30,22 @@
 
             function showPDPAdialog() {
                 $("#dialogMsg").dialog({
-                    "title": "PDPA",
-                    "closeOnMaskClick": false,
-                    "show": true,
-                    "modal": true,
-                    // width: auto,
-                    // height: auto,
+                    title: "PDPA",
+                    show: true,
+                    modal: true,
+                    width: 100,
+                    height: 200,                
+                    draggable: false,
+                    resizable: false,
+                    closeOnMaskClick: false,
                     'buttons': {
-                        'My Button': function(event) {
+                        'ยอมรับ': function(event) {
+
+                            $(event.target).css({
+                                opacity: 0.25
+                            }).unbind();
+                        },
+                        'ไม่ยอมรับ': function(event) {
 
                             $(event.target).css({
                                 opacity: 0.25
