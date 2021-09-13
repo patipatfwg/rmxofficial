@@ -8,6 +8,9 @@
     <script src="https://static.line-scdn.net/liff/edge/versions/2.12.0/sdk.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <title>LIFF - LINE RMX-E Official Dev</title>
+    <style>
+        .no-close  {  display: none;} 
+    </style>
 </head>
 
 <body>
