@@ -12,16 +12,21 @@
         .no-close .ui-dialog-titlebar-close {
             display: none
         }
+
+        .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+            text-align: center;
+            float: none !important;
+        }
+
         .ui-button.acceptButton {
             font-size: medium;
-            text-align: center;
             background-color: #00b050;
             border: 1px solid #00b050;
             color: #fff;
         }
+
         .ui-button.declineButton {
             font-size: medium;
-            text-align: center;
             border: 0px solid #fff;
             background-color: #fff;
             color: #FF0000;
