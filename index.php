@@ -89,17 +89,19 @@
                     };
                     const response = await axios.post(url, params);
                     const res = JSON.stringify(response.data.result);
+                    return res;
                 } catch (error) {
-                    const res = false;
+                    console.error(error);
                 }
-                return res;
+                
             }
 
             function checkUserId(LineUserId) {
+                const data = false;
                 try {
-                    const data = getUserIdApi(LineUserId);
+                    data = getUserIdApi(LineUserId);
                 } catch (error) {
-                    const data = false;
+                    console.error(error);
                 }
                 return data;
             }
