@@ -31,12 +31,8 @@
             function showPDPAdialog() {
                 $("#dialogMsg").dialog({
                     title: "PDPA",
-                    show: true,
-                    modal: true,
                     draggable: false,
                     resizable: false,
-                    closeOnEscape: false,
-                    closeOnMaskClick: false,
                     width: $(window).width(),
                     height: $(window).height(),
                     'buttons': {
