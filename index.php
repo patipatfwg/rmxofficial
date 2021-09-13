@@ -9,7 +9,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <title>LIFF - LINE RMX-E Official Dev</title>
     <style>
-        .no-close  {  display: none;} 
+       
     </style>
 </head>
 
@@ -36,7 +36,7 @@
                     title: "PDPA",
                     draggable: false,
                     resizable: false,
-                    dialogClass: "no-close",
+                    closeOnEscape: false,
                     width: $(window).width(),
                     height: $(window).height(),
                     'buttons': {
