@@ -50,7 +50,7 @@
                     title: "PDPA",
                     draggable: false,
                     resizable: false,
-                    dialogClass: 'no-close',
+                    hasClose:false,
                     width: $(window).width(),
                     height: $(window).height(),
                     'buttons': [{
