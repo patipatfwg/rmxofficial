@@ -26,7 +26,7 @@ if ($requestMethod == 'POST') {
         $obj = new stdClass;
         $link = dbConnect();
         $id = $_POST['userId'];
-        $sql = "SELECT * FROM employees WHERE userId = $id";
+        $sql = "SELECT * FROM users WHERE userId = $id";
         $result = mysqli_query($link, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
             $arr[] = $row;
