@@ -7,6 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://static.line-scdn.net/liff/edge/versions/2.12.0/sdk.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>LIFF - LINE RMX-E Official Dev</title>
     <style>
         .no-close .ui-dialog-titlebar-close {
@@ -80,15 +81,21 @@
                 });
             }
 
+            async function getApi() {
+                try {
+                    const response = await axios.get('/callApi.php');
+                    console.log(response);
+                    alert(response);
+                } catch (error) {
+                    console.error(error);
+                    alert(error);
+                }
+            }
+
             function checkUserId(LineUserId) {
                 my = "Uae4bfcada214d07661bb5a8779ad4fd3";
 
-                var request = new XMLHttpRequest();
-                request.open('GET', 'callApi.php');
-                request.send();
-                request.onload = () => {
-                    alert(JSON.parse(request.response));
-                }
+                getApi();
 
                 if (LineUserId == my) {
                     data = true;
