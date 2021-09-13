@@ -33,7 +33,7 @@
                     title: "PDPA",
                     show: true,
                     modal: true,
-                    width: 100,
+                    width: auto,
                     height: 200,                
                     draggable: false,
                     resizable: false,
