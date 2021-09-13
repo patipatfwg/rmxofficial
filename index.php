@@ -20,8 +20,8 @@
 
         .ui-button.acceptButton {
             font-size: large;
-            background-color: #00b050;
             border: 1px solid #00b050;
+            background-color: #00b050;
             color: #fff;
         }
 
