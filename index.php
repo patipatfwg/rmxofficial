@@ -35,16 +35,13 @@
                     modal: true,
                     draggable: false,
                     resizable: false,
+                    closeOnEscape: false,
                     closeOnMaskClick: false,
-
                     width: $(window).width(),
                     height: $(window).height(),
                     'buttons': {
                         'ยอมรับ': function(event) {
-
-                            $(event.target).css({
-                                opacity: 0.25
-                            }).unbind();
+                            $( this ).dialog( "close" );
                         },
                         'ไม่ยอมรับ': function(event) {
                             liff.closeWindow();
