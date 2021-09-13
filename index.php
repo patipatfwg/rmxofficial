@@ -85,7 +85,7 @@
                 try {
                     const response = await axios.get('/callApi.php');
                     console.log(response);
-                    alert(response);
+                    alert('response: '+response[0]);
                 } catch (error) {
                     console.error(error);
                     alert(error);
