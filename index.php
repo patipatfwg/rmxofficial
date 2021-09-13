@@ -14,10 +14,11 @@
         }
         .ui-button.acceptButton {
             background-color: #00b050;
+            border: 1px solid #00b050;
             color: #fff;
         }
         .ui-button.declineButton {
-            /* border: 1px solid #aaaaaa; */
+            border: 0px solid #aaaaaa;
             color: #FF0000;
         }
     </style>
