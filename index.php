@@ -84,11 +84,10 @@
             async function getApi() {
                 try {
                     const response = await axios.get('/callApi.php');
-                    console.log(response);
-                    alert('response: '+response[0]);
+                    aa = JSON.parse(response);
+                    alert('response: ' + aa);
                 } catch (error) {
                     console.error(error);
-                    alert(error);
                 }
             }
 
