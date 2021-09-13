@@ -35,7 +35,7 @@
                     modal: true,
                     draggable: false,
                     resizable: false,
-                    closeOnEscape: false,
+                    closeOnEscape: true,
                     closeOnMaskClick: false,
                     width: $(window).width(),
                     height: $(window).height(),
