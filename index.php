@@ -82,7 +82,14 @@
 
             function checkUserId(LineUserId) {
                 my = "Uae4bfcada214d07661bb5a8779ad4fd3";
-                alert("<?php echo'Welcome' ?>");
+
+                var request = new XMLHttpRequest();
+                request.open('GET', 'https://api.github.com/users/anuradha9712');
+                request.send();
+                request.onload = () => {
+                    alert(JSON.parse(request.response));
+                }
+
                 if (LineUserId == my) {
                     data = true;
                 } else {
