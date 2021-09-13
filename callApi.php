@@ -1,11 +1,10 @@
 <?php
 
-//กำหนดค่า Access-Control-Allow-Origin ให้ เครื่อง อื่น ๆ สามารถเรียกใช้งานหน้านี้ได้
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: OPTIONS,GET,POST,PUT,DELETE");
-// header("Content-Type: application/json; charset=UTF-8");
-// header("Access-Control-Max-Age: 3600");
-// header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+header("Content-Type: application/json; charset=UTF-8");
+header("Access-Control-Max-Age: 3600");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 function dbConnect()
 {
@@ -20,24 +19,19 @@ function dbConnect()
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 if ($requestMethod == 'POST') {
-    $obj = new stdClass;
-
-    // echo $_SERVER['QUERY_STRING']['userId'];
-    // if (isset($_POST['userId']) && !empty($_POST['userId'])) {
-    //     $arr = array();
-    //     $link = dbConnect();
-    //     $id = $_POST['userId'];
-    //     $sql = "SELECT * FROM users WHERE userId = $id";
-    //     $result = mysqli_query($link, $sql);
-    //     while ($row = mysqli_fetch_assoc($result)) {
-    //         $arr[] = $row;
-    //     }
-    //     // $obj->LineUserId = "Uae4bfcada214d07661bb5a8779ad4fd3";
-    //     // $data = $obj;
-    //     $data = $arr;
-    // }
     try {
-        $obj->LineUserId = $_POST['userId'];
+        $json = file_get_contents('php://input');
+        $json_data = json_decode($json);
+        $obj = new stdClass;
+        $link = dbConnect();
+        $id = $json_data->userId;
+        $sql = "SELECT * FROM users WHERE userId = '$id'";
+        $result = mysqli_query($link, $sql);
+        $count = mysqli_num_rows($result);
+        $boolResult = $count > 0 ? true : false;
+
+        $obj->LineUserId = $id;
+        $obj->result = $boolResult;
         $data = $obj;
     } catch (\Throwable $th) {
         $data = [];

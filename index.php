@@ -88,7 +88,7 @@
                         userId: userid
                     };
                     const response = await axios.post(url, params);
-                    const res = JSON.stringify(response.data);
+                    const res = JSON.stringify(response.data.result);
                     alert(res);
                     return res;
                 } catch (error) {
