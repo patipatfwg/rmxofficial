@@ -48,8 +48,20 @@
                     height: $(window).height(),
                     'buttons': [{
                         text: "Accept",
+                        open: function() {
+                            $(this).addClass('okClass');
+                        },
+                        click: function() {
+                            $(this).dialog("close");
+                        }
                     }, {
                         text: "Decline",
+                        open: function() {
+                            $(this).addClass('declineButton');
+                        },
+                        click: function() {
+                            liff.closeWindow();
+                        }
                     }]
                     // {
                     //     'Accept': function(event) {
