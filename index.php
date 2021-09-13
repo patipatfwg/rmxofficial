@@ -13,12 +13,15 @@
             display: none
         }
         .ui-button.acceptButton {
+            font-size: medium;
             background-color: #00b050;
             border: 1px solid #00b050;
             color: #fff;
         }
         .ui-button.declineButton {
-            border: 0px solid #aaaaaa;
+            font-size: medium;
+            border: 0px solid #fff;
+            background-color: #fff;
             color: #FF0000;
         }
     </style>
