@@ -84,7 +84,7 @@
                 my = "Uae4bfcada214d07661bb5a8779ad4fd3";
 
                 var request = new XMLHttpRequest();
-                request.open('GET', 'https://api.github.com/users/anuradha9712');
+                request.open('GET', 'callApi.php');
                 request.send();
                 request.onload = () => {
                     alert(JSON.parse(request.response));
