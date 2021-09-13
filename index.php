@@ -9,7 +9,14 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <title>LIFF - LINE RMX-E Official Dev</title>
     <style>
-       .no-close .ui-dialog-titlebar-close {display: none }
+        .no-close .ui-dialog-titlebar-close {
+            display: none
+        }
+
+        .ui-button.declineButton {
+            border: 1px solid #aaaaaa;
+            color: #FF0000;
+        }
     </style>
 </head>
 
@@ -39,14 +46,20 @@
                     dialogClass: 'no-close',
                     width: $(window).width(),
                     height: $(window).height(),
-                    'buttons': {
-                        'ยอมรับ': function(event) {
-                            $( this ).dialog( "close" );
-                        },
-                        'ไม่ยอมรับ': function(event) {
-                            liff.closeWindow();
-                        }
-                    }
+                    'buttons': [{
+                        text: "Accept",
+                    }, {
+                        text: "Decline",
+                    }]
+                    // {
+                    //     'Accept': function(event) {
+                    //         $( this ).dialog( "close" );
+                    //     },
+                    //     'Decline': function(event) {
+                    //         $(this).addClass('okClass');
+                    //         liff.closeWindow();
+                    //     }
+                    // }
                 });
                 // return true;
             }
