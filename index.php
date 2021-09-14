@@ -121,8 +121,8 @@
                 liff.getProfile()
                     .then(profile => {
                         const LineUserId = profile.userId;
-                        const LinedisplayName = profile.LineDisplayName;
-                        alert(LinedisplayName);
+                        const LineDisplayName = profile.displayName;
+                        alert(LineDisplayName);
                         try {
                             const _checkUserId = checkUserId(LineUserId);
                             if (_checkUserId === true) {
