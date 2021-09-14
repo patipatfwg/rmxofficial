@@ -38,9 +38,9 @@
 <body>
     <div id="dialogMsg"></div>
     <div>
-        <div id="txtLineUserId"></div>
-        <h1>Register Member</h1>
         <form id="RegisterForm">
+            <h1>Register Member</h1>
+            <div id="txtLineUserId"></div>
             <label>Email: </label>
             <input type="text"></input>
             <p>
@@ -88,6 +88,7 @@
                             $(this).addClass('acceptButton');
                         },
                         click: function() {
+                            $("#RegisterForm").show();
                             $(this).dialog("close");
                         }
                     }, {
@@ -165,7 +166,6 @@
             }
 
             async function initializeLiff() {
-                $("#RegisterForm").hide();
                 myLiffId = "1656005691-7qXmEbE9";
                 await liff.init({
                         liffId: myLiffId
@@ -179,6 +179,7 @@
             }
 
             //initState
+            $("#RegisterForm").hide();
             initializeLiff();
         });
     </script>
