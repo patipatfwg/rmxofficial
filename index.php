@@ -145,8 +145,8 @@
                 liff.getProfile()
                     .then(profile => {
                         //
-                        const LineEmail = liff.getDecodedIDToken().email;
-                        alert(LineEmail);
+                        // const LineEmail = liff.getDecodedIDToken().email;
+                        alert(liff.getDecodedIDToken().email);
                         //
                         try {
                             const LineUserId = profile.userId;
