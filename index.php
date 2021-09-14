@@ -38,7 +38,7 @@
 <body>
     <hr>
     <div>
-        <div id="txtUserName"></div>
+        <div id="txtLineUserId"></div>
         <form id="RegisterForm">
             <label>Email: </label>
             <input type="text"></input>
@@ -52,8 +52,8 @@
                 <label>MobileNumber: </label>
                 <input type="text"></input>
             <p>
-                <label>Line Account: </label>
-                <input type="text"></input>
+                <label>LineAccount: </label>
+                <input type="text" id="txtLineDisplayName"></input>
             <p>
                 <button>Save</button>
         </form>
@@ -136,9 +136,9 @@
 
             async function checkRegister() {}
 
-            async function showRegisterForm(LineUserId) {
-                $("#txtUserName").text('LineUserId: ' + LineUserId);
-                $("#txtUserName").text('LineUserId: ' + LineDisplayName);
+            async function showRegisterForm(LineUserId,LineDisplayName) {
+                $("#txtLineUserId").text('LineUserId: ' + LineUserId);
+                $("#txtLineDisplayName").text('LineDisplayName: ' + LineDisplayName);
 
 
             }
