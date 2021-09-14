@@ -54,15 +54,19 @@
             }
 
             function showPDPAdialog() {
+                const dialogMsgtitle = "หนังสือให้ความยินยอมในการเปิดเผยข้อมูล";
+                const AcceptBtn = "ยอมรับ";
+                const DeclineBtn = "ไม่ยอมรับ";
+
                 $("#dialogMsg").dialog({
-                    title: "Informed Consent",
+                    title: dialogMsgtitle,
                     draggable: false,
                     resizable: false,
                     dialogClass: 'no-close',
                     width: $(window).width(),
                     height: $(window).height(),
                     'buttons': [{
-                        text: "Accept",
+                        text: AcceptBtn,
                         open: function() {
                             $(this).addClass('acceptButton');
                         },
@@ -70,7 +74,7 @@
                             $(this).dialog("close");
                         }
                     }, {
-                        text: "Decline",
+                        text: DeclineBtn,
                         open: function() {
                             $(this).addClass('declineButton');
                         },
@@ -93,7 +97,7 @@
                 } catch (error) {
                     console.error(error);
                 }
-                
+
             }
 
             function checkUserId(LineUserId) {
@@ -114,22 +118,25 @@
 
             async function showRegisterForm(LineUserId) {
                 $("#txtUserName").text('LineUserId: ' + LineUserId);
-                //ทำต่อ
+                $("#txtUserName").text('LineUserId: ' + LineUserId);
+
+
             }
 
             function getProfileLiffUserId() {
                 liff.getProfile()
                     .then(profile => {
-                        const LineUserId = profile.userId;
-                        const LineDisplayName = profile.displayName;
-                        alert(LineDisplayName);
                         try {
+                            const LineUserId = profile.userId;
                             const _checkUserId = checkUserId(LineUserId);
                             if (_checkUserId === true) {
                                 closeWindowHandle();
                             } else if (_checkUserId === false) {
                                 showPDPAdialog();
-                                showRegisterForm(LineUserId);
+                                const LineDisplayName = profile.displayName;
+                                const LineEmail = profile.getEmail;
+                                alert(LineEmail);
+                                showRegisterForm(LineUserId,LineDisplayName,LineEmail);
                             }
                         } catch (error) {
                             console.error(error);
