@@ -37,7 +37,27 @@
 
 <body>
     <hr>
-    <div id="txtUserName"></div>
+    <div>
+        <div id="txtUserName"></div>
+        <form id="RegisterForm">
+            <label>Email: </label>
+            <input type="text"></input>
+            <p>
+                <label>FirstName: </label>
+                <input type="text"></input>
+            <p>
+                <label>LastName: </label>
+                <input type="text"></input>
+            <p>
+                <label>MobileNumber: </label>
+                <input type="text"></input>
+            <p>
+                <label>Line Account: </label>
+                <input type="text"></input>
+            <p>
+                <button>Save</button>
+        </form>
+    </div>
     <hr>
     <div id="errorMsg"></div>
     <hr>
@@ -56,7 +76,7 @@
             function showPDPAdialog() {
                 const dialogMsgtitle = "หนังสือให้ความยินยอมในการเปิดเผยข้อมูล";
                 const AcceptBtn = "ยอมรับ";
-                const DeclineBtn = "ไม่ยอมรับ";
+                const DeclineBtn = "ไม่" + AcceptBtn;
 
                 $("#dialogMsg").dialog({
                     title: dialogMsgtitle,
@@ -118,7 +138,7 @@
 
             async function showRegisterForm(LineUserId) {
                 $("#txtUserName").text('LineUserId: ' + LineUserId);
-                $("#txtUserName").text('LineUserId: ' + LineUserId);
+                $("#txtUserName").text('LineUserId: ' + LineDisplayName);
 
 
             }
@@ -136,7 +156,7 @@
                                 const LineDisplayName = profile.displayName;
                                 const LineEmail = profile.getEmail;
                                 alert(LineEmail);
-                                showRegisterForm(LineUserId,LineDisplayName,LineEmail);
+                                showRegisterForm(LineUserId, LineDisplayName, LineEmail);
                             }
                         } catch (error) {
                             console.error(error);
