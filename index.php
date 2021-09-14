@@ -36,7 +36,7 @@
 </head>
 
 <body>
-    <hr>
+    <div id="dialogMsg"></div>
     <div>
         <div id="txtLineUserId"></div>
         <h1>Register Member</h1>
@@ -60,7 +60,6 @@
         </form>
     </div>
     <div id="errorMsg"></div>
-    <div id="dialogMsg"></div>
     <script language="javascript">
         $(document).ready(function() {
             function closeWindowHandle() {
@@ -76,7 +75,7 @@
                 const AcceptBtn = "ยอมรับ";
                 const DeclineBtn = "ไม่" + AcceptBtn;
 
-                $("#RegisterForm").dialog({
+                $("#dialogMsg").dialog({
                     title: dialogMsgtitle,
                     draggable: false,
                     resizable: false,
