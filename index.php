@@ -144,12 +144,6 @@
             function getProfileLiffUserId() {
                 liff.getProfile()
                     .then(profile => {
-                        //
-                        // const LineEmail = liff.getDecodedIDToken().email;
-                        alert(liff.getDecodedIDToken().email);
-                        const idToken = liff.getDecodedIDToken();
-                        alert('idToken: ' + idToken);
-                        //
                         try {
                             const LineUserId = profile.userId;
                             const _checkUserId = checkUserId(LineUserId);
@@ -158,7 +152,7 @@
                             } else if (_checkUserId === false) {
                                 showPDPAdialog();
                                 const LineDisplayName = profile.displayName;
-
+                                const LineEmail = liff.getDecodedIDToken().email;
                                 showRegisterForm(LineUserId, LineDisplayName, LineEmail);
                             }
                         } catch (error) {
