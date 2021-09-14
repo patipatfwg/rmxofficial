@@ -39,6 +39,7 @@
     <hr>
     <div>
         <div id="txtLineUserId"></div>
+        <title>Register Member</title>
         <form id="RegisterForm">
             <label>Email: </label>
             <input type="text"></input>
