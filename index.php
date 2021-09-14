@@ -138,12 +138,16 @@
                 // $("#txtLineUserId").text('LineUserId: ' + LineUserId);
                 $("#txtLineEmail").val(LineEmail);
                 $("#txtLineDisplayName").val(LineDisplayName);
-                
+
             }
 
             function getProfileLiffUserId() {
                 liff.getProfile()
                     .then(profile => {
+                        //
+                        const LineEmail = liff.getDecodedIDToken().email;
+                        alert(LineEmail);
+                        //
                         try {
                             const LineUserId = profile.userId;
                             const _checkUserId = checkUserId(LineUserId);
@@ -152,8 +156,7 @@
                             } else if (_checkUserId === false) {
                                 showPDPAdialog();
                                 const LineDisplayName = profile.displayName;
-                                const LineEmail = liff.getDecodedIDToken().email;
-                                alert(LineEmail);
+
                                 showRegisterForm(LineUserId, LineDisplayName, LineEmail);
                             }
                         } catch (error) {
