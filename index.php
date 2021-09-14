@@ -122,7 +122,7 @@
                     .then(profile => {
                         const LineUserId = profile.userId;
                         const LinedisplayName = profile.LineDisplayName;
-                        alert(LineDisplayName);
+                        alert(LinedisplayName);
                         try {
                             const _checkUserId = checkUserId(LineUserId);
                             if (_checkUserId === true) {
