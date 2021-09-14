@@ -147,6 +147,8 @@
                         //
                         // const LineEmail = liff.getDecodedIDToken().email;
                         alert(liff.getDecodedIDToken().email);
+                        const idToken = liff.getDecodedIDToken();
+                        alert('idToken: ' + idToken);
                         //
                         try {
                             const LineUserId = profile.userId;
