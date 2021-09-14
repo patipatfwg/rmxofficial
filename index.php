@@ -114,12 +114,15 @@
 
             async function showRegisterForm(LineUserId) {
                 $("#txtUserName").text('LineUserId: ' + LineUserId);
+                //ทำต่อ
             }
 
             function getProfileLiffUserId() {
                 liff.getProfile()
                     .then(profile => {
                         const LineUserId = profile.userId;
+                        const LineDisplayName = profile.DisplayName;
+                        alert(LineDisplayName);
                         try {
                             const _checkUserId = checkUserId(LineUserId);
                             if (_checkUserId === true) {
