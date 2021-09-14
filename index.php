@@ -165,6 +165,7 @@
             }
 
             async function initializeLiff() {
+                $("#RegisterForm").hide();
                 myLiffId = "1656005691-7qXmEbE9";
                 await liff.init({
                         liffId: myLiffId
