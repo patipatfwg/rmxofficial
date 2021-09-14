@@ -136,9 +136,10 @@
 
             async function checkRegister() {}
 
-            async function showRegisterForm(LineUserId,LineDisplayName) {
+            async function showRegisterForm(LineUserId, LineDisplayName, LineEmail) {
                 $("#txtLineUserId").text('LineUserId: ' + LineUserId);
-                $("#txtLineDisplayName").text('LineDisplayName: ' + LineDisplayName);
+                $("#txtLineDisplayName").val(LineDisplayName);
+                $("#txtLineEmail").val(LineEmail);
 
 
             }
@@ -154,8 +155,7 @@
                             } else if (_checkUserId === false) {
                                 showPDPAdialog();
                                 const LineDisplayName = profile.displayName;
-                                const LineEmail = profile.getEmail;
-                                alert(LineEmail);
+                                const LineEmail = '';
                                 showRegisterForm(LineUserId, LineDisplayName, LineEmail);
                             }
                         } catch (error) {
