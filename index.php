@@ -136,10 +136,9 @@
 
             async function showRegisterForm(LineUserId, LineDisplayName, LineEmail) {
                 // $("#txtLineUserId").text('LineUserId: ' + LineUserId);
-                $("#txtLineDisplayName").val(LineDisplayName);
                 $("#txtLineEmail").val(LineEmail);
-
-
+                $("#txtLineDisplayName").val(LineDisplayName);
+                
             }
 
             function getProfileLiffUserId() {
@@ -153,7 +152,7 @@
                             } else if (_checkUserId === false) {
                                 showPDPAdialog();
                                 const LineDisplayName = profile.displayName;
-                                const LineEmail = '';
+                                const LineEmail = liff.getDecodedIDToken().email;
                                 showRegisterForm(LineUserId, LineDisplayName, LineEmail);
                             }
                         } catch (error) {
