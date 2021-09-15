@@ -151,7 +151,7 @@
             async function checkRegister() {}
 
             async function showRegisterForm(LineUserId, LineDisplayName, LineEmail) {
-                getCompany();
+
                 $("#txtLineUserId").text('LineID: ' + LineUserId);
                 $("#txtLineEmail").val(LineEmail);
             }
