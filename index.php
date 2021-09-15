@@ -107,6 +107,19 @@
                 });
             }
 
+            async function getCompany() {
+                try {
+                    const url = "http://rmxcell.pe.hu/rmxLineCmd.php?Command=call sp_main_select_company('')";
+                    const params = {};
+                    const response = await axios.post(url, params);
+                    const res = JSON.stringify(response.data.result);
+                    console.log(res);
+                    return res;
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+
             async function getUserIdApi(userid) {
                 try {
                     const url = '/callApi.php';
@@ -139,10 +152,9 @@
             async function checkRegister() {}
 
             async function showRegisterForm(LineUserId, LineDisplayName, LineEmail) {
-                $("#txtLineUserId").text('LineUserId: ' + LineUserId);
+                getCompany();
+                $("#txtLineUserId").text('LineID: ' + LineUserId);
                 $("#txtLineEmail").val(LineEmail);
-                $("#txtLineDisplayName").val(LineDisplayName);
-
             }
 
             function getProfileLiffUserId() {
