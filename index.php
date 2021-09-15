@@ -65,6 +65,7 @@
         </form>
     </div>
     <div id="errorMsg"></div>
+    <div id="form-click-to-call"></div>
     <script language="javascript">
         $(document).ready(function() {
             function closeWindowHandle() {
@@ -110,15 +111,18 @@
 
             async function getCompany() {
 
-                try {
-                    const url = "http://rmxcell.pe.hu/rmxLineCmd.php?Command=call sp_main_select_company('')";
-                    const response = await fetch(url);
-                    const res = await response;
-                    console.log(res);
-                    // return res;
-                } catch (error) {
-                    console.error(error);
-                }
+
+                const url = "http://rmxcell.pe.hu/rmxLineCmd.php?Command=call sp_main_select_company('')";
+                jQuery.ajax({
+                    url: url,
+                    data: jQuery("#form-click-to-call").serialize(),
+                    type: "GET",
+                    processData: false,
+                    contentType: false,
+                    success: function(data) {
+                        alert(data);
+                    }
+                });
             }
 
             async function getUserIdApi(userid) {
