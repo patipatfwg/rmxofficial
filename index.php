@@ -55,7 +55,10 @@
                 <input type="text"></input>
             <p>
                 <label>Company Code: </label>
-                <input type="text" value="999"></input>
+                <select name="CompanyCode" id="CompanyCode">
+                    <option value="00001" default>Test Company</option>
+
+                </select>
             <p>
                 <button>Save</button>
         </form>
