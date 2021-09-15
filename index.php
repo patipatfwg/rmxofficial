@@ -41,6 +41,13 @@
     <div>
         <form id="RegisterForm">
             <h1>Register Member</h1>
+            <p>
+                <label>Company Code: </label>
+                <select name="CompanyCode" id="CompanyCode">
+                    <option value="00001" default>Test Company</option>
+
+                </select>
+            <p>
             <div id="txtLineUserId"></div>
             <p>
                 <label>FirstName: </label>
@@ -55,12 +62,8 @@
                 <label>MobileNumber: </label>
                 <input type="text"></input>
             <p>
-                <label>Company Code: </label>
-                <select name="CompanyCode" id="CompanyCode">
-                    <option value="00001" default>Test Company</option>
 
-                </select>
-            <p>
+
                 <button>Save</button>
         </form>
     </div>
@@ -151,7 +154,6 @@
             async function checkRegister() {}
 
             async function showRegisterForm(LineUserId, LineDisplayName, LineEmail) {
-
                 $("#txtLineUserId").text('LineID: ' + LineUserId);
                 $("#txtLineEmail").val(LineEmail);
             }
@@ -166,6 +168,7 @@
                                 closeWindowHandle();
                             } else if (_checkUserId === false) {
                                 showPDPAdialog();
+                                getCompany();
                                 const LineDisplayName = profile.displayName;
                                 const LineEmail = liff.getDecodedIDToken().email;
                                 showRegisterForm(LineUserId, LineDisplayName, LineEmail);
