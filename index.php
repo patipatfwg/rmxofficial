@@ -143,7 +143,7 @@
             function checkUserId(LineUserId) {
                 const data = false;
                 try {
-                    data = getUserIdApi(LineUserId);
+                    const data = getUserIdApi(LineUserId);
                 } catch (error) {
                     console.log(error);
                 }
