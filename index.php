@@ -110,19 +110,13 @@
             }
 
             async function getCompany() {
-
-
                 const url = "http://rmxcell.pe.hu/rmxLineCmd.php?Command=call sp_main_select_company('')";
-                jQuery.ajax({
-                    url: url,
-                    data: jQuery("#form-click-to-call").serialize(),
-                    type: "GET",
-                    processData: false,
-                    contentType: false,
-                    success: function(data) {
-                        alert(data);
-                    }
-                });
+                const Http = new XMLHttpRequest();
+                Http.open("GET", url);
+                Http.send();
+                Http.onreadystatechange = (e) => {
+                    console.log(Http.responseText)
+                }
             }
 
             async function getUserIdApi(userid) {
@@ -157,7 +151,7 @@
             async function checkRegister() {}
 
             async function showRegisterForm(LineUserId, LineDisplayName, LineEmail) {
-                // getCompany();
+                getCompany();
                 $("#txtLineUserId").text('LineID: ' + LineUserId);
                 $("#txtLineEmail").val(LineEmail);
             }
