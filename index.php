@@ -109,6 +109,7 @@
             }
 
             async function getCompany() {
+                
                 try {
                     const url = "http://rmxcell.pe.hu/rmxLineCmd.php?Command=call sp_main_select_company('')";
                     const params = {};
