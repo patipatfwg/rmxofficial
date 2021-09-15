@@ -109,14 +109,13 @@
             }
 
             async function getCompany() {
-                
+
                 try {
                     const url = "http://rmxcell.pe.hu/rmxLineCmd.php?Command=call sp_main_select_company('')";
-                    const params = {};
-                    const response = await axios.post(url, params);
-                    const res = JSON.stringify(response.data);
+                    const response = await fetch(url);
+                    const res = await response;
                     console.log(res);
-                    return res;
+                    // return res;
                 } catch (error) {
                     console.error(error);
                 }
