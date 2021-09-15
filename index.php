@@ -136,7 +136,7 @@
             async function checkRegister() {}
 
             async function showRegisterForm(LineUserId, LineDisplayName, LineEmail) {
-                // $("#txtLineUserId").text('LineUserId: ' + LineUserId);
+                $("#txtLineUserId").text('LineUserId: ' + LineUserId);
                 $("#txtLineEmail").val(LineEmail);
                 $("#txtLineDisplayName").val(LineDisplayName);
 
