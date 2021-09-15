@@ -133,6 +133,7 @@
                     };
                     const response = await axios.post(url, params);
                     const res = JSON.stringify(response.data.result);
+                    alert(res);
                     return res;
                 } catch (error) {
                     console.error(error);
@@ -157,7 +158,7 @@
             async function checkRegister() {}
 
             async function showRegisterForm(LineUserId, LineDisplayName, LineEmail) {
-                getCompany();
+                // getCompany();
                 $("#txtLineUserId").text('LineID: ' + LineUserId);
                 $("#txtLineEmail").val(LineEmail);
             }
