@@ -41,8 +41,6 @@
         <form id="RegisterForm">
             <h1>Register Member</h1>
             <div id="txtLineUserId"></div>
-            <label>Email: </label>
-            <input type="text"></input>
             <p>
                 <label>FirstName: </label>
                 <input type="text"></input>
@@ -50,11 +48,14 @@
                 <label>LastName: </label>
                 <input type="text"></input>
             <p>
+                <label>Email: </label>
+                <input type="text"></input>
+            <p>
                 <label>MobileNumber: </label>
                 <input type="text"></input>
             <p>
-                <label>LineAccount: </label>
-                <input type="text" id="txtLineDisplayName"></input>
+                <label>Company Code: </label>
+                <input type="text" value="999"></input>
             <p>
                 <button>Save</button>
         </form>
