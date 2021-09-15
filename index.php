@@ -133,10 +133,9 @@
                     };
                     const response = await axios.post(url, params);
                     const res = JSON.stringify(response.data.result);
-                    alert(res);
                     return res;
                 } catch (error) {
-                    console.error(error);
+                    console.log(error);
                 }
 
             }
@@ -146,7 +145,7 @@
                 try {
                     data = getUserIdApi(LineUserId);
                 } catch (error) {
-                    console.error(error);
+                    console.log(error);
                 }
                 return data;
             }
