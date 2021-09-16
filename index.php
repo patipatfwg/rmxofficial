@@ -41,30 +41,32 @@
     <div>
         <form id="RegisterForm">
             <h1>Register Member</h1>
-            <p>
+            <div class="form-group">
                 <label>Company Code: </label>
                 <select name="CompanyCode" id="CompanyCode">
-                    <option value="00001" default>Test Company</option>
-
+                    <option value="00000" default>Select Company</option>
+                    <option value="00001">Test Company</option>
                 </select>
-            <p>
-            <div id="txtLineUserId"></div>
-            <p>
-                <label>FirstName: </label>
-                <input type="text"></input>
-            <p>
-                <label>LastName: </label>
-                <input type="text"></input>
-            <p>
-                <label>Email: </label>
-                <input type="text"></input>
-            <p>
-                <label>MobileNumber: </label>
-                <input type="text"></input>
-            <p>
+            </div>
+            <div class="form-group">
+                <div id="txtLineUserId"></div>
+                <p>
+                    <label>FirstName: </label>
+                    <input type="text"></input>
+                <p>
+                    <label>LastName: </label>
+                    <input type="text"></input>
+                <p>
+                    <label>Email: </label>
+                    <input type="text"></input>
+                <p>
+                    <label>MobileNumber: </label>
+                    <input type="text"></input>
+                <p>
 
 
-                <button>Save</button>
+                    <button>Save</button>
+            </div>
         </form>
     </div>
     <div id="errorMsg"></div>
