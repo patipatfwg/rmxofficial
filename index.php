@@ -53,7 +53,7 @@
                 <div id="txtLineUserId"></div>
                 <p>
                     <label>Email: </label>
-                    <input type="text"></input>
+                    <input type="text" id="txtLineEmail"></input>
                 <p>
                     <label>FirstName: </label>
                     <input type="text"></input>
@@ -182,7 +182,6 @@
                                 // getCompanyList();
                                 const LineDisplayName = profile.displayName;
                                 const LineEmail = liff.getDecodedIDToken().email;
-                                alert('getgetMail: ' + LineEmail);
                                 showRegisterForm(LineUserId, LineDisplayName, LineEmail);
                             }
                         } catch (error) {
