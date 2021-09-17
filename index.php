@@ -176,7 +176,7 @@
                                 // getCompanyList();
                                 const LineDisplayName = profile.displayName;
                                 const LineEmail = liff.getDecodedIDToken().email;
-                                alert(LineEmail);
+                                alert('getgetMail: '+LineEmail);
                                 showRegisterForm(LineUserId, LineDisplayName, LineEmail);
                             }
                         } catch (error) {
