@@ -48,6 +48,7 @@
                     <option value="00001">Test Company</option>
                 </select>
             </div>
+            <p>
             <div class="form-group">
                 <div id="txtLineUserId"></div>
                 <p>
@@ -114,7 +115,11 @@
                 });
             }
 
-            async function getCompany() {
+            async function selectCompanyCode(){
+                // CompanyCode
+            }
+
+            async function getCompanyList() {
                 const url = "http://rmxcell.pe.hu/rmxLineCmd.php?Command=call sp_main_select_company('')";
                 const Http = new XMLHttpRequest();
                 Http.open("GET", url);
