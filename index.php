@@ -52,20 +52,18 @@
             <div class="form-group">
                 <div id="txtLineUserId"></div>
                 <p>
+                    <label>Email: </label>
+                    <input type="text"></input>
+                <p>
                     <label>FirstName: </label>
                     <input type="text"></input>
                 <p>
                     <label>LastName: </label>
                     <input type="text"></input>
                 <p>
-                    <label>Email: </label>
-                    <input type="text"></input>
-                <p>
                     <label>MobileNumber: </label>
                     <input type="text"></input>
                 <p>
-
-
                     <button>Save</button>
             </div>
         </form>
@@ -115,7 +113,7 @@
                 });
             }
 
-            async function selectCompanyCode(){
+            async function selectCompanyCode() {
                 // CompanyCode
             }
 
@@ -178,6 +176,7 @@
                                 getCompany();
                                 const LineDisplayName = profile.displayName;
                                 const LineEmail = liff.getDecodedIDToken().email;
+                                alert(LineEmail);
                                 showRegisterForm(LineUserId, LineDisplayName, LineEmail);
                             }
                         } catch (error) {
