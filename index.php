@@ -173,7 +173,7 @@
                                 closeWindowHandle();
                             } else if (_checkUserId === false) {
                                 showPDPAdialog();
-                                getCompany();
+                                // getCompanyList();
                                 const LineDisplayName = profile.displayName;
                                 const LineEmail = liff.getDecodedIDToken().email;
                                 alert(LineEmail);
