@@ -74,7 +74,13 @@
         $(document).ready(function() {
             function closeWindowHandle() {
                 if (liff.getOS() == 'web') {
-                    console.log('Close');
+                    function closeWindow() {
+                        let new_window =
+                            open(location, '_self');
+                        new_window.close();
+                        return false;
+                    }
+                    closeWindow();
                 } else {
                     liff.closeWindow();
                 }
@@ -176,7 +182,7 @@
                                 // getCompanyList();
                                 const LineDisplayName = profile.displayName;
                                 const LineEmail = liff.getDecodedIDToken().email;
-                                alert('getgetMail: '+LineEmail);
+                                alert('getgetMail: ' + LineEmail);
                                 showRegisterForm(LineUserId, LineDisplayName, LineEmail);
                             }
                         } catch (error) {
