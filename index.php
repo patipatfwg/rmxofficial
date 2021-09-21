@@ -158,12 +158,17 @@
                     const response = await axios.post(url, params);
                     const res = JSON.stringify(response.data.body);
                     obj = JSON.parse(res);
-                    let dropdown = $("#CompanyCode_");
+                    let dropdown = $("#CompanyCode");
+                    dropdown.append("<option value='00000' default>Select Company</option>");
                     obj.forEach(function(e) {
                         let option = $('<option></option>');
-                        option.val(obj[0]);
-                        option.html(obj[1]);
-                        dropdown.append(option);
+                        id = obj[0];
+                        name = obj[1];
+                        if (id != id) {
+                            option.val(id);
+                            option.html(name);
+                            dropdown.append(option);
+                        }
                     });
                 } catch (error) {
                     console.log(error);
