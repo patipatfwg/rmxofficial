@@ -53,9 +53,8 @@
                     <label>Company Code: </label>
                     <select class="form-control" name="CompanyCode" id="CompanyCode">
                         <option value="00000" default>Select Company</option>
-                        <option value="00001">Test Company</option>
                     </select>
-                    <select class="form-control" name="CompanyCode_" id="CompanyCode_"></select>
+
                 </div>
                 <div class="form-group" id="registerSecond" hidden>
                     <p>
@@ -159,7 +158,7 @@
                     const res = JSON.stringify(response.data.body);
                     obj = JSON.parse(res);
                     let dropdown = $("#CompanyCode");
-                    dropdown.append("<option value='00000' default>Select Company</option>");
+                    // dropdown.append("<option value='00000' default>Select Company</option>");
                     obj.forEach(function(e) {
                         let option = $('<option></option>');
                         id = obj[0];
