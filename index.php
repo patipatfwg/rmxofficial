@@ -157,14 +157,12 @@
                     };
                     const response = await axios.post(url, params);
                     const res = JSON.stringify(response.data.body);
-                    console.log(res);
                     obj = JSON.parse(res);
-                    console.log(obj);
                     let dropdown = $("#CompanyCode_");
                     obj.forEach(function(e) {
                         let option = $('<option></option>');
-                        option.val(e[0]);
-                        option.html(e[1]);
+                        option.val(obj[0]);
+                        option.html(obj[1]);
                         dropdown.append(option);
                     });
                 } catch (error) {
