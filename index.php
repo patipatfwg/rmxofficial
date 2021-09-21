@@ -64,7 +64,7 @@
                     <label>MobileNumber: </label>
                     <input type="text" id="MobileNumber"></input>
                 <p>
-                    <button id="save">Save</button>
+                    <button type="button" class="btn btn-success" id="save">Save</button>
             </div>
         </form>
     </div>
@@ -72,10 +72,14 @@
     <div id="form-click-to-call"></div>
     <script language="javascript">
         $(document).ready(function() {
-            $("#save").click(function(){
-                var MobileNumber =  $("#MobileNumber").val();
+            $('#CompanyCode').on('change', function() {
+                alert(this.value);
+            });
+            $("#save").click(function() {
+                var MobileNumber = $("#MobileNumber").val();
                 alert(MobileNumber);
             });
+
             function closeWindowHandle() {
                 if (liff.getOS() == 'web') {
                     function closeWindow() {
