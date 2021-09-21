@@ -75,7 +75,7 @@
     <script language="javascript">
         $(document).ready(function() {
             $('#CompanyCode').on('change', function() {
-                alert(this.value);
+                $("#registerSecond").show();
             });
             $("#save").click(function() {
                 var MobileNumber = $("#MobileNumber").val();
