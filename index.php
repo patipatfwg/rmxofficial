@@ -13,6 +13,10 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>LIFF - LINE RMX-E Official Dev</title>
     <style>
+        body {
+            background-color: #00b050;
+        }
+
         .no-close .ui-dialog-titlebar-close {
             display: none
         }
@@ -52,10 +56,10 @@
                         <option value="00001">Test Company</option>
                     </select>
                 </div>
-                <div class="form-group" id="registerSecond">
+                <div class="form-group" id="registerSecond" hidden>
                     <p>
                         <label>LineID: </label>
-                        <input type="text" id="txtLineUserId" disabled></input>
+                        <input type="text" class="txtLineUserId" id="txtLineUserId" disabled></input>
                     <p>
                         <label>Email: </label>
                         <input type="text" id="txtLineEmail"></input>
@@ -79,7 +83,13 @@
     <script language="javascript">
         $(document).ready(function() {
             $('#CompanyCode').on('change', function() {
-                $("#registerSecond").show();
+                companyCode = this.value;
+                if (companyCode == '00000') {
+                    $("#registerSecond").hide();
+                } else {
+                    $("#registerSecond").show();
+                }
+
             });
             $("#save").click(function() {
                 var MobileNumber = $("#MobileNumber").val();
@@ -222,7 +232,7 @@
 
             //initState
             $("#registerForm").hide();
-            $("#registerSecond").hide();
+            // $("#registerSecond").hide();
             initializeLiff();
         });
     </script>
