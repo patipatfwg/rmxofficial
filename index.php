@@ -14,7 +14,7 @@
     <title>LIFF - LINE RMX-E Official Dev</title>
     <style>
         body {
-            background-color: #00b050;
+            background-color: #fdd779;
         }
 
         .no-close .ui-dialog-titlebar-close {
@@ -51,10 +51,11 @@
                 <h1>Register Member</h1>
                 <div class="form-group">
                     <label>Company Code: </label>
-                    <select name="CompanyCode" id="CompanyCode">
+                    <select class="form-control" name="CompanyCode" id="CompanyCode">
                         <option value="00000" default>Select Company</option>
                         <option value="00001">Test Company</option>
                     </select>
+                    <select class="form-control" name="CompanyCode_" id="CompanyCode_"></select>
                 </div>
                 <div class="form-group" id="registerSecond" hidden>
                     <p>
@@ -62,13 +63,14 @@
                         <input type="text" class="txtLineUserId" id="txtLineUserId" disabled></input>
                     <p>
                         <label>Email: </label>
-                        <input type="text" id="txtLineEmail"></input>
+                        <input class="" type="text" id="txtLineEmail"></input>
                     <p>
                         <label>FirstName: </label>
                         <input type="text"></input>
                     <p>
                         <label>LastName: </label>
                         <input type="text"></input>
+
                     <p>
                         <label>MobileNumber: </label>
                         <input type="text" id="MobileNumber"></input>
@@ -148,12 +150,24 @@
             }
 
             async function getCompanyList() {
-                const url = "http://rmxcell.pe.hu/rmxLineCmd.php?Command=call sp_main_select_company('')";
-                const Http = new XMLHttpRequest();
-                Http.open("GET", url);
-                Http.send();
-                Http.onreadystatechange = (e) => {
-                    console.log(Http.responseText)
+                try {
+                    const url = '/callApi.php';
+                    const params = {
+                        menutype: 'getCompanyList',
+                        userId: userid
+                    };
+                    const response = await axios.post(url, params);
+                    const res = JSON.stringify(response.data.body);
+                    obj = JSON.parse(res);
+                    let dropdown = $("#CompanyCode_");
+                    obj.forEach(function(e) {
+                        let option = $('<option></option>');
+                        option.val(e[0]);
+                        option.html(e[1]);
+                        dropdown.append(option);
+                    });
+                } catch (error) {
+                    console.log(error);
                 }
             }
 
@@ -161,6 +175,7 @@
                 try {
                     const url = '/callApi.php';
                     const params = {
+                        menutype: 'getUserId',
                         userId: userid
                     };
                     const response = await axios.post(url, params);
