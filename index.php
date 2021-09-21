@@ -41,7 +41,7 @@
 <body>
     <div id="dialogMsg"></div>
     <div>
-        <form id="RegisterForm">
+        <form id="registerForm">
             <h1>Register Member</h1>
             <div class="form-group">
                 <label>Company Code: </label>
@@ -114,7 +114,7 @@
                             $(this).addClass('acceptButton');
                         },
                         click: function() {
-                            $("#RegisterForm").show();
+                            $("#registerForm").show();
                             $(this).dialog("close");
                         }
                     }, {
@@ -217,7 +217,8 @@
             }
 
             //initState
-            $("#RegisterForm").hide();
+            $("#registerForm").hide();
+            $("#registerSecond").hide();
             initializeLiff();
         });
     </script>
