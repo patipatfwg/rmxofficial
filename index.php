@@ -163,11 +163,11 @@
                         let option = $('<option></option>');
                         id = obj[0];
                         name = obj[1];
-                        if (id != id) {
+                        // if (id != id) {
                             option.val(id);
                             option.html(name);
                             dropdown.append(option);
-                        }
+                        // }
                     });
                 } catch (error) {
                     console.log(error);
