@@ -153,8 +153,7 @@
                 try {
                     const url = '/callApi.php';
                     const params = {
-                        menutype: 'getCompanyList',
-                        userId: userid
+                        menutype: 'getCompanyList'
                     };
                     const response = await axios.post(url, params);
                     const res = JSON.stringify(response.data.body);
