@@ -39,36 +39,40 @@
 </head>
 
 <body>
+
     <div id="dialogMsg"></div>
-    <div>
-        <form id="registerForm">
-            <h1>Register Member</h1>
-            <div class="form-group">
-                <label>Company Code: </label>
-                <select name="CompanyCode" id="CompanyCode">
-                    <option value="00000" default>Select Company</option>
-                    <option value="00001">Test Company</option>
-                </select>
-            </div>
-            <p>
-            <div class="form-group" id="registerSecond">
-                <div id="txtLineUserId"></div>
-                <p>
-                    <label>Email: </label>
-                    <input type="text" id="txtLineEmail"></input>
-                <p>
-                    <label>FirstName: </label>
-                    <input type="text"></input>
-                <p>
-                    <label>LastName: </label>
-                    <input type="text"></input>
-                <p>
-                    <label>MobileNumber: </label>
-                    <input type="text" id="MobileNumber"></input>
-                <p>
-                    <button type="button" class="btn btn-success" id="save">Save</button>
-            </div>
-        </form>
+    <div class="container">
+        <div class="col-12">
+            <form id="registerForm">
+                <h1>Register Member</h1>
+                <div class="form-group">
+                    <label>Company Code: </label>
+                    <select name="CompanyCode" id="CompanyCode">
+                        <option value="00000" default>Select Company</option>
+                        <option value="00001">Test Company</option>
+                    </select>
+                </div>
+                <div class="form-group" id="registerSecond">
+                    <p>
+                        <label>LineID: </label>
+                        <input type="text" id="txtLineUserId" disabled></input>
+                    <p>
+                        <label>Email: </label>
+                        <input type="text" id="txtLineEmail"></input>
+                    <p>
+                        <label>FirstName: </label>
+                        <input type="text"></input>
+                    <p>
+                        <label>LastName: </label>
+                        <input type="text"></input>
+                    <p>
+                        <label>MobileNumber: </label>
+                        <input type="text" id="MobileNumber"></input>
+                    <p>
+                        <button type="button" class="btn btn-success" id="save">Save</button>
+                </div>
+            </form>
+        </div>
     </div>
     <div id="errorMsg"></div>
     <div id="form-click-to-call"></div>
@@ -175,7 +179,7 @@
             async function checkRegister() {}
 
             async function showRegisterForm(LineUserId, LineDisplayName, LineEmail) {
-                $("#txtLineUserId").text('LineID: ' + LineUserId);
+                $("#txtLineUserId").val(LineUserId);
                 $("#txtLineEmail").val(LineEmail);
             }
 
