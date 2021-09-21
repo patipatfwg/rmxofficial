@@ -50,26 +50,26 @@
             <form id="registerForm">
                 <h1>Register Member</h1>
                 <div class="form-group">
-                    <label>Company Code: </label>
+                    <label>Company Code </label>
                     <select class="form-control" name="CompanyCode" id="CompanyCode">
                     </select>
                 </div>
                 <div class="form-group" id="registerSecond" hidden>
                     <p>
-                        <label>LineID: </label>
+                        <label>LineID </label>
                         <input type="text" class="form-control" id="txtLineUserId" disabled></input>
                     <p>
-                        <label>Email: </label>
-                        <input class="" type="text" class="form-control" id="txtLineEmail"></input>
+                        <label>Email </label>
+                        <input  type="text" class="form-control" id="txtLineEmail"></input>
                     <p>
-                        <label>FirstName: </label>
+                        <label>FirstName </label>
                         <input type="text" class="form-control"></input>
                     <p>
-                        <label>LastName: </label>
+                        <label>LastName </label>
                         <input type="text" class="form-control"></input>
 
                     <p>
-                        <label>MobileNumber: </label>
+                        <label>MobileNumber </label>
                         <input type="text" class="form-control" id="MobileNumber"></input>
                     <p>
                         <button type="button" class="btn btn-success" id="save">Save</button>
