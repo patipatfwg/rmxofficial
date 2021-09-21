@@ -52,27 +52,25 @@
                 <div class="form-group">
                     <label>Company Code: </label>
                     <select class="form-control" name="CompanyCode" id="CompanyCode">
-                        <!-- <option value="00000" default>Select Company</option> -->
                     </select>
-
                 </div>
                 <div class="form-group" id="registerSecond" hidden>
                     <p>
                         <label>LineID: </label>
-                        <input type="text" class="txtLineUserId" id="txtLineUserId" disabled></input>
+                        <input type="text" class="form-control" id="txtLineUserId" disabled></input>
                     <p>
                         <label>Email: </label>
-                        <input class="" type="text" id="txtLineEmail"></input>
+                        <input class="" type="text" class="form-control" id="txtLineEmail"></input>
                     <p>
                         <label>FirstName: </label>
-                        <input type="text"></input>
+                        <input type="text" class="form-control"></input>
                     <p>
                         <label>LastName: </label>
-                        <input type="text"></input>
+                        <input type="text" class="form-control"></input>
 
                     <p>
                         <label>MobileNumber: </label>
-                        <input type="text" id="MobileNumber"></input>
+                        <input type="text" class="form-control" id="MobileNumber"></input>
                     <p>
                         <button type="button" class="btn btn-success" id="save">Save</button>
                 </div>
@@ -178,8 +176,6 @@
                             dropdown.append(option);
                             idDuplicate = id;
                         }
-
-
                     });
                 } catch (error) {
                     console.log(error);
