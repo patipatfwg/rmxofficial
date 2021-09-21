@@ -159,15 +159,27 @@
                     obj = JSON.parse(res);
                     let dropdown = $("#CompanyCode");
                     dropdown.append("<option value='00000' default>Select Company</option>");
+                    idDuplicate = '';
                     obj.forEach(function(e) {
                         let option = $('<option></option>');
                         id = obj[0];
                         name = obj[1];
-                        // if (id != id) {
+                        if (idDuplicate != id) {
+                            append = true;
+                        } else if (idDuplicate == '') {
+                            append = true;
+                        } else {
+                            append = false;
+                        }
+
+                        if (append == true) {
                             option.val(id);
                             option.html(name);
                             dropdown.append(option);
-                        // }
+                            idDuplicate = id;
+                        }
+
+
                     });
                 } catch (error) {
                     console.log(error);
