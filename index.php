@@ -59,7 +59,7 @@
                         <label>LineID </label>
                         <input type="text" class="form-control" id="txtLineUserId" disabled></input>
                     <p>
-                        <label>Email </label>
+                        <label>Email * </label>
                         <input  type="text" class="form-control" id="txtLineEmail"></input>
                     <p>
                         <label>FirstName * </label>
@@ -71,7 +71,7 @@
                         <label>MobileNumber * </label>
                         <input type="text" class="form-control" id="MobileNumber"></input>
                     <p><p>
-                        <button type="button" class="btn btn-success btn-lg  form-control" id="save">Save</button>
+                        <button type="button" class="btn btn-primary btn-lg" id="save">Save</button>
                 </div>
             </form>
         </div>
