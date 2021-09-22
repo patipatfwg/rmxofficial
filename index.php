@@ -83,7 +83,7 @@
                 </div>
                 <div class="form-group" id="registerThird" hidden>
                     <div class="row">
-                        <div class="form-control btn btn-success btn-lg" id="registerSave">Confirm</div>
+                        <div class="form-control btn btn-success btn-lg" id="registerConfirm">Confirm</div>
                     </div>
                 </div>
             </div>
@@ -156,6 +156,10 @@
                 var CustSurName = $("#txtCustSurName").val();
                 var MobileNo = $("#txtMobileNo").val();
                 saveData(CompanyCode, LineId, EMail, CustName, CustSurName, MobileNo);
+            });
+
+            $("#registerConfirm").click(function() {
+                alert('ConCon');
             });
 
             function closeWindowHandle() {
