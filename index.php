@@ -110,10 +110,20 @@
                     $("#registerSecond").hide();
                 } else {
                     try {
-                        getuser = getUser(sessionStorage.getItem("LineId"), companyCode);
+                        LineUserId = sessionStorage.getItem("LineId");
+                        EMail = sessionStorage.getItem("EMail");
+                        getuser = getUser(LineUserId, companyCode);
                         getuser.then(function(result) {
                             obj = JSON.parse(result);
-                            console.log(obj['CustName']);
+                            $("#txtLineId").val(LineUserId);
+                            if (EMail==null || EMail=='') {
+                                $("#txtEMail").val(obj['EMail']);
+                            } else {
+                                $("#txtEMail").val(EMail);
+                            }
+                            $("#txtCustName").val(obj['CustName']);
+                            $("#txtCustSurName").val(obj['CustSurName']);
+                            $("#txtMobileNo").val(obj['MobileNo']);
                         });
                         $("#registerSecond").show();
                     } catch (error) {
@@ -248,10 +258,10 @@
 
 
 
-            async function showRegisterForm(LineUserId, LineEmail) {
-                $("#txtLineId").val(LineUserId);
-                $("#txtEMail").val(LineEmail);
-            }
+            // async function showRegisterForm(LineUserId, LineEmail) {
+            //     $("#txtLineId").val(LineUserId);
+            //     $("#txtEMail").val(LineEmail);
+            // }
 
             function getProfileLiffUserId() {
                 liff.getProfile()
@@ -266,7 +276,10 @@
                                 showPDPAdialog();
                                 // const LineDisplayName = profile.displayName;
                                 const LineEmail = liff.getDecodedIDToken().email;
-                                showRegisterForm(LineUserId, LineEmail);
+                                if (LineEmail != '') {
+                                    sessionStorage.setItem("EMail", LineEmail);
+                                }
+                                // showRegisterForm(LineUserId, LineEmail);
                                 getCompanyList();
                             }
                         } catch (error) {
