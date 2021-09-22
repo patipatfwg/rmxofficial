@@ -77,11 +77,12 @@
                         <p>
                     </div>
                     <div class="row">
-
-                        <button type="button" class=" btn btn-success btn-md" id="save">Save</button>
-
-                        <button type="button" class="btn btn-success btn-md" id="save">Save</button>
-
+                        <div class="col-md">
+                            <button type="button" class=" btn btn-success" id="save">Save</button>
+                        </div>
+                        <div class="col-md">
+                            <button type="button" class="btn btn-success " id="save">Save</button>
+                        </div>
                     </div>
                 </div>
             </div>
