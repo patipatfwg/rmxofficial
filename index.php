@@ -77,7 +77,7 @@
                             <label>MobileNumber * </label>
                             <input type="text" class="form-control" id="txtMobileNo"></input>
                         <p>
-                            <div class="form-control btn btn-info btn-lg" id="registerSave">Save</div>
+                        <div class="form-control btn btn-success btn-lg" id="registerSave">Save</div>
                         <p>
                     </div>
                 </div>
@@ -133,9 +133,24 @@
                     }
                 }
             });
+
+            async function saveData(CompanyCode,LineId,EMail,CustName,CustSurName,MobileNo) {
+                alert(CompanyCode);
+                alert(LineId);
+                alert(EMail);
+                alert(CustName);
+                alert(CustSurName);
+                alert(MobileNo);
+            }
+
             $("#registerSave").click(function() {
-                var MobileNumber = $("#txtMobileNo").val();
-                alert(MobileNumber);
+                var CompanyCode = $("#CompanyCode").val();
+                var LineId = sessionStorage.getItem("LineId");
+                var EMail = $("#txtEMail").val();
+                var CustName = $("#txtCustName").val();
+                var CustSurName = $("#txtCustSurName").val();
+                var MobileNo = $("#txtMobileNo").val();
+                saveData(CompanyCode,LineId,EMail,CustName,CustSurName,MobileNo);
             });
 
             function closeWindowHandle() {
@@ -252,9 +267,7 @@
                 return data;
             }
 
-            async function saveData(data) {
 
-            }
 
             async function checkRegister() {}
 
