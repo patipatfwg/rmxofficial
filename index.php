@@ -128,6 +128,7 @@
                         });
                         $("#txtLineId").val(LineUserId);
                         $("#registerSecond").show();
+                        setTimeout($("#registerSecond").show(), 3000);
                     } catch (error) {
                         console.log(error);
                     }
