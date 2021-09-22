@@ -102,9 +102,7 @@
                     };
                     const response = await axios.post(url, params);
                     const result = JSON.stringify(response.data.result);
-                    if (result == "Duplicate") {
-                        alert('Hi');
-                    }
+                    console.log(result);
                     if (result == "Duplicate") {
                         $("#registerThird").show();
                     } else {
