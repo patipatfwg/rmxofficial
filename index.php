@@ -87,12 +87,29 @@
     <div id="form-click-to-call"></div>
     <script language="javascript">
         $(document).ready(function() {
+            async function getUser(userid,companyCode) {
+                try {
+                    const url = '/callApi.php';
+                    const params = {
+                        menutype: 'getUser',
+                        LineId: userid,
+                        CompanyCode: companyCode
+
+                    };
+                    const response = await axios.post(url, params);
+                    const res = JSON.stringify(response.data.result);
+                    return res;
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+
             $('#CompanyCode').on('change', function() {
                 companyCode = this.value;
                 if (companyCode == '00000') {
                     $("#registerSecond").hide();
                 } else {
-                    getUser(sessionStorage.getItem("LineId"),companyCode);
+                    console.log(getUser(sessionStorage.getItem("LineId"),companyCode));
                     $("#registerSecond").show();
                 }
             });
@@ -221,22 +238,7 @@
 
             async function checkRegister() {}
 
-            async function getUser(userid,companyCode) {
-                try {
-                    const url = '/callApi.php';
-                    const params = {
-                        menutype: 'getUser',
-                        LineId: userid,
-                        CompanyCode: companyCode
 
-                    };
-                    const response = await axios.post(url, params);
-                    const res = JSON.stringify(response.data.result);
-                    return res;
-                } catch (error) {
-                    console.log(error);
-                }
-            }
 
             async function showRegisterForm(LineUserId, LineEmail) {
                 $("#txtLineId").val(LineUserId);
