@@ -102,7 +102,7 @@
                     alert(result);
                     if (result == "Duplicate") {
                         //Change RichMenu
-                        alert('Duplicate');
+                        alert('Welcome');
                     } else {
                         if (result == "New") {
                             const res = JSON.stringify(response.data.body);
@@ -129,7 +129,6 @@
                         $("#txtLineId").val(LineUserId);
                         $("#txtEMail").val(EMailSession);
                         getUser(LineUserId, EMailSession, companyCode);
-                        $("#registerSecond").show();
                     } catch (error) {
                         console.log(error);
                     }
