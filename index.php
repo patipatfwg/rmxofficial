@@ -104,6 +104,9 @@
             function closeWindowHandle() {
                 if (liff.getOS() == 'web') {
                     function closeWindow() {
+                        let new_window =
+                            open(location, '_self');
+                        new_window.close();
                         $("#closeMsg").removeClass('hidden');
                         return false;
                     }
@@ -253,8 +256,7 @@
                                 showPDPAdialog();
                                 // const LineDisplayName = profile.displayName;
                                 const LineEmail = liff.getDecodedIDToken().email;
-                                const LineUserId_ = sessionStorage.getItem("LineId");
-                                showRegisterForm(LineUserId_, LineEmail);
+                                showRegisterForm(LineUserId, LineEmail);
                                 getCompanyList();
                             }
                         } catch (error) {
