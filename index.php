@@ -102,11 +102,12 @@
                     };
                     const response = await axios.post(url, params);
                     const result = JSON.stringify(response.data.result);
-                    result = JSON.parse(result);
-                    if (result == "Duplicate") {
+                    objResult = JSON.parse(result);
+                    console.log(objResult);
+                    if (objResult == "Duplicate") {
                         $("#registerThird").show();
                     } else {
-                        if (result == "New") {
+                        if (objResult == "New") {
                             const res = JSON.stringify(response.data.body);
                             obj = JSON.parse(res);
                             $("#txtCustName").val(obj['CustName']);
