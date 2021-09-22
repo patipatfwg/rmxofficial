@@ -62,19 +62,19 @@
                     <div class="row">
                         <p>
                             <label>LineID *</label>
-                            <input type="text" class="form-control" id="txtLineUserId" disabled></input>
+                            <input type="text" class="form-control" id="txtLineId" disabled></input>
                         <p>
                             <label>Email * </label>
-                            <input type="text" class="form-control" id="txtLineEmail"></input>
+                            <input type="text" class="form-control" id="txtEMail"></input>
                         <p>
                             <label>FirstName * </label>
-                            <input type="text" class="form-control"></input>
+                            <input type="text" class="form-control" id="txtCustName"></input>
                         <p>
                             <label>LastName * </label>
-                            <input type="text" class="form-control"></input>
+                            <input type="text" class="form-control" id="txtCustSurName"></input>
                         <p>
                             <label>MobileNumber * </label>
-                            <input type="text" class="form-control" id="MobileNumber"></input>
+                            <input type="text" class="form-control" id="txtMobileNo"></input>
                         <p>
                         <p>
                     </div>
@@ -91,12 +91,12 @@
                 if (companyCode == '00000') {
                     $("#registerSecond").hide();
                 } else {
+                    getUser(,companyCode);
                     $("#registerSecond").show();
                 }
-
             });
             $("#save").click(function() {
-                var MobileNumber = $("#MobileNumber").val();
+                var MobileNumber = $("#txtMobileNo").val();
                 alert(MobileNumber);
             });
 
@@ -115,7 +115,7 @@
             }
 
             function showPDPAdialog() {
-                const dialogMsgtitle = "หนังสือให้ความยินยอมในการเปิดเผยข้อมูล";
+                const dialogMsgtitle = "<b>หนังสือให้ความยินยอมในการเปิดเผยข้อมูล</b>";
                 const AcceptBtn = "ยอมรับ";
                 const DeclineBtn = "ไม่" + AcceptBtn;
 
@@ -141,7 +141,7 @@
                             $(this).addClass('declineButton');
                         },
                         click: function() {
-                            liff.closeWindow();
+                            closeWindowHandle();
                         }
                     }]
                 });
@@ -219,9 +219,26 @@
 
             async function checkRegister() {}
 
+            async function getUser(userid,companyCode) {
+                try {
+                    const url = '/callApi.php';
+                    const params = {
+                        menutype: 'getUser',
+                        LineId: userid,
+                        CompanyCode: companyCode
+
+                    };
+                    const response = await axios.post(url, params);
+                    const res = JSON.stringify(response.data.result);
+                    return res;
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+
             async function showRegisterForm(LineUserId, LineEmail) {
-                $("#txtLineUserId").val(LineUserId);
-                $("#txtLineEmail").val(LineEmail);
+                $("#txtLineId").val(LineUserId);
+                $("#txtEMail").val(LineEmail);
             }
 
             function getProfileLiffUserId() {
@@ -230,13 +247,14 @@
                         try {
                             const LineUserId = profile.userId;
                             const _checkUserId = checkUserId(LineUserId);
+                            console.log(_checkUserId);
                             if (_checkUserId === true) {
                                 closeWindowHandle();
                             } else if (_checkUserId === false) {
                                 showPDPAdialog();
                                 // const LineDisplayName = profile.displayName;
                                 const LineEmail = liff.getDecodedIDToken().email;
-                                showRegisterForm(LineUserId, LineEmail);
+                                // showRegisterForm(LineUserId, LineEmail);
                                 getCompanyList();
                             }
                         } catch (error) {

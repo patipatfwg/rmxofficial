@@ -74,8 +74,40 @@ function sp_main_select_company()
     }
 }
 
+function select_user($LineId)
+{
+    try {
+        $obj = new stdClass;
+        $objData = new stdClass;
+        $link = dbConnect();
+        $id = $LineId;
+        $sql = "SELECT * FROM users WHERE LineId = '$id'";
+        $result = mysqli_query($link, $sql);
+        $count = mysqli_num_rows($result);
+        $boolResult = $count > 0 ? true : false;
+        if ($boolResult == true) {
+            $row = $result->fetch_array(MYSQLI_ASSOC);
+            $objData->LineId = $id;
+            $objData->CustName = $row["CustName"];
+            $objData->CustSurName = $row["CustSurName"];
+            $objData->EMail = $row["EMail"];
+            $objData->MobileNo = $row["MobileNo"];
+            $data = $objData;
+        } else {
+            $data = null;
+        }
+        $obj->data = $data;
+        $obj->result = $boolResult;
+        $data = $obj;
+    } catch (\Throwable $th) {
+        $data = null;
+    }
+    return $data;
+}
+
 function LineUserId()
 {
+    $data = [];
     try {
         $json = file_get_contents('php://input');
         $json_data = json_decode($json);
@@ -91,22 +123,28 @@ function LineUserId()
         $obj->result = $boolResult;
         $data = $obj;
     } catch (\Throwable $th) {
-        $data = [];
+        $data = $th;
     }
     return json_encode($data);
 }
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 if ($requestMethod == 'POST') {
+    $data = [];
     $json = file_get_contents('php://input');
     $json_data = json_decode($json);
     $menutype = $json_data->menutype;
+
     if ($menutype == 'getUserId') {
         $data = LineUserId();
     } else if ($menutype == 'getCompanyList') {
         $data = sp_main_select_company();
-    } else {
-        $data = [];
+    } else if ($menutype == 'getUser') {
+        $CompanyCode = $json_data->CompanyCode;
+        if ($CompanyCode == '00001') {
+            $LineId = $json_data->LineId;
+            $data = select_user($LineId);
+        }
     }
     echo json_encode($data);
 }
