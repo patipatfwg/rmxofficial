@@ -82,7 +82,9 @@
                     </div>
                 </div>
                 <div class="form-group" id="registerThird" hidden>
-                    <div class="form-control btn btn-success btn-lg" id="registerSave">Confirm</div>
+                    <div class="row">
+                        <div class="form-control btn btn-success btn-lg" id="registerSave">Confirm</div>
+                    </div>
                 </div>
             </div>
         </form>
@@ -103,7 +105,6 @@
                     const response = await axios.post(url, params);
                     const result = JSON.stringify(response.data.result);
                     objResult = JSON.parse(result);
-                    console.log(objResult);
                     if (objResult == "Duplicate") {
                         $("#registerThird").show();
                     } else {
