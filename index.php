@@ -110,13 +110,14 @@
                     $("#registerSecond").hide();
                 } else {
                     try {
-                        aa = getUser(sessionStorage.getItem("LineId"), companyCode);
-                        aa.then(function(result) {
+                        getuser = getUser(sessionStorage.getItem("LineId"), companyCode);
+                        getuser.then(function(result) {
                             console.log(result);
                         });
                         $("#registerSecond").show();
                     } catch (error) {
-                        console.log(error);
+                        obj = JSON.parse(res);
+                        console.log(obj['CustName']);
                     }
                 }
             });
