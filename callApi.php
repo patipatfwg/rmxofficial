@@ -90,13 +90,28 @@ function select_user($LineId, $EMail, $CompanyCode)
             $objData->LineId = $id;
             $objData->CustName = $row["CustName"];
             $objData->CustSurName = $row["CustSurName"];
-            $objData->EMail = $row["EMail"];
+            $objData->EMail = $EMail;
             $objData->MobileNo = $row["MobileNo"];
             $data = $objData;
             $txtResult = "Duplicate";
         } else {
-            $data = null;
-            $txtResult = "Not Found User";
+            $sql2 = "SELECT * FROM users WHERE EMail = '$EMail'";
+            $result2 = mysqli_query($link, $sql2);
+            $count2 = mysqli_num_rows($result2);
+            $boolResult2 = $count2 > 0 ? true : false;
+            if ($boolResult2 == true) {
+                $row = $result2->fetch_array(MYSQLI_ASSOC);
+                $objData->LineId = $row["LineId"];
+                $objData->CustName = $row["CustName"];
+                $objData->CustSurName = $row["CustSurName"];
+                $objData->EMail = $EMail;
+                $objData->MobileNo = $row["MobileNo"];
+                $data = $objData;
+                $txtResult = "New";
+            } else {
+                $data = null;
+                $txtResult = "Not Found User";
+            }
         }
         $obj->body = $data;
         $obj->result = $txtResult;
