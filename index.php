@@ -115,12 +115,14 @@
                         getuser = getUser(LineUserId, companyCode);
                         getuser.then(function(result) {
                             obj = JSON.parse(result);
-                            $("#txtLineId").val(LineUserId);
-                            if (EMailSession != null || EMailSession != '') {
+                            getEMail = obj['EMail'];
+                            console.log(getEMail);
+                            if (getEMail == null || getEMail == '') {
                                 $("#txtEMail").val(EMailSession);
                             } else {
-                                $("#txtEMail").val(obj['EMail']);
+                                $("#txtEMail").val(getEMail);
                             }
+                            $("#txtLineId").val(LineUserId);
                             $("#txtCustName").val(obj['CustName']);
                             $("#txtCustSurName").val(obj['CustSurName']);
                             $("#txtMobileNo").val(obj['MobileNo']);
