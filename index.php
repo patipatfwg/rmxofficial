@@ -62,13 +62,13 @@
                         <label>Email </label>
                         <input  type="text" class="form-control" id="txtLineEmail"></input>
                     <p>
-                        <label>FirstName </label>
+                        <label>FirstName * </label>
                         <input type="text" class="form-control"></input>
                     <p>
-                        <label>LastName </label>
+                        <label>LastName * </label>
                         <input type="text" class="form-control"></input>
                     <p>
-                        <label>MobileNumber </label>
+                        <label>MobileNumber * </label>
                         <input type="text" class="form-control" id="MobileNumber"></input>
                     <p><p>
                         <button type="button" class="btn btn-success btn-lg  form-control" id="save">Save</button>
