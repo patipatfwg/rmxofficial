@@ -99,12 +99,11 @@
                     };
                     const response = await axios.post(url, params);
                     const result = JSON.stringify(response.data.result);
-
+                    alert(result);
                     if (result == "Duplicate") {
                         //Change RichMenu
                         alert('Duplicate');
                     } else {
-                        alert('New');
                         if (result == "New") {
                             const res = JSON.stringify(response.data.body);
                             obj = JSON.parse(res);
