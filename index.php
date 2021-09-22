@@ -70,8 +70,8 @@
                     <p>
                         <label>MobileNumber </label>
                         <input type="text" class="form-control" id="MobileNumber"></input>
-                    <p>
-                        <button type="button" class="btn btn-success form-control" id="save">Save</button>
+                    <p><p>
+                        <button type="button" class="btn btn-success btn-lg  form-control" id="save">Save</button>
                 </div>
             </form>
         </div>
@@ -213,7 +213,7 @@
 
             async function checkRegister() {}
 
-            async function showRegisterForm(LineUserId, LineDisplayName, LineEmail) {
+            async function showRegisterForm(LineUserId, LineEmail) {
                 $("#txtLineUserId").val(LineUserId);
                 $("#txtLineEmail").val(LineEmail);
             }
@@ -228,10 +228,10 @@
                                 closeWindowHandle();
                             } else if (_checkUserId === false) {
                                 showPDPAdialog();
-                                getCompanyList();
-                                const LineDisplayName = profile.displayName;
+                                // const LineDisplayName = profile.displayName;
                                 const LineEmail = liff.getDecodedIDToken().email;
-                                showRegisterForm(LineUserId, LineDisplayName, LineEmail);
+                                showRegisterForm(LineUserId, LineEmail);
+                                getCompanyList();
                             }
                         } catch (error) {
                             console.error(error);
