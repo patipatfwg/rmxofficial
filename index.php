@@ -91,7 +91,7 @@
                 if (companyCode == '00000') {
                     $("#registerSecond").hide();
                 } else {
-                    getUser($.session.get("LineId"),companyCode);
+                    getUser(sessionStorage.getItem("LineId"),companyCode);
                     $("#registerSecond").show();
                 }
             });
@@ -246,7 +246,7 @@
                     .then(profile => {
                         try {
                             const LineUserId = profile.userId;
-                            $.session.set("LineId", LineUserId);
+                            sessionStorage.setItem("LineId",LineUserId);
                             const _checkUserId = checkUserId(LineUserId);
                             console.log(_checkUserId);
                             if (_checkUserId === true) {
