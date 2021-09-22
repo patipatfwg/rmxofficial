@@ -99,9 +99,10 @@
                     };
                     const response = await axios.post(url, params);
                     const result = JSON.stringify(response.data.result);
+                    console.log(result);
                     if (result == "Duplicate") {
-
-                    } else if (result == "Not Found User")  {
+                        //Change RichMenu
+                    } else if (result == "Not Found User") {
                         const res = JSON.stringify(response.data.body);
                         obj = JSON.parse(res);
                         getEMail = obj['EMail'];
@@ -112,6 +113,7 @@
                         $("#txtCustSurName").val(obj['CustSurName']);
                         $("#txtMobileNo").val(obj['MobileNo']);
                         $("#txtLineId").val(LineUserId);
+                        
                         $("#registerSecond").show();
                     }
 
