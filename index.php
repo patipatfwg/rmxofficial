@@ -111,7 +111,9 @@
                 } else {
                     try {
                         aa = getUser(sessionStorage.getItem("LineId"), companyCode);
-                        console.log(aa);
+                        aa.then(function(result) {
+                            console.log(result);
+                        });
                         $("#registerSecond").show();
                     } catch (error) {
                         console.log(error);
