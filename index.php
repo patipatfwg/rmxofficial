@@ -103,19 +103,16 @@
                     if (result == "Duplicate") {
                         //Change RichMenu
                     } else if (result == "Not Found User") {
-                        const res = JSON.stringify(response.data.body);
-                        obj = JSON.parse(res);
-                        console.log(obj);
-                        getEMail = obj['EMail'];
-                        if (getEMail != null || getEMail != '') {
-                            $("#txtEMail").val(getEMail);
-                        }
-                        $("#txtCustName").val(obj['CustName']);
-                        $("#txtCustSurName").val(obj['CustSurName']);
-                        $("#txtMobileNo").val(obj['MobileNo']);
-                        $("#txtLineId").val(LineUserId);
-                        
-                        $("#registerSecond").show();
+                        // const res = JSON.stringify(response.data.body);
+                        // obj = JSON.parse(res);
+                        // console.log(obj);
+                        // getEMail = obj['EMail'];
+                        // if (getEMail != null || getEMail != '') {
+                        //     $("#txtEMail").val(getEMail);
+                        // }
+                        // $("#txtCustName").val(obj['CustName']);
+                        // $("#txtCustSurName").val(obj['CustSurName']);
+                        // $("#txtMobileNo").val(obj['MobileNo']);
                     }
 
 
@@ -136,7 +133,7 @@
                         $("#txtLineId").val(LineUserId);
                         $("#txtEMail").val(EMailSession);
                         getUser(LineUserId, EMailSession, companyCode);
-
+                        $("#registerSecond").show();
                     } catch (error) {
                         console.log(error);
                     }
