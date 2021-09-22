@@ -96,7 +96,7 @@ function select_user($LineId)
         } else {
             $data = null;
         }
-        $obj->data = $data;
+        $obj->body = $data;
         $obj->result = $boolResult;
         $data = $obj;
     } catch (\Throwable $th) {
