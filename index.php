@@ -116,11 +116,11 @@
                         getuser.then(function(result) {
                             obj = JSON.parse(result);
                             $("#txtLineId").val(LineUserId);
-                            if (EMail==null || EMail=='') {
-                                $("#txtEMail").val(obj['EMail']);
-                            } else {
+                            // if (EMail==null || EMail=='') {
+                                // $("#txtEMail").val(obj['EMail']);
+                            // } else {
                                 $("#txtEMail").val(EMail);
-                            }
+                            // }
                             $("#txtCustName").val(obj['CustName']);
                             $("#txtCustSurName").val(obj['CustSurName']);
                             $("#txtMobileNo").val(obj['MobileNo']);
