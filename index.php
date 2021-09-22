@@ -77,12 +77,11 @@
                         <p>
                     </div>
                     <div class="row">
-                        <div class="col-6">
-                            <button type="button" class="form-control btn btn-success btn-lg" id="save">Save</button>
-                        </div>
-                        <div class="col-6">
-                            <button type="button" class="form-control btn btn-success btn-lg" id="save">Save</button>
-                        </div>
+
+                        <button type="button" class=" btn btn-success btn-md" id="save">Save</button>
+
+                        <button type="button" class="btn btn-success btn-md" id="save">Save</button>
+
                     </div>
                 </div>
             </div>
