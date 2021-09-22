@@ -98,7 +98,6 @@
                     };
                     const response = await axios.post(url, params);
                     const res = JSON.stringify(response.data.body);
-                    console.log(res);
                     return res;
                 } catch (error) {
                     console.log(error);
@@ -111,7 +110,8 @@
                     $("#registerSecond").hide();
                 } else {
                     try {
-                        getUser(sessionStorage.getItem("LineId"), companyCode);
+                        aa = getUser(sessionStorage.getItem("LineId"), companyCode);
+                        console.log(aa);
                         $("#registerSecond").show();
                     } catch (error) {
                         console.log(error);
