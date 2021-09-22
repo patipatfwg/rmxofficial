@@ -111,16 +111,16 @@
                 } else {
                     try {
                         LineUserId = sessionStorage.getItem("LineId");
-                        EMail = sessionStorage.getItem("EMail");
+                        EMailSession = sessionStorage.getItem("EMail");
                         getuser = getUser(LineUserId, companyCode);
                         getuser.then(function(result) {
                             obj = JSON.parse(result);
                             $("#txtLineId").val(LineUserId);
-                            // if (EMail==null || EMail=='') {
-                                // $("#txtEMail").val(obj['EMail']);
-                            // } else {
-                                $("#txtEMail").val(EMail);
-                            // }
+                            if (EMailSession != null || EMailSession != '') {
+                                $("#txtEMail").val(EMailSession);
+                            } else {
+                                $("#txtEMail").val(obj['EMail']);
+                            }
                             $("#txtCustName").val(obj['CustName']);
                             $("#txtCustSurName").val(obj['CustSurName']);
                             $("#txtMobileNo").val(obj['MobileNo']);
