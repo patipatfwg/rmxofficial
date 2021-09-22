@@ -99,12 +99,13 @@
                     };
                     const response = await axios.post(url, params);
                     const result = JSON.stringify(response.data.result);
-                    console.log(result);
+                    
                     if (result == "Duplicate") {
                         //Change RichMenu
                     } else if (result == "Not Found User") {
                         const res = JSON.stringify(response.data.body);
                         obj = JSON.parse(res);
+                        console.log(obj);
                         getEMail = obj['EMail'];
                         if (getEMail != null || getEMail != '') {
                             $("#txtEMail").val(getEMail);
