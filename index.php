@@ -77,6 +77,7 @@
                             <label>MobileNumber * </label>
                             <input type="text" class="form-control" id="txtMobileNo"></input>
                         <p>
+                            <div class="form-control btn btn-info btn-lg" id="registerSave">Save</div>
                         <p>
                     </div>
                 </div>
@@ -112,28 +113,27 @@
                     try {
                         LineUserId = sessionStorage.getItem("LineId");
                         EMailSession = sessionStorage.getItem("EMail");
+                        $("#txtLineId").val(LineUserId);
+                        $("#txtEMail").val(EMailSession);
                         getuser = getUser(LineUserId, companyCode);
                         getuser.then(function(result) {
                             obj = JSON.parse(result);
                             getEMail = obj['EMail'];
-                            console.log(getEMail);
-                            if (getEMail == null || getEMail == '') {
-                                $("#txtEMail").val(EMailSession);
-                            } else {
+                            if (getEMail != null || getEMail != '') {
                                 $("#txtEMail").val(getEMail);
                             }
-                            $("#txtLineId").val(LineUserId);
                             $("#txtCustName").val(obj['CustName']);
                             $("#txtCustSurName").val(obj['CustSurName']);
                             $("#txtMobileNo").val(obj['MobileNo']);
                         });
+                        $("#txtLineId").val(LineUserId);
                         $("#registerSecond").show();
                     } catch (error) {
                         console.log(error);
                     }
                 }
             });
-            $("#save").click(function() {
+            $("#registerSave").click(function() {
                 var MobileNumber = $("#txtMobileNo").val();
                 alert(MobileNumber);
             });
