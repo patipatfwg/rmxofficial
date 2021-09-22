@@ -127,7 +127,7 @@
                             $("#txtMobileNo").val(obj['MobileNo']);
                         });
                         $("#txtLineId").val(LineUserId);
-                        $("#registerSecond").show();
+                        // $("#registerSecond").show();
                         setTimeout($("#registerSecond").show(), 2000);
                     } catch (error) {
                         console.log(error);
