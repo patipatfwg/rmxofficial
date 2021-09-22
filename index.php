@@ -46,40 +46,46 @@
 
     <div id="dialogMsg"></div>
     <div class="container">
-        <div class="col-12">
-            <form id="registerForm">
-                <h1>Register Member</h1>
-                <div class="form-group">
-                    <label>Company Code </label>
-                    <select class="form-control" name="CompanyCode" id="CompanyCode">
-                    </select>
-                </div>
-                <div class="form-group" id="registerSecond" hidden>
-                    <div class="col-6">
-                        <p>
-                            <label>LineID </label>
-                            <input type="text" class="form-control" id="txtLineUserId" disabled></input>
-                        <p>
-                            <label>Email * </label>
-                            <input type="text" class="form-control" id="txtLineEmail"></input>
-                        <p>
-                            <label>FirstName * </label>
-                            <input type="text" class="form-control"></input>
-                        <p>
-                            <label>LastName * </label>
-                            <input type="text" class="form-control"></input>
-                        <p>
-                            <label>MobileNumber * </label>
-                            <input type="text" class="form-control" id="MobileNumber"></input>
-                        <p>
-                        <p>
+        <form id="registerForm">
+            <div class="row">
+                <div class="row">
+                    <h1>Register Member</h1>
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Company Code </label>
+                            <select class="form-control" name="CompanyCode" id="CompanyCode">
+                            </select>
+                        </div>
+                        <div class="form-group" id="registerSecond" hidden>
+                            <div class="col-6">
+                                <p>
+                                    <label>LineID </label>
+                                    <input type="text" class="form-control" id="txtLineUserId" disabled></input>
+                                <p>
+                                    <label>Email * </label>
+                                    <input type="text" class="form-control" id="txtLineEmail"></input>
+                                <p>
+                                    <label>FirstName * </label>
+                                    <input type="text" class="form-control"></input>
+                                <p>
+                                    <label>LastName * </label>
+                                    <input type="text" class="form-control"></input>
+                                <p>
+                                    <label>MobileNumber * </label>
+                                    <input type="text" class="form-control" id="MobileNumber"></input>
+                                <p>
+                                <p>
+                            </div>
+                            <div class="col-6">
+                                <button type="button" class="form-control btn btn-success btn-lg" id="save">Save</button>
+                            </div>
+                            <div class="col-6">
+                                <button type="button" class="form-control btn btn-success btn-lg" id="save">Save</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-6">
-                        <button type="button" class="form-control btn btn-success btn-lg" id="save">Save</button>
-                    </div>
                 </div>
-            </form>
-        </div>
+        </form>
     </div>
     <div id="errorMsg"></div>
     <div id="form-click-to-call"></div>
