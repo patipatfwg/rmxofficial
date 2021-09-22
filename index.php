@@ -45,6 +45,7 @@
 <body>
 
     <div id="dialogMsg"></div>
+    <div id="closeMsg" hidden> Close Window </div>
     <div class="container">
         <form id="registerForm">
             <div class="row">
@@ -103,9 +104,7 @@
             function closeWindowHandle() {
                 if (liff.getOS() == 'web') {
                     function closeWindow() {
-                        let new_window =
-                            open(location, '_self');
-                        new_window.close();
+                        $("#closeMsg").removeClass('hidden');
                         return false;
                     }
                     closeWindow();
@@ -115,7 +114,7 @@
             }
 
             function showPDPAdialog() {
-                const dialogMsgtitle = "<b>หนังสือให้ความยินยอมในการเปิดเผยข้อมูล</b>";
+                const dialogMsgtitle = "หนังสือให้ความยินยอมในการเปิดเผยข้อมูล";
                 const AcceptBtn = "ยอมรับ";
                 const DeclineBtn = "ไม่" + AcceptBtn;
 
@@ -248,14 +247,14 @@
                             const LineUserId = profile.userId;
                             sessionStorage.setItem("LineId",LineUserId);
                             const _checkUserId = checkUserId(LineUserId);
-                            console.log(_checkUserId);
                             if (_checkUserId === true) {
                                 closeWindowHandle();
                             } else if (_checkUserId === false) {
                                 showPDPAdialog();
                                 // const LineDisplayName = profile.displayName;
                                 const LineEmail = liff.getDecodedIDToken().email;
-                                // showRegisterForm(LineUserId, LineEmail);
+                                const LineUserId_ = sessionStorage.getItem("LineId");
+                                showRegisterForm(LineUserId_, LineEmail);
                                 getCompanyList();
                             }
                         } catch (error) {
