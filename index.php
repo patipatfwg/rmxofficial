@@ -67,12 +67,11 @@
                     <p>
                         <label>LastName </label>
                         <input type="text" class="form-control"></input>
-
                     <p>
                         <label>MobileNumber </label>
                         <input type="text" class="form-control" id="MobileNumber"></input>
                     <p>
-                        <button type="button" class="btn btn-success" id="save">Save</button>
+                        <button type="button" class="btn btn-success form-control" id="save">Save</button>
                 </div>
             </form>
         </div>
