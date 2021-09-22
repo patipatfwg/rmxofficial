@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://static.line-scdn.net/liff/edge/versions/2.12.0/sdk.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -87,7 +87,7 @@
     <div id="form-click-to-call"></div>
     <script language="javascript">
         $(document).ready(function() {
-            async function getUser(userid,companyCode) {
+            async function getUser(userid, companyCode) {
                 try {
                     const url = '/callApi.php';
                     const params = {
@@ -109,8 +109,13 @@
                 if (companyCode == '00000') {
                     $("#registerSecond").hide();
                 } else {
-                    console.log(getUser(sessionStorage.getItem("LineId"),companyCode));
-                    $("#registerSecond").show();
+                    try {
+                        const aa = await getUser(sessionStorage.getItem("LineId"), companyCode);
+                        console.log(aa);
+                        $("#registerSecond").show();
+                    } catch (error) {
+                        console.log(error);
+                    }
                 }
             });
             $("#save").click(function() {
@@ -250,7 +255,7 @@
                     .then(profile => {
                         try {
                             const LineUserId = profile.userId;
-                            sessionStorage.setItem("LineId",LineUserId);
+                            sessionStorage.setItem("LineId", LineUserId);
                             const _checkUserId = checkUserId(LineUserId);
                             if (_checkUserId === true) {
                                 closeWindowHandle();
