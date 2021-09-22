@@ -97,6 +97,19 @@
             </div>
         </form>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                One of three columns
+            </div>
+            <div class="col-sm">
+                One of three columns
+            </div>
+            <div class="col-sm">
+                One of three columns
+            </div>
+        </div>
+    </div>
     <div id="errorMsg"></div>
     <div id="form-click-to-call"></div>
     <script language="javascript">
