@@ -88,18 +88,35 @@
     <div id="form-click-to-call"></div>
     <script language="javascript">
         $(document).ready(function() {
-            async function getUser(userid, companyCode) {
+            async function getUser(userid, eMail, companyCode) {
                 try {
                     const url = '/callApi.php';
                     const params = {
                         menutype: 'getUser',
                         LineId: userid,
+                        EMail: eMail,
                         CompanyCode: companyCode
-
                     };
                     const response = await axios.post(url, params);
-                    const res = JSON.stringify(response.data.body);
-                    return res;
+                    const result = JSON.stringify(response.data.result);
+                    if (result == "Duplicate") {
+
+                    } else if (result == "Not Found User")  {
+                        const res = JSON.stringify(response.data.body);
+                        obj = JSON.parse(res);
+                        getEMail = obj['EMail'];
+                        if (getEMail != null || getEMail != '') {
+                            $("#txtEMail").val(getEMail);
+                        }
+                        $("#txtCustName").val(obj['CustName']);
+                        $("#txtCustSurName").val(obj['CustSurName']);
+                        $("#txtMobileNo").val(obj['MobileNo']);
+                        $("#txtLineId").val(LineUserId);
+                        $("#registerSecond").show();
+                    }
+
+
+
                 } catch (error) {
                     console.log(error);
                 }
@@ -115,27 +132,15 @@
                         EMailSession = sessionStorage.getItem("EMail");
                         $("#txtLineId").val(LineUserId);
                         $("#txtEMail").val(EMailSession);
-                        getuser = getUser(LineUserId, companyCode);
-                        getuser.then(function(result) {
-                            obj = JSON.parse(result);
-                            getEMail = obj['EMail'];
-                            if (getEMail != null || getEMail != '') {
-                                $("#txtEMail").val(getEMail);
-                            }
-                            $("#txtCustName").val(obj['CustName']);
-                            $("#txtCustSurName").val(obj['CustSurName']);
-                            $("#txtMobileNo").val(obj['MobileNo']);
-                        });
-                        $("#txtLineId").val(LineUserId);
-                        // $("#registerSecond").show();
-                        setTimeout($("#registerSecond").show(), 2000);
+                        getUser(LineUserId, EMailSession, companyCode);
+
                     } catch (error) {
                         console.log(error);
                     }
                 }
             });
 
-            async function saveData(CompanyCode,LineId,EMail,CustName,CustSurName,MobileNo) {
+            async function saveData(CompanyCode, LineId, EMail, CustName, CustSurName, MobileNo) {
                 alert(CompanyCode);
                 alert(LineId);
                 alert(EMail);
@@ -151,7 +156,7 @@
                 var CustName = $("#txtCustName").val();
                 var CustSurName = $("#txtCustSurName").val();
                 var MobileNo = $("#txtMobileNo").val();
-                saveData(CompanyCode,LineId,EMail,CustName,CustSurName,MobileNo);
+                saveData(CompanyCode, LineId, EMail, CustName, CustSurName, MobileNo);
             });
 
             function closeWindowHandle() {

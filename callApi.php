@@ -74,14 +74,14 @@ function sp_main_select_company()
     }
 }
 
-function select_user($LineId)
+function select_user($LineId, $EMail, $CompanyCode)
 {
     try {
         $obj = new stdClass;
         $objData = new stdClass;
         $link = dbConnect();
         $id = $LineId;
-        $sql = "SELECT * FROM users WHERE LineId = '$id'";
+        $sql = "SELECT * FROM users WHERE LineId = '$id' AND EMail = '$EMail' AND CompanyCode = '$CompanyCode'";
         $result = mysqli_query($link, $sql);
         $count = mysqli_num_rows($result);
         $boolResult = $count > 0 ? true : false;
@@ -93,11 +93,13 @@ function select_user($LineId)
             $objData->EMail = $row["EMail"];
             $objData->MobileNo = $row["MobileNo"];
             $data = $objData;
+            $txtResult = "Duplicate";
         } else {
             $data = null;
+            $txtResult = "Not Found User";
         }
         $obj->body = $data;
-        $obj->result = $boolResult;
+        $obj->result = $txtResult;
         $data = $obj;
     } catch (\Throwable $th) {
         $data = null;
@@ -141,10 +143,9 @@ if ($requestMethod == 'POST') {
         $data = sp_main_select_company();
     } else if ($menutype == 'getUser') {
         $CompanyCode = $json_data->CompanyCode;
-        if ($CompanyCode == '00001') {
-            $LineId = $json_data->LineId;
-            $data = select_user($LineId);
-        }
+        $LineId = $json_data->LineId;
+        $EMail = $json_data->EMail;
+        $data = select_user($LineId, $EMail, $CompanyCode);
     }
     echo json_encode($data);
 }
