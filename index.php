@@ -112,12 +112,12 @@
                     try {
                         getuser = getUser(sessionStorage.getItem("LineId"), companyCode);
                         getuser.then(function(result) {
-                            console.log(result);
+                            obj = JSON.parse(result);
+                            console.log(obj['CustName']);
                         });
                         $("#registerSecond").show();
                     } catch (error) {
-                        obj = JSON.parse(res);
-                        console.log(obj['CustName']);
+                        console.log(error);
                     }
                 }
             });
