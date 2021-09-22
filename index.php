@@ -77,21 +77,9 @@
                         <p>
                     </div>
                     <div class="row">
-                        <div class="col-sm">
-                            One of three columns
+                        <div class="col">
+                            <button type="button" class="form-control btn btn-success btn-lg" id="save">Save</button>
                         </div>
-                        <div class="col-sm">
-                            One of three columns
-                        </div>
-                        <div class="col-sm">
-                            One of three columns
-                        </div>
-                        <!-- <div class="col-md">
-                            <button type="button" class=" btn btn-success" id="save">Save</button>
-                        </div>
-                        <div class="col-md">
-                            <button type="button" class="btn btn-success " id="save">Save</button>
-                        </div> -->
                     </div>
                 </div>
             </div>
