@@ -81,6 +81,9 @@
                         <p>
                     </div>
                 </div>
+                <div class="form-group" id="registerThird" hidden>
+                    <div class="form-control btn btn-success btn-lg" id="registerSave">Confirm</div>
+                </div>
             </div>
         </form>
     </div>
@@ -101,8 +104,7 @@
                     const result = JSON.stringify(response.data.result);
                     alert(result);
                     if (result == "Duplicate") {
-                        //Change RichMenu
-                        alert('Welcome');
+                        $("#registerThird").show();
                     } else {
                         if (result == "New") {
                             const res = JSON.stringify(response.data.body);
