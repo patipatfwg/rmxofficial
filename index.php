@@ -51,10 +51,12 @@
                 <h1>Register Member</h1>
             </div>
             <div class="row">
-                <div class="form-group">
-                    <label>Company Code </label>
-                    <select class="form-control" name="CompanyCode" id="CompanyCode">
-                    </select>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Company Code </label>
+                        <select class="form-control" name="CompanyCode" id="CompanyCode">
+                        </select>
+                    </div>
                 </div>
                 <div class="form-group" id="registerSecond" hidden>
                     <div class="row">
