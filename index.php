@@ -53,7 +53,7 @@
             <div class="row">
                 <div class="row">
                     <div class="form-group">
-                        <label>Company Code </label>
+                        <label>Company Code *</label>
                         <select class="form-control" name="CompanyCode" id="CompanyCode">
                         </select>
                     </div>
@@ -61,7 +61,7 @@
                 <div class="form-group" id="registerSecond" hidden>
                     <div class="row">
                         <p>
-                            <label>LineID </label>
+                            <label>LineID *</label>
                             <input type="text" class="form-control" id="txtLineUserId" disabled></input>
                         <p>
                             <label>Email * </label>
@@ -78,27 +78,9 @@
                         <p>
                         <p>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <button type="button" class="form-control btn btn-success btn-lg" id="save">Save</button>
-                        </div>
-                    </div>
                 </div>
             </div>
         </form>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                One of three columns
-            </div>
-            <div class="col-sm">
-                One of three columns
-            </div>
-            <div class="col-sm">
-                One of three columns
-            </div>
-        </div>
     </div>
     <div id="errorMsg"></div>
     <div id="form-click-to-call"></div>
