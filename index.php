@@ -102,8 +102,9 @@
 
                     if (result == "Duplicate") {
                         //Change RichMenu
-                        alert('Welcome');
+                        alert('Duplicate');
                     } else {
+                        alert('New');
                         if (result == "New") {
                             const res = JSON.stringify(response.data.body);
                             obj = JSON.parse(res);
