@@ -110,7 +110,7 @@
                     $("#registerSecond").hide();
                 } else {
                     try {
-                        const aa = await getUser(sessionStorage.getItem("LineId"), companyCode);
+                        const aa = getUser(sessionStorage.getItem("LineId"), companyCode);
                         console.log(aa);
                         $("#registerSecond").show();
                     } catch (error) {
