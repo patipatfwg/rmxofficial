@@ -168,6 +168,11 @@
                 }
             });
 
+            function successDialog(){
+                changeMemberMenu();
+                closeWindowHandle();
+            }
+
             async function saveDB(CompanyCode, LineId, EMail, CustName, CustSurName, MobileNo) {
 
                 const url = '/callApi.php';
@@ -186,10 +191,10 @@
 
                 objResult = JSON.parse(result);
                 if (objResult === 200) {
-                    alert('Success');
-                    closeWindowHandle();
+                    alert('Register Success');
+                    successDialog();
                 } else {
-                    alert('Fail');
+                    alert('Register Fail');
                 }
             }
 
@@ -205,7 +210,7 @@
 
             $("#registerConfirm").click(function() {
                 alert('Confirm Success');
-                closeWindowHandle();
+                successDialog();
             });
 
             function showPDPAdialog() {
@@ -243,6 +248,21 @@
 
             async function selectCompanyCode() {
                 // CompanyCode
+            }
+
+            async function changeMemberMenu() {
+                try {
+                    var LineId = sessionStorage.getItem("LineId");
+                    const url = '/callApi.php';
+                    const params = {
+                        menutype: 'lineApi',
+                        LineId: LineId,
+                        type: 'member',
+                    };
+                    await axios.post(url, params);
+                } catch (error) {
+                    console.log(error);
+                }
             }
 
             async function getCompanyList() {

@@ -216,7 +216,6 @@ if ($requestMethod == 'POST') {
     $json = file_get_contents('php://input');
     $json_data = json_decode($json);
     $menutype = $json_data->menutype;
-
     if ($menutype == 'getUserId') {
         $data = LineUserId();
     } else if ($menutype == 'getCompanyList') {
