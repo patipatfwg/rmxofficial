@@ -122,6 +122,28 @@ function select_user($LineId, $EMail, $CompanyCode)
     return $data;
 }
 
+function save_user()
+{
+    $obj = new stdClass;
+    $obj->result = 200;
+    try {
+        $json = file_get_contents('php://input');
+        $json_data = json_decode($json);
+        $link = dbConnect();
+        $sql = "INSERT INTO users (LineId, CustName, CustSurName,EMail,MobileNo,CompanyCode) VALUES ('$json_data->LineId', '$json_data->CustName', '$json_data->CustSurName','$json_data->EMail','$json_data->MobileNo','$json_data->CompanyCode')";
+        if ($link->query($sql) === TRUE) {
+            $obj->body = "New record created successfully";
+        } else {
+            $obj->body = "Error: " . $sql . "<br>" . $link->error;
+        }
+    } catch (\Throwable $th) {
+        $obj->body =  $th;
+        $obj->result = 400;
+    }
+    $data = $obj;
+    return  $data;
+}
+
 function LineUserId()
 {
     $data = [];
@@ -161,6 +183,8 @@ if ($requestMethod == 'POST') {
         $LineId = $json_data->LineId;
         $EMail = $json_data->EMail;
         $data = select_user($LineId, $EMail, $CompanyCode);
+    } else if ($menutype == 'saveUser') {
+        $data = save_user();
     }
     echo json_encode($data);
 }

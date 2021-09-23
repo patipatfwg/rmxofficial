@@ -93,6 +93,32 @@
     <div id="form-click-to-call"></div>
     <script language="javascript">
         $(document).ready(function() {
+            if ($.browser.platform == "win") {
+                alert("windows");
+            }
+            if ($.browser.platform == "android") {
+                alert("android");
+            }
+
+            function closeWindowHandle() {
+
+                function closeWindow() {
+                    let new_window =
+                        open(location, '_self');
+                    new_window.close();
+                    $("#closeMsg").removeClass('hidden');
+                    return false;
+                }
+
+                if (liff.getOS() == 'web') {
+
+                    closeWindow();
+                } else {
+                    liff.closeWindow();
+                }
+
+            }
+
             async function getUser(userid, eMail, companyCode) {
                 try {
                     const url = '/callApi.php';
@@ -141,13 +167,8 @@
                 }
             });
 
-            async function saveData(CompanyCode, LineId, EMail, CustName, CustSurName, MobileNo) {
-                alert(CompanyCode);
-                alert(LineId);
-                alert(EMail);
-                alert(CustName);
-                alert(CustSurName);
-                alert(MobileNo);
+            async function saveDB(CompanyCode, LineId, EMail, CustName, CustSurName, MobileNo) {
+
             }
 
             $("#registerSave").click(function() {
@@ -157,27 +178,15 @@
                 var CustName = $("#txtCustName").val();
                 var CustSurName = $("#txtCustSurName").val();
                 var MobileNo = $("#txtMobileNo").val();
-                saveData(CompanyCode, LineId, EMail, CustName, CustSurName, MobileNo);
+                saveDB(CompanyCode, LineId, EMail, CustName, CustSurName, MobileNo);
             });
 
             $("#registerConfirm").click(function() {
-                alert('ConCon');
+                alert('Confirm Success');
+                closeWindowHandle();
             });
 
-            function closeWindowHandle() {
-                if (liff.getOS() == 'web') {
-                    function closeWindow() {
-                        let new_window =
-                            open(location, '_self');
-                        new_window.close();
-                        $("#closeMsg").removeClass('hidden');
-                        return false;
-                    }
-                    closeWindow();
-                } else {
-                    liff.closeWindow();
-                }
-            }
+
 
             function showPDPAdialog() {
                 const dialogMsgtitle = "หนังสือให้ความยินยอมในการเปิดเผยข้อมูล";
