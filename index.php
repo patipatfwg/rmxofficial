@@ -77,7 +77,7 @@
                             <label>MobileNumber * </label>
                             <input type="text" class="form-control" id="txtMobileNo"></input>
                         <p>
-                        <div class="form-control btn btn-success btn-lg" id="registerSave">Save</div>
+                        <div class="form-control btn btn-success btn-lg" id="registerSave">Register</div>
                         <p>
                     </div>
                 </div>
@@ -114,6 +114,7 @@
                             $("#txtCustName").val(obj['CustName']);
                             $("#txtCustSurName").val(obj['CustSurName']);
                             $("#txtMobileNo").val(obj['MobileNo']);
+                            $("#registerSave").text('Confirm');
                         }
                         $("#registerSecond").show();
                     }
