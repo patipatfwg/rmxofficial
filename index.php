@@ -47,47 +47,49 @@
     <div id="dialogMsg"></div>
     <div id="closeMsg" hidden> Close Window </div>
     <div class="container">
-        <form id="registerForm">
-            <div class="row">
-                <h1>Register Member</h1>
-            </div>
-            <div class="row mx-auto">
+        <div class="row">
+            <form id="registerForm">
                 <div class="row">
-                    <div class="form-group">
-                        <label>Company Code *</label>
-                        <select class="form-control" name="CompanyCode" id="CompanyCode">
-                        </select>
-                    </div>
+                    <h1>Register Member</h1>
                 </div>
-                <div class="form-group" id="registerSecond" hidden>
+                <div class="row mx-auto">
                     <div class="row">
-                        <p>
-                            <label>LineID *</label>
-                            <input type="text" class="form-control" id="txtLineId" disabled></input>
-                        <p>
-                            <label>Email * </label>
-                            <input type="text" class="form-control" id="txtEMail"></input>
-                        <p>
-                            <label>FirstName * </label>
-                            <input type="text" class="form-control" id="txtCustName"></input>
-                        <p>
-                            <label>LastName * </label>
-                            <input type="text" class="form-control" id="txtCustSurName"></input>
-                        <p>
-                            <label>MobileNumber * </label>
-                            <input type="text" class="form-control" id="txtMobileNo"></input>
-                        <p>
-                        <div class="form-control btn btn-success btn-lg" id="registerSave">Register</div>
-                        <p>
+                        <div class="form-group">
+                            <label>Company Code *</label>
+                            <select class="form-control" name="CompanyCode" id="CompanyCode">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" id="registerSecond" hidden>
+                        <div class="row">
+                            <p>
+                                <label>LineID *</label>
+                                <input type="text" class="form-control" id="txtLineId" disabled></input>
+                            <p>
+                                <label>Email * </label>
+                                <input type="text" class="form-control" id="txtEMail"></input>
+                            <p>
+                                <label>FirstName * </label>
+                                <input type="text" class="form-control" id="txtCustName"></input>
+                            <p>
+                                <label>LastName * </label>
+                                <input type="text" class="form-control" id="txtCustSurName"></input>
+                            <p>
+                                <label>MobileNumber * </label>
+                                <input type="text" class="form-control" id="txtMobileNo"></input>
+                            <p>
+                            <div class="form-control btn btn-success btn-lg" id="registerSave">Register</div>
+                            <p>
+                        </div>
+                    </div>
+                    <div class="form-group" id="registerThird" hidden>
+                        <div class="row">
+                            <div class="form-control btn btn-success btn-lg" id="registerConfirm">Confirm</div>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group" id="registerThird" hidden>
-                    <div class="row">
-                        <div class="form-control btn btn-success btn-lg" id="registerConfirm">Confirm</div>
-                    </div>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
     <div id="errorMsg"></div>
     <div id="form-click-to-call"></div>
@@ -181,7 +183,7 @@
                 if (objResult === 200) {
                     alert('Success');
                     closeWindowHandle();
-                }else{
+                } else {
                     alert('Fail');
                 }
             }
