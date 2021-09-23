@@ -187,7 +187,8 @@
                 var CustName = $("#txtCustName").val();
                 var CustSurName = $("#txtCustSurName").val();
                 var MobileNo = $("#txtMobileNo").val();
-                saveDB(CompanyCode, LineId, EMail, CustName, CustSurName, MobileNo);
+                alert(EMail+CustName+CustSurName+MobileNo);
+                // saveDB(CompanyCode, LineId, EMail, CustName, CustSurName, MobileNo);
             });
 
             $("#registerConfirm").click(function() {
