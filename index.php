@@ -331,8 +331,7 @@
                                 showPDPAdialog();
                                 // const LineDisplayName = profile.displayName;
                                 const LineEmail = liff.getDecodedIDToken().email;
-                                alert(typeof LineEmail);
-                                if (typeof LineEmail === "undefined") {
+                                if (jQuery.type(LineEmail) === "undefined") {
                                     mail = '';
                                 } else {
                                     mail = LineEmail;
