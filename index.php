@@ -51,7 +51,7 @@
             <div class="row">
                 <h1>Register Member</h1>
             </div>
-            <div class="row">
+            <div class="row mx-auto">
                 <div class="row">
                     <div class="form-group">
                         <label>Company Code *</label>
@@ -100,8 +100,8 @@
                     let new_window =
                         open(location, '_self');
                     new_window.close();
-
-                    $("#closeMsg").removeClass('hidden');
+                    this.close();
+                    // $("#closeMsg").removeClass('hidden');
                     return false;
                 }
 
