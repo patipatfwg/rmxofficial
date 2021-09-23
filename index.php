@@ -97,16 +97,15 @@
             function closeWindowHandle() {
 
                 function closeWindow() {
-                    // let new_window =
-                    //     open(location, '_self');
-                    // new_window.close();
-                    window.open('','_self').close();
+                    let new_window =
+                        open(location, '_self');
+                    new_window.close();
+
                     $("#closeMsg").removeClass('hidden');
                     return false;
                 }
 
                 if (liff.getOS() == 'web') {
-
                     closeWindow();
                 } else {
                     liff.closeWindow();
@@ -163,7 +162,18 @@
             });
 
             async function saveDB(CompanyCode, LineId, EMail, CustName, CustSurName, MobileNo) {
-
+                const url = '/callApi.php';
+                const params = {
+                    menutype: 'saveUser',
+                    LineId: userid,
+                    CustName: CustName,
+                    CustSurName: CustSurName,
+                    EMail: eMail,
+                    CompanyCode: CompanyCode
+                };
+                const response = await axios.post(url, params);
+                const result = JSON.stringify(response.data.result);
+                objResult = JSON.parse(result);
             }
 
             $("#registerSave").click(function() {
