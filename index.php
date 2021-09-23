@@ -165,7 +165,7 @@
                 const url = '/callApi.php';
                 const params = {
                     menutype: 'saveUser',
-                    LineId: userid,
+                    LineId: LineId,
                     CustName: CustName,
                     CustSurName: CustSurName,
                     EMail: eMail,
