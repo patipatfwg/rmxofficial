@@ -46,13 +46,13 @@
 
     <div id="dialogMsg"></div>
     <div id="closeMsg" hidden> Close Window </div>
-    <div class="container">
+    <div class="container d-grid gap-3">
         <div class="row">
             <form id="registerForm">
                 <div class="row">
                     <h1>Register Member</h1>
                 </div>
-                <div class="row mx-auto">
+                <div class="row">
                     <div class="row">
                         <div class="form-group">
                             <label>Company Code *</label>
