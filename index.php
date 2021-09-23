@@ -51,7 +51,7 @@
     <div id="dialogMsg"></div>
     <div id="closeMsg" hidden> Close Window </div>
     <div class="container">
-        <div class="row md-5">
+        <div class="row">
             <form class="registerForm" id="registerForm">
                 <div class="row">
                     <h1>Register Member</h1>
