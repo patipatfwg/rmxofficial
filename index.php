@@ -39,7 +39,8 @@
             background-color: #fff;
             color: #FF0000;
         }
-        .registerForm{
+
+        .registerForm {
             margin-left: 50px;
             margin-right: 50px;
         }
@@ -330,10 +331,12 @@
                                 showPDPAdialog();
                                 // const LineDisplayName = profile.displayName;
                                 const LineEmail = liff.getDecodedIDToken().email;
-                                if (LineEmail != '') {
-                                    sessionStorage.setItem("EMail", LineEmail);
+                                if (LineEmail != '' || LineEmail != 'undefined') {
+                                    LineEmail = LineEmail;
+                                } else {
+                                    LineEmail = '';
                                 }
-                                // showRegisterForm(LineUserId, LineEmail);
+                                sessionStorage.setItem("EMail", LineEmail);
                                 getCompanyList();
                             }
                         } catch (error) {
