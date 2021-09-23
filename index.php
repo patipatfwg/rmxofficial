@@ -168,7 +168,7 @@
                     LineId: LineId,
                     CustName: CustName,
                     CustSurName: CustSurName,
-                    EMail: eMail,
+                    EMail: EMail,
                     CompanyCode: CompanyCode
                 };
                 const response = await axios.post(url, params);
