@@ -60,8 +60,8 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group" id="registerSecond" hidden>
-                        <div class="row">
+                    <div class="row">
+                        <div class="form-group" id="registerSecond" hidden>
                             <p>
                                 <label>LineID *</label>
                                 <input type="text" class="form-control" id="txtLineId" disabled></input>
@@ -82,8 +82,8 @@
                             <p>
                         </div>
                     </div>
-                    <div class="form-group" id="registerThird" hidden>
-                        <div class="row">
+                    <div class="row">
+                        <div class="form-group" id="registerThird" hidden>
                             <div class="form-control btn btn-success btn-lg" id="registerConfirm">Confirm</div>
                         </div>
                     </div>
