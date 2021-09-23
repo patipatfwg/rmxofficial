@@ -93,12 +93,6 @@
     <div id="form-click-to-call"></div>
     <script language="javascript">
         $(document).ready(function() {
-            if ($.browser.platform == "win") {
-                alert("windows");
-            }
-            if ($.browser.platform == "android") {
-                alert("android");
-            }
 
             function closeWindowHandle() {
 
