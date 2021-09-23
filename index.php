@@ -39,6 +39,10 @@
             background-color: #fff;
             color: #FF0000;
         }
+        .registerForm{
+            margin-left: 50px;
+            margin-right: 50px;
+        }
     </style>
 </head>
 
@@ -46,9 +50,9 @@
 
     <div id="dialogMsg"></div>
     <div id="closeMsg" hidden> Close Window </div>
-    <div class="container d-grid gap-3">
-        <div class="row">
-            <form id="registerForm">
+    <div class="container">
+        <div class="row md-5">
+            <form class="registerForm" id="registerForm">
                 <div class="row">
                     <h1>Register Member</h1>
                 </div>
