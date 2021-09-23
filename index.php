@@ -331,16 +331,16 @@
                                 showPDPAdialog();
                                 // const LineDisplayName = profile.displayName;
                                 const LineEmail = liff.getDecodedIDToken().email;
-                                if (LineEmail != '' || LineEmail != 'undefined') {
-                                    LineEmail = LineEmail;
-                                } else {
+                                if (typeof LineEmail === "undefined") {
                                     LineEmail = '';
+                                } else {
+                                    LineEmail = LineEmail;
                                 }
                                 sessionStorage.setItem("EMail", LineEmail);
                                 getCompanyList();
                             }
                         } catch (error) {
-                            console.error(error);
+                            console.log(error);
                         }
                     })
                     .catch((err) => {
