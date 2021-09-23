@@ -167,6 +167,49 @@ function LineUserId()
     return json_encode($data);
 }
 
+function CallApiLine($LINEID, $type)
+{
+    $RICHMENUID = "richmenu-db181b79c35a2d6bfb2aaa286bbe95fd";
+    if ($type == 'member') {
+        $CURLOPT = CURLOPT_POST;
+        $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu/$RICHMENUID";
+        $data = array();
+        $method = "POST";
+    } else if ($type == 'logout') {
+        $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu";
+        $data = "{\"userIds\":[\"$LINEID\"]}";
+        $method = "DELETE";
+    }
+
+    $headers = [
+        "Authorization: Bearer s2l19GfGgdDnsbO9cidJGvlkKDvlT9MRiQla/SKo63c3Us7Tv/xKjLnkLnafX15C3U9N9AT5FiL/ARZHWhicfAqm7bSmB1TJWFAzYkBxgSdZbHVKMag6WdTUtnsb56UmvcwbxVq5WUiRzRfTcLTv9QdB04t89/1O/w1cDnyilFU=", "Content-Type: application/json"
+    ];
+    try {
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
+        // curl_setopt($ch, $CURLOPT, 1);
+        curl_setopt(
+            $ch,
+            CURLOPT_POSTFIELDS,
+            $data
+        );
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); # receive server response
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE); # do not verify SSL
+        $data = curl_exec($ch); # execute curl
+        $httpstatus = curl_getinfo($ch, CURLINFO_HTTP_CODE); # http response status code
+        curl_close($ch);
+
+        $data = "{}";
+    } catch (Exception $ex) {
+        $data = $ex;
+    }
+    return $data;
+}
+
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 if ($requestMethod == 'POST') {
     $data = [];
@@ -185,6 +228,10 @@ if ($requestMethod == 'POST') {
         $data = select_user($LineId, $EMail, $CompanyCode);
     } else if ($menutype == 'saveUser') {
         $data = save_user();
+    } else if ($menutype == 'lineApi') {
+        $LineId = $json_data->LineId;
+        $type = $json_data->type;
+        CallApiLine($LineId, $type);
     }
     echo json_encode($data);
 }
