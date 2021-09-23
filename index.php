@@ -173,7 +173,11 @@
                 };
                 const response = await axios.post(url, params);
                 const result = JSON.stringify(response.data.result);
+                console.log(result);
                 objResult = JSON.parse(result);
+                // if (objResult === 200) {
+                //     closeWindowHandle();
+                // }
             }
 
             $("#registerSave").click(function() {
