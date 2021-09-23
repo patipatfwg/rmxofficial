@@ -126,6 +126,7 @@
                 companyCode = this.value;
                 if (companyCode == '00000') {
                     $("#registerSecond").hide();
+                    $("#registerThird").hide();
                 } else {
                     try {
                         LineUserId = sessionStorage.getItem("LineId");
