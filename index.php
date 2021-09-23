@@ -97,9 +97,10 @@
             function closeWindowHandle() {
 
                 function closeWindow() {
-                    let new_window =
-                        open(location, '_self');
-                    new_window.close();
+                    // let new_window =
+                    //     open(location, '_self');
+                    // new_window.close();
+                    window.open('','_self').close();
                     $("#closeMsg").removeClass('hidden');
                     return false;
                 }
@@ -179,8 +180,6 @@
                 alert('Confirm Success');
                 closeWindowHandle();
             });
-
-
 
             function showPDPAdialog() {
                 const dialogMsgtitle = "หนังสือให้ความยินยอมในการเปิดเผยข้อมูล";
