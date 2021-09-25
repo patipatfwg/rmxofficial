@@ -83,16 +83,16 @@ function select_user_from($type, $link, $data)
     return [$boolResult2, $result2];
 }
 
-function select_user($id, $EMail, $CompanyCode)
+
+function select_user($LineId, $EMail, $CompanyCode)
 {
     try {
         $data = null;
-        // $id = $LineId;
+        $id = $LineId;
         $link = dbConnect();
         $obj = new stdClass;
         $objData = new stdClass;
         $objData->LineId = $id;
-        // $objData->EMail =  $EMail;
         $sql = "SELECT * FROM users WHERE LineId = '$id' AND EMail = '$EMail' AND CompanyCode = '$CompanyCode'";
         $result = mysqli_query($link, $sql);
         $count = mysqli_num_rows($result);
@@ -100,27 +100,31 @@ function select_user($id, $EMail, $CompanyCode)
         if ($boolResult == true) {
             $data = $objData;
             $txtResult = "Duplicate";
-        } else {
-            $ResultLineId = select_user_from('LineId', $link, $id);
-            if ($ResultLineId[0] == false) {
-                $ResultEMail = select_user_from('EMail', $link, $EMail);
-                if ($ResultEMail[0] == true) {
-                    $row = $ResultEMail[1]->fetch_array(MYSQLI_ASSOC);
-                    $objData->EMail =  $EMail;
-                    $txtResult = "New";
-                } else if ($ResultEMail[0] == false) {
+        } else if ($boolResult == false) {
+            $ResultEMail = select_user_from('EMail', $link, $EMail);
+            if ($ResultEMail[0] == false) {
+                $ResultLineId = select_user_from('LineId', $link, $LineId);
+                if ($ResultLineId[0] == false) {
                     $txtResult = "Not Found User";
+                } else  if ($ResultLineId[0] == true) {
+                    $txtResult = "New";
+                    $ResultData = $ResultLineId[1];
                 }
-            } else  if ($ResultLineId[0] == true) {
-                $row = $ResultLineId[1]->fetch_array(MYSQLI_ASSOC);
-                $objData->EMail =  $row["EMail"];
+            } else if ($ResultEMail[0] == true) {
                 $txtResult = "New";
+                $ResultData = $ResultEMail[1];
             }
 
             if ($txtResult == "New") {
+                $row = $ResultData->fetch_array(MYSQLI_ASSOC);
                 $objData->CustName = $row["CustName"];
                 $objData->CustSurName = $row["CustSurName"];
                 $objData->MobileNo = $row["MobileNo"];
+                if ($ResultEMail[0] == true) {
+                    $objData->EMail =  $EMail;
+                } else {
+                    $objData->EMail = $row["EMail"];
+                }
                 $data = $objData;
             }
         }
