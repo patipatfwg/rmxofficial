@@ -106,19 +106,20 @@ function select_user($LineId, $EMail, $CompanyCode)
                 $ResultEMail = select_user_from('EMail', $link, $EMail);
                 if ($ResultEMail[0] == true) {
                     $row = $ResultEMail[1]->fetch_array(MYSQLI_ASSOC);
+                    $objData->EMail =  $EMail;
                     $txtResult = "New";
                 } else if ($ResultEMail[0] == false) {
                     $txtResult = "Not Found User";
                 }
             } else  if ($ResultLineId[0] == true) {
                 $row = $ResultLineId[1]->fetch_array(MYSQLI_ASSOC);
+                $objData->EMail =  $row["EMail"];
                 $txtResult = "New";
             }
 
             if ($txtResult == "New") {
                 $objData->CustName = $row["CustName"];
                 $objData->CustSurName = $row["CustSurName"];
-                $objData->EMail =  $row["EMail"];
                 $objData->MobileNo = $row["MobileNo"];
                 $data = $objData;
             }
