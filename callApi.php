@@ -83,16 +83,16 @@ function select_user_from($type, $link, $data)
     return [$boolResult2, $result2];
 }
 
-function select_user($LineId, $EMail, $CompanyCode)
+function select_user($id, $EMail, $CompanyCode)
 {
     try {
         $data = null;
-        $id = $LineId;
+        // $id = $LineId;
         $link = dbConnect();
         $obj = new stdClass;
         $objData = new stdClass;
         $objData->LineId = $id;
-        $objData->EMail =  $EMail;
+        // $objData->EMail =  $EMail;
         $sql = "SELECT * FROM users WHERE LineId = '$id' AND EMail = '$EMail' AND CompanyCode = '$CompanyCode'";
         $result = mysqli_query($link, $sql);
         $count = mysqli_num_rows($result);
@@ -101,7 +101,7 @@ function select_user($LineId, $EMail, $CompanyCode)
             $data = $objData;
             $txtResult = "Duplicate";
         } else {
-            $ResultLineId = select_user_from('LineId', $link, $LineId);
+            $ResultLineId = select_user_from('LineId', $link, $id);
             if ($ResultLineId[0] == false) {
                 $ResultEMail = select_user_from('EMail', $link, $EMail);
                 if ($ResultEMail[0] == true) {
