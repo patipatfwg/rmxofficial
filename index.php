@@ -141,7 +141,7 @@
                             $("#txtCustName").val(obj['CustName']);
                             $("#txtCustSurName").val(obj['CustSurName']);
                             $("#txtMobileNo").val(obj['MobileNo']);
-                            $("#registerSave").text('Confirm');
+                            $("#registerSave").text('Update Profile and Register');
                         }
                         $("#registerSecond").show();
                     }
