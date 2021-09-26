@@ -101,17 +101,16 @@ function select_user($LineId, $EMail, $CompanyCode)
             $data = $objData;
             $txtResult = "Duplicate";
         } else if ($boolResult == false) {
+            $txtResult = "New";
             $ResultEMail = select_user_from('EMail', $link, $EMail);
             if ($ResultEMail[0] == false) {
                 $ResultLineId = select_user_from('LineId', $link, $LineId);
                 if ($ResultLineId[0] == false) {
                     $txtResult = "Not Found User";
                 } else  if ($ResultLineId[0] == true) {
-                    $txtResult = "New";
                     $ResultData = $ResultLineId[1];
                 }
             } else if ($ResultEMail[0] == true) {
-                $txtResult = "New";
                 $ResultData = $ResultEMail[1];
             }
 
