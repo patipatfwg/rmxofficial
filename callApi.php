@@ -224,9 +224,9 @@ function CallApiLine($LINEID, $type)
     return $data;
 }
 
-function callApiFlexMessage(){
+// function callApiFlexMessage(){
     
-}
+// }
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 if ($requestMethod == 'POST') {
@@ -287,7 +287,7 @@ if ($requestMethod == 'POST') {
 
     $encodeJson = json_encode($replyJson);
 
-    
+
     $results = sendMessage($encodeJson, $lineData);
     echo $results;
     http_response_code(200);
