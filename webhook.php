@@ -43,8 +43,16 @@ $jsonData = json_decode($LINEData, true);
 $replyToken = $jsonData["events"][0]["replyToken"];
 $replyJson["replyToken"] = $replyToken;
 
-$replyText["type"] = "text";
-$replyText["text"] = "Welcome";
+$replyText["type"] = "flex";
+// $replyText["text"] = "Welcome";
+$replyText["contents"]["type"] = "bubble";
+$replyText["contents"]["body"]["type"] = "box";
+$replyText["contents"]["body"]["layout"] = "vertical";
+$replyText["contents"]["body"]["spacing"] = "md";
+$replyText["contents"]["body"]["contents"] = [];
+
+
+
 $replyJson["messages"][0] = $replyText;
 
 $encodeJson = json_encode($replyJson);
