@@ -19,34 +19,20 @@ function sendMessage($replyJson, $sendInfo)
     return $result;
 }
 
+$lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
+$lineData['AccessToken'] = "s2l19GfGgdDnsbO9cidJGvlkKDvlT9MRiQla/SKo63c3Us7Tv/xKjLnkLnafX15C3U9N9AT5FiL/ARZHWhicfAqm7bSmB1TJWFAzYkBxgSdZbHVKMag6WdTUtnsb56UmvcwbxVq5WUiRzRfTcLTv9QdB04t89/1O/w1cDnyilFU=";
 
 $LINEData = file_get_contents('php://input');
 $jsonData = json_decode($LINEData, true);
 
-// //เก็บ ReplyToken
-// $replyToken = $jsonData["events"][0]["replyToken"];
-// // เก็บ userID
-// $userID = $jsonData["events"][0]["source"]["userId"];
-// // เก็บ text
-// $text = $jsonData["events"][0]["message"]["text"];
-// // เก็บ Timestamp
-// $timestamp = $jsonData["events"][0]["timestamp"];
-
-// $encodeJson = json_encode($replyJson);
-
-$Name = "HIHI";
-$Surname = "GOGO";
-$replyText["text"] = "สวัสดีคุณ $Name $Surname";
-
-$lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
-$lineData['AccessToken'] = "s2l19GfGgdDnsbO9cidJGvlkKDvlT9MRiQla/SKo63c3Us7Tv/xKjLnkLnafX15C3U9N9AT5FiL/ARZHWhicfAqm7bSmB1TJWFAzYkBxgSdZbHVKMag6WdTUtnsb56UmvcwbxVq5WUiRzRfTcLTv9QdB04t89/1O/w1cDnyilFU=";
-
-
+$replyToken = $jsonData["replyToken"];
 $replyJson["replyToken"] = $replyToken;
+
+$replyText["type"] = "text";
+$replyText["text"] = "Welcome";
 $replyJson["messages"][0] = $replyText;
 
 $encodeJson = json_encode($replyJson);
-
 
 $results = sendMessage($encodeJson, $lineData);
 echo $results;
