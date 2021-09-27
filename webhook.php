@@ -42,10 +42,12 @@ $jsonData = json_decode($LINEData, true);
 
 $replyToken = $jsonData["events"][0]["replyToken"];
 $replyUserId = $jsonData["events"][0]["source"]["userId"];
-$MenuMessageText = $jsonData["events"][0]["message"]["text"];
+$MessageType = $jsonData["events"][0]["message"]["type"];
+$MessageText = $jsonData["events"][0]["message"]["text"];
+$MessageData = $jsonData["events"][0]["message"]["data"];
 
 $replyText["type"] = "flex";
-$replyText["altText"] =  "Q1. Which is the API to create chatbot?";
+$replyText["altText"] =  $MessageData;
 $replyText["contents"]["type"] = "bubble";
 $replyText["contents"]["body"]["type"] = "box";
 $replyText["contents"]["body"]["layout"] = "vertical";
@@ -57,7 +59,7 @@ $replyJson["replyToken"] = $replyToken;
 $replyJson["messages"][0] = $replyText;
 $encodeJson = json_encode($replyJson);
 
-if ($MenuMessageText == 'Cartoon API') {
+if ($MessageText == 'Cartoon API') {
     $results = sendMessage($encodeJson);
     echo $results;
     http_response_code(200);
