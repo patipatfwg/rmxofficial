@@ -44,10 +44,10 @@ $replyToken = $jsonData["events"][0]["replyToken"];
 $replyUserId = $jsonData["events"][0]["source"]["userId"];
 $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
-$MessageData = $jsonData["events"][0]["message"]["data"];
+// $MessageData = $jsonData["events"][0]["message"]["data"];
 
 $replyText["type"] = "flex";
-$replyText["altText"] =  $MessageData;
+$replyText["altText"] =  "";
 $replyText["contents"]["type"] = "bubble";
 $replyText["contents"]["body"]["type"] = "box";
 $replyText["contents"]["body"]["layout"] = "vertical";
