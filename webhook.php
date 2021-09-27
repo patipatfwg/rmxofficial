@@ -2,7 +2,7 @@
 function sendMessage($replyJson)
 {
     $sendInfo['URL'] = "https://api.line.me/v2/bot/message/push";
-    
+
     $sendInfo['AccessToken'] = "s2l19GfGgdDnsbO9cidJGvlkKDvlT9MRiQla/SKo63c3Us7Tv/xKjLnkLnafX15C3U9N9AT5FiL/ARZHWhicfAqm7bSmB1TJWFAzYkBxgSdZbHVKMag6WdTUtnsb56UmvcwbxVq5WUiRzRfTcLTv9QdB04t89/1O/w1cDnyilFU=";
 
     try {
@@ -41,22 +41,24 @@ $LINEData = file_get_contents('php://input');
 $jsonData = json_decode($LINEData, true);
 
 $replyToken = $jsonData["events"][0]["replyToken"];
-$replyJson["replyToken"] = $replyToken;
-
 $replyUserId = $jsonData["events"][0]["source"]["userId"];
-$replyJson["to"] = $replyUserId;
+$MenuMessageText = $jsonData["events"][0]["message"]["text"];
 
 $replyText["type"] = "flex";
 $replyText["altText"] =  "Q1. Which is the API to create chatbot?";
-// $replyText["text"] = "Welcome";
 $replyText["contents"]["type"] = "bubble";
 $replyText["contents"]["body"]["type"] = "box";
 $replyText["contents"]["body"]["layout"] = "vertical";
 $replyText["contents"]["body"]["spacing"] = "md";
 $replyText["contents"]["body"]["contents"] = [];
-$replyJson["messages"][0] = $replyText;
 
+$replyJson["to"] = $replyUserId;
+$replyJson["replyToken"] = $replyToken;
+$replyJson["messages"][0] = $replyText;
 $encodeJson = json_encode($replyJson);
-$results = sendMessage($encodeJson);
-echo $results;
-http_response_code(200);
+
+if ($MenuMessageText == 'Cartoon API') {
+    $results = sendMessage($encodeJson);
+    echo $results;
+    http_response_code(200);
+}
