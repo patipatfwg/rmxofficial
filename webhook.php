@@ -2,6 +2,7 @@
 function sendMessage($replyJson)
 {
     $sendInfo['URL'] = "https://api.line.me/v2/bot/message/reply";
+    
     $sendInfo['AccessToken'] = "s2l19GfGgdDnsbO9cidJGvlkKDvlT9MRiQla/SKo63c3Us7Tv/xKjLnkLnafX15C3U9N9AT5FiL/ARZHWhicfAqm7bSmB1TJWFAzYkBxgSdZbHVKMag6WdTUtnsb56UmvcwbxVq5WUiRzRfTcLTv9QdB04t89/1O/w1cDnyilFU=";
 
     try {
@@ -36,11 +37,10 @@ function sendMessage($replyJson)
     return $data;
 }
 
-
 $LINEData = file_get_contents('php://input');
 $jsonData = json_decode($LINEData, true);
 
-$replyToken = $jsonData["replyToken"];
+$replyToken = $jsonData["events"][0]["replyToken"];
 $replyJson["replyToken"] = $replyToken;
 
 $replyText["type"] = "text";
