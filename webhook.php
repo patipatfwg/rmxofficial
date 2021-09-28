@@ -46,7 +46,7 @@ $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 
 
-$MessageText = $jsonData;
+// $MessageText = $jsonData;
 
 $replyText["type"] = "flex";
 $replyText["altText"] =  "Q1. Which is the API to create chatbot?";
