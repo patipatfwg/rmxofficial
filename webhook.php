@@ -45,21 +45,49 @@ $replyUserId = $jsonData["events"][0]["source"]["userId"];
 $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 
-
 $replyText["type"] = "flex";
 $replyText["altText"] =  "Q1. Which is the API to create chatbot?";
 $replyText["contents"]["type"] = "bubble";
 $replyText["contents"]["body"]["type"] = "box";
 $replyText["contents"]["body"]["layout"] = "vertical";
 $replyText["contents"]["body"]["spacing"] = "md";
-$replyText["contents"]["body"]["contents"] = [];
+
+$objTitleH1 = new stdClass;
+$objTitleH1->type = "text";
+$objTitleH1->text = $MessageText;
+$objTitleH1->size = "xxl";
+$objTitleH1->weight = "bold";
+
+$replyText["contents"]["body"]["contents"] = array($objTitleH1);
+
+
+'[{
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+            {
+                "type": "text",
+                "text": "Q1",
+                "size": "xxl",
+                "weight": "bold"
+            },
+            {
+                "type": "text",
+                "text": "Which is the API to create chatbot?",
+                "wrap": true,
+                "weight": "bold",
+                "margin": "lg"
+            }
+        ]
+    }]';
+
 
 $replyJson["to"] = $replyUserId;
 $replyJson["replyToken"] = $replyToken;
 $replyJson["messages"][0] = $replyText;
 $encodeJson = json_encode($replyJson);
 
-if ($MessageText == '4') {
+if ($MessageText == '4' || $MessageText == 'Cartoon API') {
     $results = sendMessage($encodeJson);
     echo $results;
     http_response_code(200);
