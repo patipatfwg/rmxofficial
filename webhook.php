@@ -61,25 +61,25 @@ $objTitleH1->weight = "bold";
 $replyText["contents"]["body"]["contents"] = array($objTitleH1);
 
 
-'[{
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-            {
-                "type": "text",
-                "text": "Q1",
-                "size": "xxl",
-                "weight": "bold"
-            },
-            {
-                "type": "text",
-                "text": "Which is the API to create chatbot?",
-                "wrap": true,
-                "weight": "bold",
-                "margin": "lg"
-            }
-        ]
-    }]';
+// '[{
+//         "type": "box",
+//         "layout": "vertical",
+//         "contents": [
+//             {
+//                 "type": "text",
+//                 "text": "Q1",
+//                 "size": "xxl",
+//                 "weight": "bold"
+//             },
+//             {
+//                 "type": "text",
+//                 "text": "Which is the API to create chatbot?",
+//                 "wrap": true,
+//                 "weight": "bold",
+//                 "margin": "lg"
+//             }
+//         ]
+//     }]';
 
 
 $replyJson["to"] = $replyUserId;
@@ -87,8 +87,8 @@ $replyJson["replyToken"] = $replyToken;
 $replyJson["messages"][0] = $replyText;
 $encodeJson = json_encode($replyJson);
 
-if ($MessageText == '4' || $MessageText == 'Cartoon API') {
+// if ($MessageText == '4' || $MessageText == 'Cartoon API') {
     $results = sendMessage($encodeJson);
     echo $results;
     http_response_code(200);
-}
+// }
