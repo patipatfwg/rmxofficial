@@ -183,7 +183,8 @@ function LineUserId()
 
 function CallApiLine($LINEID, $type)
 {
-    $RICHMENUID = "richmenu-db181b79c35a2d6bfb2aaa286bbe95fd";
+    // $RICHMENUID = "richmenu-db181b79c35a2d6bfb2aaa286bbe95fd";
+    $RICHMENUID = "richmenu-f085e3fa68b2c23e7c4078923c90664a";
     if ($type == 'member') {
         $CURLOPT = CURLOPT_POST;
         $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu/$RICHMENUID";
@@ -225,7 +226,7 @@ function CallApiLine($LINEID, $type)
 }
 
 // function callApiFlexMessage(){
-    
+
 // }
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
