@@ -45,6 +45,9 @@ $replyUserId = $jsonData["events"][0]["source"]["userId"];
 $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 
+
+$MessageText = $jsonData;
+
 $replyText["type"] = "flex";
 $replyText["altText"] =  "Q1. Which is the API to create chatbot?";
 $replyText["contents"]["type"] = "bubble";
@@ -84,8 +87,7 @@ $replyText["contents"]["body"]["contents"] = array($objTitleH1);
 
 $replyJson["to"] = $replyUserId;
 $replyJson["replyToken"] = $replyToken;
-// $replyJson["messages"][0] = $replyText;
-$replyJson["messages"][0] = $jsonData;
+$replyJson["messages"][0] = $replyText;
 $encodeJson = json_encode($replyJson);
 
 // if ($MessageText == '4' || $MessageText == 'Cartoon API') {
