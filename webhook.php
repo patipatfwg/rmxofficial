@@ -84,7 +84,8 @@ $replyText["contents"]["body"]["contents"] = array($objTitleH1);
 
 $replyJson["to"] = $replyUserId;
 $replyJson["replyToken"] = $replyToken;
-$replyJson["messages"][0] = $replyText;
+// $replyJson["messages"][0] = $replyText;
+$replyJson["messages"][0] = $jsonData;
 $encodeJson = json_encode($replyJson);
 
 // if ($MessageText == '4' || $MessageText == 'Cartoon API') {
