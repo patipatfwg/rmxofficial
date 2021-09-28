@@ -59,7 +59,7 @@ $replyJson["replyToken"] = $replyToken;
 $replyJson["messages"][0] = $replyText;
 $encodeJson = json_encode($replyJson);
 
-if ($MessageText == 'Cartoon API') {
+if ($MessageText == '4') {
     $results = sendMessage($encodeJson);
     echo $results;
     http_response_code(200);
