@@ -45,9 +45,10 @@ $replyUserId = $jsonData["events"][0]["source"]["userId"];
 $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 
-$abc = $jsonData["events"][0]["postback"]["data"];
+$postbackParams = $jsonData["events"][0]["postback"]["data"];
+parse_str($postbackParams, $arr);
 
-$MessageText = "Get: ".$abc;
+$MessageText = "Get: ".json_encode($arr);
 
 $replyText["type"] = "flex";
 $replyText["altText"] =  "Q1. Which is the API to create chatbot?";
@@ -59,7 +60,7 @@ $replyText["contents"]["body"]["spacing"] = "sm";
 $objTitleH1 = new stdClass;
 $objTitleH1->type = "text";
 $objTitleH1->text = $MessageText;
-$objTitleH1->size = "xxl";
+$objTitleH1->size = "sm";
 $objTitleH1->weight = "bold";
 
 $replyText["contents"]["body"]["contents"] = array($objTitleH1);
