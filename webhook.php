@@ -47,8 +47,7 @@ $MessageText = $jsonData["events"][0]["message"]["text"];
 
 $postbackParams = $jsonData["events"][0]["postback"]["data"];
 parse_str($postbackParams, $arr);
-
-$MessageText = json_encode($arr);
+$ActionMenuText = $arr["action"];
 
 $replyText["type"] = "flex";
 $replyText["altText"] =  "Q1. Which is the API to create chatbot?";
@@ -59,7 +58,7 @@ $replyText["contents"]["body"]["spacing"] = "sm";
 
 $objTitleH1 = new stdClass;
 $objTitleH1->type = "text";
-$objTitleH1->text = $MessageText;
+$objTitleH1->text = $ActionMenuText;
 $objTitleH1->size = "sm";
 $objTitleH1->weight = "bold";
 
@@ -92,8 +91,8 @@ $replyJson["replyToken"] = $replyToken;
 $replyJson["messages"][0] = $replyText;
 $encodeJson = json_encode($replyJson);
 
-// if ($MessageText == '4' || $MessageText == 'Cartoon API') {
+if ($ActionMenuText == 'buy' || $ActionMenuText == 'status') {
     $results = sendMessage($encodeJson);
     echo $results;
     http_response_code(200);
-// }
+}
