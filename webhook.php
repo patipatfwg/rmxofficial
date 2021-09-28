@@ -45,7 +45,9 @@ $replyUserId = $jsonData["events"][0]["source"]["userId"];
 $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 
-$MessageText = "Get: ".json_encode($jsonData);
+$abc = $jsonData["events"][0]["message"];
+
+$MessageText = "Get: ".json_encode($abc);
 
 $replyText["type"] = "flex";
 $replyText["altText"] =  "Q1. Which is the API to create chatbot?";
