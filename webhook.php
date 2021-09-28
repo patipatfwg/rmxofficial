@@ -45,7 +45,7 @@ $replyUserId = $jsonData["events"][0]["source"]["userId"];
 $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 
-$abc = $jsonData["events"][0]["postback"];
+$abc = $jsonData["events"][0]["postback"]["data"];
 
 $MessageText = "Get: ".json_encode($abc);
 
@@ -54,7 +54,7 @@ $replyText["altText"] =  "Q1. Which is the API to create chatbot?";
 $replyText["contents"]["type"] = "bubble";
 $replyText["contents"]["body"]["type"] = "box";
 $replyText["contents"]["body"]["layout"] = "vertical";
-$replyText["contents"]["body"]["spacing"] = "xs";
+$replyText["contents"]["body"]["spacing"] = "sm";
 
 $objTitleH1 = new stdClass;
 $objTitleH1->type = "text";
