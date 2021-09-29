@@ -188,7 +188,9 @@ $objTitleH1->text = $ActionMenuText;
 $objTitleH1->size = "sm";
 $objTitleH1->weight = "bold";
 
-$replyText["contents"]["body"]["contents"] = array(json_decode($json));
+$someArray = json_decode($json, true);
+
+$replyText["contents"]["body"]["contents"] = array($someArray);
 
 
 // '[{
