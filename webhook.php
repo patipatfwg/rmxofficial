@@ -84,18 +84,19 @@ $personJSON = '{
             "contents": []
         }
 ';
-
+$person = json_decode($personJSON);
 
 
 $objTitleH1 = new stdClass;
 $objTitleH1->type = "text";
-$objTitleH1->text = $ActionMenuText;
-$objTitleH1->size = "sm";
+$objTitleH1->text = "Order Detail";
 $objTitleH1->weight = "bold";
+$objTitleH1->color = "#B6961EFF";
+$objTitleH1->size = "xl";
+$objTitleH1->wrap = true;
+$objTitleH1->contents = [];
 
-$person = json_decode($personJSON);
-
-$replyText["contents"]["body"]["contents"] = array($person);
+$replyText["contents"]["body"]["contents"] = array($objTitleH1);
 
 
 // '[{
