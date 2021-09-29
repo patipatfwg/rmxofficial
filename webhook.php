@@ -37,6 +37,34 @@ function sendMessage($replyJson)
     return $data;
 }
 
+function orderDetailRow()
+{
+    $objDetailRowA1 = new stdClass;
+    $objDetailRowA1->type = "text";
+    $objDetailRowA1->text = "No.";
+    $objDetailRowA1->size = "sm";
+    $objDetailRowA1->color = "#AAAAAA";
+    $objDetailRowA1->flex = 1;
+    $objDetailRowA1->contents = [];
+
+    $objDetailRowA2 = new stdClass;
+    $objDetailRowA2->type = "text";
+    $objDetailRowA2->text = "S01P901-00000331";
+    $objDetailRowA2->size = "sm";
+    $objDetailRowA2->color = "#666666";
+    $objDetailRowA2->flex = 4;
+    $objDetailRowA2->wrap = true;
+    $objDetailRowA2->contents = [];
+
+    $objDetailRowA = new stdClass;
+    $objDetailRowA->type = "box";
+    $objDetailRowA->layout = "baseline";
+    $objDetailRowA->spacing = "sm";
+    $objDetailRowA->contents = [$objDetailRowA1,$objDetailRowA2];
+
+    return $objDetailRowA;
+}
+
 function orderDetail()
 {
     $objTitleH1 = new stdClass;
@@ -47,18 +75,19 @@ function orderDetail()
     $objTitleH1->size = "xl";
     $objTitleH1->wrap = true;
     $objTitleH1->contents = [];
-    
+
     $objDetail = new stdClass;
     $objDetail->type = "box";
     $objDetail->layout = "vertical";
     $objDetail->spacing = "sm";
     $objDetail->margin = "lg";
-    $objDetail->contents = [];
+    $objDetail->contents = [orderDetailRow()];
 
-    return  array($objTitleH1,$objDetail);
+    return  array($objTitleH1, $objDetail);
 }
 
-function flexLayout(){
+function flexLayout()
+{
     $replyText["type"] = "flex";
     $replyText["altText"] =  "Order Detail";
     $replyText["contents"]["type"] = "bubble";
