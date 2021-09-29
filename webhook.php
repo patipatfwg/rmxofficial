@@ -37,6 +37,15 @@ function sendMessage($replyJson)
     return $data;
 }
 
+function orderDetail()
+{
+}
+
+function NewOrderForm()
+{
+}
+
+
 $LINEData = file_get_contents('php://input');
 $jsonData = json_decode($LINEData, true);
 
@@ -48,6 +57,7 @@ $MessageText = $jsonData["events"][0]["message"]["text"];
 $postbackParams = $jsonData["events"][0]["postback"]["data"];
 parse_str($postbackParams, $arr);
 $ActionMenuText = $arr["action"];
+
 
 $replyText["type"] = "flex";
 $replyText["altText"] =  "Q1. Which is the API to create chatbot?";
@@ -84,6 +94,131 @@ $replyText["contents"]["body"]["contents"] = array($objTitleH1);
 //             }
 //         ]
 //     }]';
+
+
+$json = '
+{
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "text",
+          "text": "Order Detail",
+          "weight": "bold",
+          "size": "xl",
+          "gravity": "center",
+          "wrap": true,
+          "contents": []
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "margin": "lg",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "baseline",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "No.",
+                  "size": "sm",
+                  "color": "#AAAAAA",
+                  "flex": 1,
+                  "contents": []
+                },
+                {
+                  "type": "text",
+                  "text": "S01P901-00000331",
+                  "size": "sm",
+                  "color": "#666666",
+                  "flex": 4,
+                  "wrap": true,
+                  "contents": []
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "Date",
+                  "size": "sm",
+                  "color": "#AAAAAA",
+                  "flex": 1,
+                  "contents": []
+                },
+                {
+                  "type": "text",
+                  "text": "10/10/2021",
+                  "size": "sm",
+                  "color": "#666666",
+                  "flex": 4,
+                  "wrap": true,
+                  "contents": []
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "Ship To",
+                  "size": "sm",
+                  "color": "#AAAAAA",
+                  "flex": 1,
+                  "contents": []
+                },
+                {
+                  "type": "text",
+                  "text": "320000106 SH_Name 105",
+                  "size": "sm",
+                  "color": "#666666",
+                  "flex": 4,
+                  "wrap": true,
+                  "contents": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "margin": "xxl",
+          "contents": [
+            {
+              "type": "spacer"
+            },
+            {
+              "type": "text",
+              "text": "You can enter the theater by using this code instead of a ticket",
+              "size": "xs",
+              "color": "#AAAAAA",
+              "margin": "xxl",
+              "wrap": true,
+              "contents": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+';
+
+
+$replyText = json_encode($json);
 
 
 $replyJson["to"] = $replyUserId;
