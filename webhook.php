@@ -66,35 +66,6 @@ $replyText["contents"]["body"]["type"] = "box";
 $replyText["contents"]["body"]["layout"] = "vertical";
 $replyText["contents"]["body"]["spacing"] = "sm";
 
-$objTitleH1 = new stdClass;
-$objTitleH1->type = "text";
-$objTitleH1->text = $ActionMenuText;
-$objTitleH1->size = "sm";
-$objTitleH1->weight = "bold";
-
-$replyText["contents"]["body"]["contents"] = array($objTitleH1);
-
-
-// '[{
-//         "type": "box",
-//         "layout": "vertical",
-//         "contents": [
-//             {
-//                 "type": "text",
-//                 "text": "Q1",
-//                 "size": "xxl",
-//                 "weight": "bold"
-//             },
-//             {
-//                 "type": "text",
-//                 "text": "Which is the API to create chatbot?",
-//                 "wrap": true,
-//                 "weight": "bold",
-//                 "margin": "lg"
-//             }
-//         ]
-//     }]';
-
 
 $json = '
 {
@@ -217,8 +188,38 @@ $json = '
   }
 ';
 
+$objTitleH1 = new stdClass;
+$objTitleH1->type = "text";
+$objTitleH1->text = $ActionMenuText;
+$objTitleH1->size = "sm";
+$objTitleH1->weight = "bold";
 
-$replyText = json_encode($json);
+$replyText["contents"]["body"]["contents"] = array($json);
+
+
+// '[{
+//         "type": "box",
+//         "layout": "vertical",
+//         "contents": [
+//             {
+//                 "type": "text",
+//                 "text": "Q1",
+//                 "size": "xxl",
+//                 "weight": "bold"
+//             },
+//             {
+//                 "type": "text",
+//                 "text": "Which is the API to create chatbot?",
+//                 "wrap": true,
+//                 "weight": "bold",
+//                 "margin": "lg"
+//             }
+//         ]
+//     }]';
+
+
+
+
 
 
 $replyJson["to"] = $replyUserId;
