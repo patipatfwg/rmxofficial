@@ -75,8 +75,14 @@ $personJSON = '{
           "gravity": "center",
           "wrap": true,
           "contents": []
+        },
+        {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "sm",
+            "margin": "lg",
+            "contents": []
         }
-        
 ';
 
 
