@@ -180,13 +180,15 @@ $json = '
 
 ';
 
+
+
 $objTitleH1 = new stdClass;
 $objTitleH1->type = "text";
 $objTitleH1->text = $ActionMenuText;
 $objTitleH1->size = "sm";
 $objTitleH1->weight = "bold";
 
-$replyText["contents"]["body"]["contents"] = array($json);
+$replyText["contents"]["body"]["contents"] = array(json_encode($json));
 
 
 // '[{
