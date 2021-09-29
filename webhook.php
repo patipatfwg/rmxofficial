@@ -68,13 +68,7 @@ $replyText["contents"]["body"]["spacing"] = "sm";
 
 
 $json = '
-{
-    "type": "bubble",
-    "body": {
-      "type": "box",
-      "layout": "vertical",
-      "spacing": "md",
-      "contents": [
+
         {
           "type": "text",
           "text": "Order Detail",
@@ -183,9 +177,7 @@ $json = '
             }
           ]
         }
-      ]
-    }
-  }
+
 ';
 
 $objTitleH1 = new stdClass;
