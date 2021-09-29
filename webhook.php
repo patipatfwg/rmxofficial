@@ -60,13 +60,16 @@ function orderDetailRow()
     $objDetailRowA->type = "box";
     $objDetailRowA->layout = "baseline";
     $objDetailRowA->spacing = "sm";
-    $objDetailRowA->contents = [$objDetailRowA1,$objDetailRowA2];
+    $objDetailRowA->contents = [$objDetailRowA1, $objDetailRowA2];
 
     return $objDetailRowA;
 }
 
 function orderDetail()
 {
+    $objSeparator = new stdClass;
+    $objSeparator->type = "separator";
+
     $objTitleH1 = new stdClass;
     $objTitleH1->type = "text";
     $objTitleH1->text = "Order Detail";
@@ -83,7 +86,13 @@ function orderDetail()
     $objDetail->margin = "lg";
     $objDetail->contents = [orderDetailRow()];
 
-    return  array($objTitleH1, $objDetail);
+    $output = array(
+        $objTitleH1,
+        $objSeparator,
+        $objDetail
+    );
+
+    return    $output;
 }
 
 function flexLayout()
