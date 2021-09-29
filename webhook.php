@@ -67,9 +67,7 @@ $replyText["contents"]["body"]["layout"] = "vertical";
 $replyText["contents"]["body"]["spacing"] = "sm";
 
 
-$json = '
-
-        {
+$personJSON = '{
           "type": "text",
           "text": "Order Detail",
           "weight": "bold",
@@ -77,107 +75,7 @@ $json = '
           "gravity": "center",
           "wrap": true,
           "contents": []
-        },
-        {
-          "type": "box",
-          "layout": "vertical",
-          "spacing": "sm",
-          "margin": "lg",
-          "contents": [
-            {
-              "type": "box",
-              "layout": "baseline",
-              "spacing": "sm",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "No.",
-                  "size": "sm",
-                  "color": "#AAAAAA",
-                  "flex": 1,
-                  "contents": []
-                },
-                {
-                  "type": "text",
-                  "text": "S01P901-00000331",
-                  "size": "sm",
-                  "color": "#666666",
-                  "flex": 4,
-                  "wrap": true,
-                  "contents": []
-                }
-              ]
-            },
-            {
-              "type": "box",
-              "layout": "baseline",
-              "spacing": "sm",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "Date",
-                  "size": "sm",
-                  "color": "#AAAAAA",
-                  "flex": 1,
-                  "contents": []
-                },
-                {
-                  "type": "text",
-                  "text": "10/10/2021",
-                  "size": "sm",
-                  "color": "#666666",
-                  "flex": 4,
-                  "wrap": true,
-                  "contents": []
-                }
-              ]
-            },
-            {
-              "type": "box",
-              "layout": "baseline",
-              "spacing": "sm",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "Ship To",
-                  "size": "sm",
-                  "color": "#AAAAAA",
-                  "flex": 1,
-                  "contents": []
-                },
-                {
-                  "type": "text",
-                  "text": "320000106 SH_Name 105",
-                  "size": "sm",
-                  "color": "#666666",
-                  "flex": 4,
-                  "wrap": true,
-                  "contents": []
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "box",
-          "layout": "vertical",
-          "margin": "xxl",
-          "contents": [
-            {
-              "type": "spacer"
-            },
-            {
-              "type": "text",
-              "text": "You can enter the theater by using this code instead of a ticket",
-              "size": "xs",
-              "color": "#AAAAAA",
-              "margin": "xxl",
-              "wrap": true,
-              "contents": []
-            }
-          ]
         }
-
 ';
 
 
@@ -188,9 +86,9 @@ $objTitleH1->text = $ActionMenuText;
 $objTitleH1->size = "sm";
 $objTitleH1->weight = "bold";
 
-$someArray = json_decode($json, true);
+$person = json_decode($personJSON);
 
-$replyText["contents"]["body"]["contents"] = array($someArray);
+$replyText["contents"]["body"]["contents"] = array($person);
 
 
 // '[{
