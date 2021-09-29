@@ -82,30 +82,7 @@ $personJSON = '{
             "spacing": "sm",
             "margin": "lg",
             "contents": [
-                {
-                    "type": "box",
-                    "layout": "baseline",
-                    "spacing": "sm",
-                    "contents": [
-                        {
-                            "type": "text",
-                            "text": "No.",
-                            "size": "sm",
-                            "color": "#AAAAAA",
-                            "flex": 1,
-                            "contents": []
-                          },
-                          {
-                            "type": "text",
-                            "text": "S01P901-00000331",
-                            "size": "sm",
-                            "color": "#666666",
-                            "flex": 4,
-                            "wrap": true,
-                            "contents": []
-                        }
-                    ]
-                }
+                
             ]
         }
 ';
