@@ -39,6 +39,35 @@ function sendMessage($replyJson)
 
 function orderDetail()
 {
+    $objTitleH1 = new stdClass;
+    $objTitleH1->type = "text";
+    $objTitleH1->text = "Order Detail";
+    $objTitleH1->weight = "bold";
+    $objTitleH1->color = "#B6961EFF";
+    $objTitleH1->size = "xl";
+    $objTitleH1->wrap = true;
+    $objTitleH1->contents = [];
+    
+    $objDetail = new stdClass;
+    $objDetail->type = "box";
+    $objDetail->layout = "vertical";
+    $objDetail->spacing = "sm";
+    $objDetail->margin = "lg";
+    $objDetail->contents = [];
+
+    return  array($objTitleH1,$objDetail);
+}
+
+function flexLayout(){
+    $replyText["type"] = "flex";
+    $replyText["altText"] =  "Order Detail";
+    $replyText["contents"]["type"] = "bubble";
+    $replyText["contents"]["body"]["type"] = "box";
+    $replyText["contents"]["body"]["layout"] = "vertical";
+    $replyText["contents"]["body"]["spacing"] = "sm";
+    $replyText["contents"]["body"]["contents"] = orderDetail();
+
+    return $replyText;
 }
 
 function NewOrderForm()
@@ -58,75 +87,9 @@ $postbackParams = $jsonData["events"][0]["postback"]["data"];
 parse_str($postbackParams, $arr);
 $ActionMenuText = $arr["action"];
 
-
-$replyText["type"] = "flex";
-$replyText["altText"] =  "Q1. Which is the API to create chatbot?";
-$replyText["contents"]["type"] = "bubble";
-$replyText["contents"]["body"]["type"] = "box";
-$replyText["contents"]["body"]["layout"] = "vertical";
-$replyText["contents"]["body"]["spacing"] = "sm";
-
-
-$personJSON = '{
-          "type": "text",
-          "text": "Order Detail",
-          "weight": "bold",
-          "size": "xl",
-          "gravity": "center",
-          "wrap": true,
-          "contents": []
-        },
-        {
-            "type": "box",
-            "layout": "vertical",
-            "spacing": "sm",
-            "margin": "lg",
-            "contents": []
-        }
-';
-$person = json_decode($personJSON);
-
-
-$objTitleH1 = new stdClass;
-$objTitleH1->type = "text";
-$objTitleH1->text = "Order Detail";
-$objTitleH1->weight = "bold";
-$objTitleH1->color = "#B6961EFF";
-$objTitleH1->size = "xl";
-$objTitleH1->wrap = true;
-$objTitleH1->contents = [];
-
-$replyText["contents"]["body"]["contents"] = array($objTitleH1);
-
-
-// '[{
-//         "type": "box",
-//         "layout": "vertical",
-//         "contents": [
-//             {
-//                 "type": "text",
-//                 "text": "Q1",
-//                 "size": "xxl",
-//                 "weight": "bold"
-//             },
-//             {
-//                 "type": "text",
-//                 "text": "Which is the API to create chatbot?",
-//                 "wrap": true,
-//                 "weight": "bold",
-//                 "margin": "lg"
-//             }
-//         ]
-//     }]';
-
-
-
-
-
-
 $replyJson["to"] = $replyUserId;
 $replyJson["replyToken"] = $replyToken;
-$replyJson["messages"][0] = $replyText;
+$replyJson["messages"][0] = flexLayout();
 $encodeJson = json_encode($replyJson);
 
 if ($ActionMenuText == 'buy' || $ActionMenuText == 'status') {
