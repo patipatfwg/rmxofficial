@@ -48,14 +48,14 @@ function orderDetailRow()
     $objDetailBaselineA1->text = "Order No.";
     $objDetailBaselineA1->size = "sm";
     $objDetailBaselineA1->color = "#AAAAAA";
-    $objDetailBaselineA1->flex = 1;
+    $objDetailBaselineA1->flex = 3;
     $objDetailBaselineA1->contents = [];
 
     $objDetailBaselineA2->type = "text";
     $objDetailBaselineA2->text = "S01P901-00000331";
     $objDetailBaselineA2->size = "sm";
     $objDetailBaselineA2->color = "#666666";
-    $objDetailBaselineA2->flex = 4;
+    $objDetailBaselineA2->flex = 10;
     $objDetailBaselineA2->wrap = true;
     $objDetailBaselineA2->contents = [];
 
