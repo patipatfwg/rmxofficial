@@ -37,29 +37,25 @@ function sendMessage($replyJson)
     return $data;
 }
 
-function ticketDetailRow($val)
+function ticketDetailRowLayout($title, $val)
 {
-    $title = array("Ticket No.", "Ticket Date", "Order No.", "Order Date", "Ship To", "Product Name", "Plant Name", "Order Qty.", "Ticket Qty.", "Driver Name", "Truck No.", "License Plate", "Leave Time", "Ship Condition", "Ticket Status");
-    $countTitle = count($title);
-    $contentsList = [];
-
-    $objDetailRowA = new stdClass;
+    $objDetailRow = new stdClass;
     $objDetailBaselineTitle = new stdClass;
     $objDetailBaselineValue = new stdClass;
-    $objDetailRowA2 = new stdClass;
 
     //Title
     $objDetailBaselineTitle->type = "text";
-    $objDetailBaselineTitle->text = $title[3];
+    $objDetailBaselineTitle->text = $title;
     $objDetailBaselineTitle->size = "sm";
     $objDetailBaselineTitle->color = "#AAAAAA";
     $objDetailBaselineTitle->weight = "bold";
     $objDetailBaselineTitle->flex = 2;
+    $objDetailBaselineValue->wrap = true;
     $objDetailBaselineTitle->contents = [];
 
     //Value
     $objDetailBaselineValue->type = "text";
-    $objDetailBaselineValue->text = $val[0];
+    $objDetailBaselineValue->text = $val;
     $objDetailBaselineValue->size = "sm";
     $objDetailBaselineValue->color = "#666666";
     $objDetailBaselineValue->flex = 4;
@@ -67,24 +63,31 @@ function ticketDetailRow($val)
     $objDetailBaselineValue->align = "end";
     $objDetailBaselineValue->contents = [];
 
-
-
     $contentsList = [$objDetailBaselineTitle, $objDetailBaselineValue];
 
-    array_push($contentsList);
+    $objDetailRow->type = "box";
+    $objDetailRow->layout = "baseline";
+    $objDetailRow->spacing = "sm";
+    $objDetailRow->contents = $contentsList;
 
-    $objDetailRowA->type = "box";
-    $objDetailRowA->layout = "baseline";
-    $objDetailRowA->spacing = "sm";
-    $objDetailRowA->contents = $contentsList;
-
-    return $objDetailRowA;
+    return $objDetailRow;
 }
 
-function ticketDetail()
+function selectTicketDetail()
 {
-    $arr = ["1011808270007", "24/10/2018", "S01P901-00000331", "27/08/2018", "320000106 SH_Name 105", "997525133500 WPROOF PMP 25MPa 25mm S120 25@7DWPC1", "cV101 RMX Plant 101", "78", "2", "Theary Theary_", "FS22", "51E00491", "16:54:43", "Delivery", "5"];
+    $data = [];
+    $title = array("Ticket No.", "Ticket Date", "Order No.", "Order Date", "Ship To", "Product Name", "Plant Name", "Order Qty.", "Ticket Qty.", "Driver Name", "Truck No.", "License Plate", "Leave Time", "Ship Condition", "Ticket Status");
+    $arrVal = array("1011808270007", "24/10/2018", "S01P901-00000331", "27/08/2018", "320000106 SH_Name 105", "997525133500 WPROOF PMP 25MPa 25mm S120 25@7DWPC1", "cV101 RMX Plant 101", "78", "2", "Theary Theary_", "FS22", "51E00491", "16:54:43", "Delivery", "5");
 
+    for ($i = 0; $i < count($title); $i++) {
+        array_push($data, ticketDetailRowLayout($title[$i], $arrVal[$i]));
+    }
+
+    return $data;
+}
+
+function ticketDetailFlexMessage()
+{
     $objSeparator = new stdClass;
     $objSeparator->type = "separator";
 
@@ -102,32 +105,19 @@ function ticketDetail()
     $objDetail->layout = "vertical";
     $objDetail->spacing = "md";
     $objDetail->margin = "lg";
-    $objDetail->contents = [ticketDetailRow($arr)];
+    $objDetail->contents = selectTicketDetail();
 
-    $output = array(
-        $objTitleH1,
-        $objSeparator,
-        $objDetail
-    );
+    $output = array($objTitleH1, $objSeparator, $objDetail);
 
-    return $output;
-}
-
-function ticketDetailFlexMessage()
-{
     $replyText["type"] = "flex";
     $replyText["altText"] =  "Ticket Detail";
     $replyText["contents"]["type"] = "bubble";
     $replyText["contents"]["body"]["type"] = "box";
     $replyText["contents"]["body"]["layout"] = "vertical";
     $replyText["contents"]["body"]["spacing"] = "sm";
-    $replyText["contents"]["body"]["contents"] = ticketDetail();
+    $replyText["contents"]["body"]["contents"] = $output;
 
     return $replyText;
-}
-
-function NewOrderForm()
-{
 }
 
 $LINEData = file_get_contents('php://input');
