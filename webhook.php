@@ -37,7 +37,7 @@ function sendMessage($replyJson)
     return $data;
 }
 
-function orderDetailRow()
+function orderDetailRow($ordertext,)
 {
     $objDetailRowA = new stdClass;
     $objDetailBaselineA1 = new stdClass;
@@ -53,7 +53,7 @@ function orderDetailRow()
     $objDetailBaselineA1->contents = [];
 
     $objDetailBaselineA2->type = "text";
-    $objDetailBaselineA2->text = "S01P901-00000331";
+    $objDetailBaselineA2->text = $ordertext;
     $objDetailBaselineA2->size = "sm";
     $objDetailBaselineA2->color = "#666666";
     $objDetailBaselineA2->flex = 4;
@@ -90,8 +90,8 @@ function orderDetail()
     $objDetail->layout = "vertical";
     $objDetail->spacing = "sm";
     $objDetail->margin = "lg";
-    $objDetail->contents = [orderDetailRow(),orderDetailRow()];
-
+    $objDetail->contents = [orderDetailRow("S01P901-00000331")];
+    
     $output = array(
         $objTitleH1,
         $objSeparator,
