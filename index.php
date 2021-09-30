@@ -152,23 +152,22 @@
 
             $('#CompanyCode').on('change', function() {
                 companyCode = this.value;
-                if (companyCode == '00000') {
-                    $("#registerSecond").hide();
-                    $("#registerThird").hide();
-                } else {
-                    try {
-                        LineUserId = sessionStorage.getItem("LineId");
-                        EMailSession = sessionStorage.getItem("EMail");
-                        $("#txtLineId").val(LineUserId);
-                        $("#txtEMail").val(EMailSession);
-                        getUser(LineUserId, EMailSession, companyCode);
-                    } catch (error) {
-                        console.log(error);
-                    }
+
+                $("#registerSecond").hide();
+                $("#registerThird").hide();
+                try {
+                    LineUserId = sessionStorage.getItem("LineId");
+                    EMailSession = sessionStorage.getItem("EMail");
+                    $("#txtLineId").val(LineUserId);
+                    $("#txtEMail").val(EMailSession);
+                    getUser(LineUserId, EMailSession, companyCode);
+                } catch (error) {
+                    console.log(error);
                 }
+
             });
 
-            function successDialog(){
+            function successDialog() {
                 changeMemberMenu();
                 closeWindowHandle();
             }
