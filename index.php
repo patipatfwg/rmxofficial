@@ -53,10 +53,17 @@
     </div>
 </body> -->
 
-<body >
+<body>
 
     <div id="dialogMsg"></div>
-    <div id="closeMsg" hidden> Close Window </div>
+    <div id="closeMsg" hidden>
+        <center>
+            <img src="chech.png">
+            <h1>Register Success </h1>
+            <h1>Please Close Windows</h1>
+            <button type="button" onclick="window.open('', '_self', ''); window.close();">Close</button>
+        </center>
+    </div>
     <div class="container" id="initState">
         <div class="row">
             <form class="registerForm" id="registerForm">
@@ -106,7 +113,7 @@
     <div id="form-click-to-call"></div>
     <script language="javascript">
         $(document).ready(function() {
-            
+
 
             function closeWindowHandle() {
 
