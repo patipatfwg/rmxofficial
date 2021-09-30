@@ -54,9 +54,8 @@
 </body> -->
 
 <body>
-
     <div id="dialogMsg">
-    <p>PDPA Description</p>
+        <p>PDPA Description</p>
     </div>
     <div id="closeMsg" hidden>
         <center>
