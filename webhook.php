@@ -48,6 +48,7 @@ function orderDetailRow()
     $objDetailBaselineA1->text = "Order No.";
     $objDetailBaselineA1->size = "sm";
     $objDetailBaselineA1->color = "#AAAAAA";
+    $objDetailBaselineA1->weight = "bold";
     $objDetailBaselineA1->flex = 2;
     $objDetailBaselineA1->contents = [];
 
