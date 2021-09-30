@@ -37,36 +37,45 @@ function sendMessage($replyJson)
     return $data;
 }
 
-function orderDetailRow($ordertext,)
+function orderDetailRow($orderArr)
 {
+    $title = array("Ticket No.", "Ticket Date", "Order No.", "Order Date", "Ship To", "Product Name", "Plant Name", "Order Qty.", "Ticket Qty.", "Driver Name", "Truck No.", "License Plate", "Leave Time", "Ship Condition", "Ticket Status");
+    $countTitle = count($title);
+
     $objDetailRowA = new stdClass;
-    $objDetailBaselineA1 = new stdClass;
-    $objDetailBaselineA2 = new stdClass;
+    $objDetailBaseline = new stdClass;
     $objDetailRowA2 = new stdClass;
 
-    $objDetailBaselineA1->type = "text";
-    $objDetailBaselineA1->text = "Order No.";
-    $objDetailBaselineA1->size = "sm";
-    $objDetailBaselineA1->color = "#AAAAAA";
-    $objDetailBaselineA1->weight = "bold";
-    $objDetailBaselineA1->flex = 2;
-    $objDetailBaselineA1->contents = [];
 
-    $objDetailBaselineA2->type = "text";
-    $objDetailBaselineA2->text = $ordertext;
-    $objDetailBaselineA2->size = "sm";
-    $objDetailBaselineA2->color = "#666666";
-    $objDetailBaselineA2->flex = 4;
-    $objDetailBaselineA2->wrap = true;
-    $objDetailBaselineA2->align = "end";
-    $objDetailBaselineA2->contents = [];
+    foreach ($title as $value) {
+        //Title
+        $objDetailBaseline->type = "text";
+        $objDetailBaseline->text = $value;
+        $objDetailBaseline->size = "sm";
+        $objDetailBaseline->color = "#AAAAAA";
+        $objDetailBaseline->weight = "bold";
+        $objDetailBaseline->flex = 2;
+        $objDetailBaseline->contents = [];
+
+        //Value
+        $objDetailBaseline->type = "text";
+        $objDetailBaseline->text = 'abc';
+        $objDetailBaseline->size = "sm";
+        $objDetailBaseline->color = "#666666";
+        $objDetailBaseline->flex = 4;
+        $objDetailBaseline->wrap = true;
+        $objDetailBaseline->align = "end";
+        $objDetailBaseline->contents = [];
+
+        $objDetailRowA->contents = [$objDetailBaseline];
+    }
 
     $objDetailRowA->type = "box";
     $objDetailRowA->layout = "baseline";
     $objDetailRowA->spacing = "sm";
-    $objDetailRowA->contents = [
-        $objDetailBaselineA1,$objDetailBaselineA2,
-    ];
+    // $objDetailRowA->contents = [
+    //     $objDetailBaselineA1
+    // ];
 
     return $objDetailRowA;
 }
@@ -91,7 +100,7 @@ function orderDetail()
     $objDetail->spacing = "sm";
     $objDetail->margin = "lg";
     $objDetail->contents = [orderDetailRow("S01P901-00000331")];
-    
+
     $output = array(
         $objTitleH1,
         $objSeparator,
