@@ -46,6 +46,8 @@ function orderDetailRow($orderArr)
     $objDetailBaseline = new stdClass;
     $objDetailRowA2 = new stdClass;
 
+    $a = array();
+
 
     foreach ($title as $value) {
         //Title
@@ -67,15 +69,13 @@ function orderDetailRow($orderArr)
         $objDetailBaseline->align = "end";
         $objDetailBaseline->contents = [];
 
-        $objDetailRowA->contents = [$objDetailBaseline];
+        array_push($a);
     }
 
     $objDetailRowA->type = "box";
     $objDetailRowA->layout = "baseline";
     $objDetailRowA->spacing = "sm";
-    // $objDetailRowA->contents = [
-    //     $objDetailBaselineA1
-    // ];
+    $objDetailRowA->contents = [$a];
 
     return $objDetailRowA;
 }
