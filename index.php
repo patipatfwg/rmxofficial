@@ -296,6 +296,7 @@
                             idDuplicate = id;
                         }
                     });
+                    dropdown.append("<option value='00002' default>Test2 Company</option>");
                 } catch (error) {
                     console.log(error);
                 }

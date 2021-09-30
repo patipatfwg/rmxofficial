@@ -92,7 +92,7 @@ function orderDetail()
         $objDetail
     );
 
-    return    $output;
+    return $output;
 }
 
 function flexLayout()
