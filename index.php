@@ -62,7 +62,7 @@
             <center>
                 <img src="check.png" width="256">
                 <h1>Register Success </h1>
-                <h2>Please Close Windows</h2>
+                <h3>Please Close Windows</h3>
             </center>
     </div>
     <div class="container" id="initState">
