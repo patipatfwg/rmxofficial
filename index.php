@@ -55,7 +55,9 @@
 
 <body>
 
-    <div id="dialogMsg"></div>
+    <div id="dialogMsg">
+    <p>PDPA Description</p>
+    </div>
     <div id="closeMsg" hidden>
         <center>
             <img src="chech.png">
