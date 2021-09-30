@@ -37,10 +37,11 @@ function sendMessage($replyJson)
     return $data;
 }
 
-function orderDetailRow($val)
+function ticketDetailRow($val)
 {
     $title = array("Ticket No.", "Ticket Date", "Order No.", "Order Date", "Ship To", "Product Name", "Plant Name", "Order Qty.", "Ticket Qty.", "Driver Name", "Truck No.", "License Plate", "Leave Time", "Ship Condition", "Ticket Status");
     $countTitle = count($title);
+    $contentsList = [];
 
     $objDetailRowA = new stdClass;
     $objDetailBaselineTitle = new stdClass;
@@ -49,7 +50,7 @@ function orderDetailRow($val)
 
     //Title
     $objDetailBaselineTitle->type = "text";
-    $objDetailBaselineTitle->text = $title[0];
+    $objDetailBaselineTitle->text = $title[3];
     $objDetailBaselineTitle->size = "sm";
     $objDetailBaselineTitle->color = "#AAAAAA";
     $objDetailBaselineTitle->weight = "bold";
@@ -58,7 +59,7 @@ function orderDetailRow($val)
 
     //Value
     $objDetailBaselineValue->type = "text";
-    $objDetailBaselineValue->text = $val;
+    $objDetailBaselineValue->text = $val[0];
     $objDetailBaselineValue->size = "sm";
     $objDetailBaselineValue->color = "#666666";
     $objDetailBaselineValue->flex = 4;
@@ -66,7 +67,11 @@ function orderDetailRow($val)
     $objDetailBaselineValue->align = "end";
     $objDetailBaselineValue->contents = [];
 
+
+
     $contentsList = [$objDetailBaselineTitle, $objDetailBaselineValue];
+
+    array_push($contentsList);
 
     $objDetailRowA->type = "box";
     $objDetailRowA->layout = "baseline";
@@ -76,8 +81,10 @@ function orderDetailRow($val)
     return $objDetailRowA;
 }
 
-function orderDetail()
+function ticketDetail()
 {
+    $arr = ["1011808270007", "24/10/2018", "S01P901-00000331", "27/08/2018", "320000106 SH_Name 105", "997525133500 WPROOF PMP 25MPa 25mm S120 25@7DWPC1", "cV101 RMX Plant 101", "78", "2", "Theary Theary_", "FS22", "51E00491", "16:54:43", "Delivery", "5"];
+
     $objSeparator = new stdClass;
     $objSeparator->type = "separator";
 
@@ -95,7 +102,7 @@ function orderDetail()
     $objDetail->layout = "vertical";
     $objDetail->spacing = "md";
     $objDetail->margin = "lg";
-    $objDetail->contents = [orderDetailRow("S01P901-00000331")];
+    $objDetail->contents = [ticketDetailRow($arr)];
 
     $output = array(
         $objTitleH1,
@@ -106,15 +113,15 @@ function orderDetail()
     return $output;
 }
 
-function flexLayout()
+function ticketDetailFlexMessage()
 {
     $replyText["type"] = "flex";
-    $replyText["altText"] =  "Order Detail";
+    $replyText["altText"] =  "Ticket Detail";
     $replyText["contents"]["type"] = "bubble";
     $replyText["contents"]["body"]["type"] = "box";
     $replyText["contents"]["body"]["layout"] = "vertical";
     $replyText["contents"]["body"]["spacing"] = "sm";
-    $replyText["contents"]["body"]["contents"] = orderDetail();
+    $replyText["contents"]["body"]["contents"] = ticketDetail();
 
     return $replyText;
 }
@@ -137,7 +144,7 @@ $ActionMenuText = $arr["action"];
 
 $replyJson["to"] = $replyUserId;
 $replyJson["replyToken"] = $replyToken;
-$replyJson["messages"][0] = flexLayout();
+$replyJson["messages"][0] = ticketDetailFlexMessage();
 $encodeJson = json_encode($replyJson);
 
 if ($ActionMenuText == 'status') {
