@@ -60,10 +60,9 @@
     <div id="closeMsg" hidden>
         <p>
             <center>
-                <img src="check.png">
+                <img src="check.png" width="256">
                 <h1>Register Success </h1>
                 <h1>Please Close Windows</h1>
-                <button type="button" class="form-control btn btn-success btn-lg" onclick="javascript:window.close('','_parent','');">Close</button>
             </center>
     </div>
     <div class="container" id="initState">
