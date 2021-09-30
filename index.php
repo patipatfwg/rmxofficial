@@ -205,7 +205,7 @@
 
                 objResult = JSON.parse(result);
                 if (objResult === 200) {
-                    alert('Register Success');
+                    // alert('Register Success');
                     successDialog();
                 } else {
                     alert('Register Fail');
