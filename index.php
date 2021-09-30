@@ -47,7 +47,13 @@
     </style>
 </head>
 
-<body>
+<body id="bodySuccess" hidden>
+    <div>
+        <h1>Close</h1>
+    </div>
+</body>
+
+<body id="initState">
 
     <div id="dialogMsg"></div>
     <div id="closeMsg" hidden> Close Window </div>
@@ -100,16 +106,19 @@
     <div id="form-click-to-call"></div>
     <script language="javascript">
         $(document).ready(function() {
+            
 
             function closeWindowHandle() {
 
                 function closeWindow() {
-                    let new_window =
-                        open(location, '_self');
-                    new_window.close();
-                    this.close();
+                    // let new_window =
+                    //     open(location, '_self');
+                    // new_window.close();
+                    // this.close();
                     // $("#closeMsg").removeClass('hidden');
-                    return false;
+                    // return false;
+                    $("#initState").hide();
+                    $("#bodySuccess").show();
                 }
 
                 if (liff.getOS() == 'web') {
