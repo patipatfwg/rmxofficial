@@ -62,7 +62,7 @@
             <center>
                 <img src="check.png" width="256">
                 <h1>Register Success </h1>
-                <h1>Please Close Windows</h1>
+                <h2>Please Close Windows</h2>
             </center>
     </div>
     <div class="container" id="initState">
@@ -223,7 +223,7 @@
             });
 
             $("#registerConfirm").click(function() {
-                alert('Confirm Success');
+                // alert('Confirm Success');
                 successDialog();
             });
 
