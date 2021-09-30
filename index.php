@@ -58,12 +58,13 @@
         <p>PDPA Description</p>
     </div>
     <div id="closeMsg" hidden>
-        <center>
-            <img src="chech.png">
-            <h1>Register Success </h1>
-            <h1>Please Close Windows</h1>
-            <button type="button" onclick="window.open('', '_self', ''); window.close();">Close</button>
-        </center>
+        <p>
+            <center>
+                <img src="check.png">
+                <h1>Register Success </h1>
+                <h1>Please Close Windows</h1>
+                <button type="button" class="form-control btn btn-success btn-lg" onclick="javascript:window.close('','_parent','');">Close</button>
+            </center>
     </div>
     <div class="container" id="initState">
         <div class="row">
