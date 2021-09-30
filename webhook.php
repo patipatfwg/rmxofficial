@@ -59,16 +59,11 @@ function orderDetailRow()
     $objDetailBaselineA2->wrap = true;
     $objDetailBaselineA2->contents = [];
 
-
-
     $objDetailRowA->type = "box";
     $objDetailRowA->layout = "baseline";
     $objDetailRowA->spacing = "sm";
     $objDetailRowA->contents = [
         $objDetailBaselineA1,$objDetailBaselineA2,
-        $objDetailBaselineA1,$objDetailBaselineA2,
-        $objDetailBaselineA1,$objDetailBaselineA2,
-        $objDetailBaselineA1,$objDetailBaselineA2
     ];
 
     return $objDetailRowA;
@@ -93,7 +88,7 @@ function orderDetail()
     $objDetail->layout = "vertical";
     $objDetail->spacing = "sm";
     $objDetail->margin = "lg";
-    $objDetail->contents = [orderDetailRow()];
+    $objDetail->contents = [orderDetailRow(),orderDetailRow()];
 
     $output = array(
         $objTitleH1,
