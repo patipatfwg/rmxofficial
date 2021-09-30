@@ -39,28 +39,37 @@ function sendMessage($replyJson)
 
 function orderDetailRow()
 {
-    $objDetailRowA1 = new stdClass;
-    $objDetailRowA1->type = "text";
-    $objDetailRowA1->text = "No.";
-    $objDetailRowA1->size = "sm";
-    $objDetailRowA1->color = "#AAAAAA";
-    $objDetailRowA1->flex = 1;
-    $objDetailRowA1->contents = [];
-
-    $objDetailRowA2 = new stdClass;
-    $objDetailRowA2->type = "text";
-    $objDetailRowA2->text = "S01P901-00000331";
-    $objDetailRowA2->size = "sm";
-    $objDetailRowA2->color = "#666666";
-    $objDetailRowA2->flex = 4;
-    $objDetailRowA2->wrap = true;
-    $objDetailRowA2->contents = [];
-
     $objDetailRowA = new stdClass;
+    $objDetailBaselineA1 = new stdClass;
+    $objDetailBaselineA2 = new stdClass;
+    $objDetailRowA2 = new stdClass;
+
+    $objDetailBaselineA1->type = "text";
+    $objDetailBaselineA1->text = "Order No.";
+    $objDetailBaselineA1->size = "sm";
+    $objDetailBaselineA1->color = "#AAAAAA";
+    $objDetailBaselineA1->flex = 1;
+    $objDetailBaselineA1->contents = [];
+
+    $objDetailBaselineA2->type = "text";
+    $objDetailBaselineA2->text = "S01P901-00000331";
+    $objDetailBaselineA2->size = "sm";
+    $objDetailBaselineA2->color = "#666666";
+    $objDetailBaselineA2->flex = 4;
+    $objDetailBaselineA2->wrap = true;
+    $objDetailBaselineA2->contents = [];
+
+
+
     $objDetailRowA->type = "box";
     $objDetailRowA->layout = "baseline";
     $objDetailRowA->spacing = "sm";
-    $objDetailRowA->contents = [$objDetailRowA1, $objDetailRowA2];
+    $objDetailRowA->contents = [
+        $objDetailBaselineA1,$objDetailBaselineA2,
+        $objDetailBaselineA1,$objDetailBaselineA2,
+        $objDetailBaselineA1,$objDetailBaselineA2,
+        $objDetailBaselineA1,$objDetailBaselineA2
+    ];
 
     return $objDetailRowA;
 }
@@ -111,7 +120,6 @@ function flexLayout()
 function NewOrderForm()
 {
 }
-
 
 $LINEData = file_get_contents('php://input');
 $jsonData = json_decode($LINEData, true);
