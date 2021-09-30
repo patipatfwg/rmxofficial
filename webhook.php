@@ -75,7 +75,7 @@ function orderDetailRow($orderArr)
     $objDetailRowA->type = "box";
     $objDetailRowA->layout = "baseline";
     $objDetailRowA->spacing = "sm";
-    $objDetailRowA->contents = [$a];
+    $objDetailRowA->contents = $a;
 
     return $objDetailRowA;
 }
