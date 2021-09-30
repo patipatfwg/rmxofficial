@@ -151,11 +151,10 @@
             }
 
             $('#CompanyCode').on('change', function() {
-                companyCode = this.value;
-
                 $("#registerSecond").hide();
                 $("#registerThird").hide();
                 try {
+                    companyCode = this.value;
                     LineUserId = sessionStorage.getItem("LineId");
                     EMailSession = sessionStorage.getItem("EMail");
                     $("#txtLineId").val(LineUserId);
@@ -164,7 +163,6 @@
                 } catch (error) {
                     console.log(error);
                 }
-
             });
 
             function successDialog() {
