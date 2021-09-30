@@ -93,7 +93,7 @@ function ticketDetailFlexMessage()
 
     $objTitleH1 = new stdClass;
     $objTitleH1->type = "text";
-    $objTitleH1->text = "Order Detail";
+    $objTitleH1->text = "Ticket Detail";
     $objTitleH1->weight = "bold";
     $objTitleH1->color = "#B6961EFF";
     $objTitleH1->size = "xl";
