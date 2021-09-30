@@ -47,11 +47,11 @@
     </style>
 </head>
 
-<body id="bodySuccess" hidden>
+<!-- <body id="bodySuccess" hidden>
     <div>
         <h1>Close</h1>
     </div>
-</body>
+</body> -->
 
 <body id="initState">
 
