@@ -55,7 +55,7 @@ function orderDetailRow()
     $objDetailBaselineA2->text = "S01P901-00000331";
     $objDetailBaselineA2->size = "sm";
     $objDetailBaselineA2->color = "#666666";
-    $objDetailBaselineA2->flex = 10;
+    $objDetailBaselineA2->flex = 9;
     $objDetailBaselineA2->wrap = true;
     $objDetailBaselineA2->contents = [];
 
