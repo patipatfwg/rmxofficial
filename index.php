@@ -53,11 +53,11 @@
     </div>
 </body> -->
 
-<body id="initState">
+<body >
 
     <div id="dialogMsg"></div>
     <div id="closeMsg" hidden> Close Window </div>
-    <div class="container">
+    <div class="container" id="initState">
         <div class="row">
             <form class="registerForm" id="registerForm">
                 <div class="row">
@@ -118,7 +118,7 @@
                     // $("#closeMsg").removeClass('hidden');
                     // return false;
                     $("#initState").hide();
-                    $("#bodySuccess").show();
+                    $("#closeMsg").show();
                 }
 
                 if (liff.getOS() == 'web') {
